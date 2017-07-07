@@ -4,7 +4,7 @@ import math
 import random
 
 from expremigen.pattern import Pattern
-
+from expremigen.pattern import flatten
 
 def random_permutation(iterable, r=None):
     "Random selection from itertools.permutations(iterable, r)"
@@ -36,7 +36,7 @@ class Pshuf(Pattern):
         #return (i for i in itertools.chain.from_iterable(itertools.repeat(random_permutation(self.alist), self.repeats)))
 
         #following reshuffles the non-repeated list over and over again
-        return (i for i in itertools.chain.from_iterable(myrepeat(self.alist, random_permutation, self.repeats)))
+        return flatten(i for i in itertools.chain.from_iterable(myrepeat(self.alist, random_permutation, self.repeats)))
 
     def __str__(self):
         return "{0}({1}, {2})".format(self.__class__.__name__, self.alist, self.repeats)

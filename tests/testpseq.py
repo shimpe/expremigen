@@ -23,6 +23,10 @@ class TestPseq(unittest.TestCase):
         e = [i for i in Pseq(repeats=2)]
         self.assertEqual(e, [])
 
+    def test_nesting(self):
+        f = [i for i in Pseq([Pseq([1,2],2), Pseq([3,4],2)], 2)]
+        self.assertEqual(f, [1,2,1,2,3,4,3,4,1,2,1,2,3,4,3,4])
+
 
 if __name__ == '__main__':
     unittest.main()
