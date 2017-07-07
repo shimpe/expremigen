@@ -4,6 +4,7 @@ import math
 from expremigen.pattern import Pattern
 from expremigen.pattern import flatten
 
+
 class Pconst(Pattern):
     def __init__(self, constant=0, repeats=math.inf):
         super().__init__()

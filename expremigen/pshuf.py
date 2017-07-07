@@ -6,11 +6,13 @@ import random
 from expremigen.pattern import Pattern
 from expremigen.pattern import flatten
 
+
 def random_permutation(iterable, r=None):
     "Random selection from itertools.permutations(iterable, r)"
     pool = tuple(iterable)
     r = len(pool) if r is None else r
     return tuple(random.sample(pool, r))
+
 
 def myrepeat(object, function, times=None):
     if times is None:
@@ -19,6 +21,7 @@ def myrepeat(object, function, times=None):
     else:
         for i in range(times):
             yield function(object)
+
 
 class Pshuf(Pattern):
     def __init__(self, alist=None, repeats=math.inf):
@@ -29,13 +32,13 @@ class Pshuf(Pattern):
         self.repeats = repeats
 
     def __iter__(self):
-        #following shuffles the list after repeating
-        #return (i for i in random_permutation(itertools.chain.from_iterable(itertools.repeat(self.alist, self.repeats))))
+        # following shuffles the list after repeating
+        # return (i for i in random_permutation(itertools.chain.from_iterable(itertools.repeat(self.alist, self.repeats))))
 
-        #following shuffles the non-repeated list once and repeats it every time
-        #return (i for i in itertools.chain.from_iterable(itertools.repeat(random_permutation(self.alist), self.repeats)))
+        # following shuffles the non-repeated list once and repeats it every time
+        # return (i for i in itertools.chain.from_iterable(itertools.repeat(random_permutation(self.alist), self.repeats)))
 
-        #following reshuffles the non-repeated list over and over again
+        # following reshuffles the non-repeated list over and over again
         return flatten(i for i in itertools.chain.from_iterable(myrepeat(self.alist, random_permutation, self.repeats)))
 
     def __str__(self):

@@ -5,6 +5,7 @@ import math
 from expremigen.pattern import Pattern
 from expremigen.pattern import flatten
 
+
 class Pseq(Pattern):
     def __init__(self, alist=None, repeats=math.inf):
         super().__init__()

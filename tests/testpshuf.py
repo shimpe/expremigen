@@ -16,5 +16,6 @@ class TestPseq(unittest.TestCase):
     def test_repr(self):
         self.assertEqual("{0}".format(Pshuf([1, -1, 2], 3)), "Pshuf([1, -1, 2], 3)")
 
+
 if __name__ == '__main__':
     unittest.main()

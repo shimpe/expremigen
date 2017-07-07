@@ -24,8 +24,8 @@ class TestPseq(unittest.TestCase):
         self.assertEqual(e, [])
 
     def test_nesting(self):
-        f = [i for i in Pseq([Pseq([1,2],2), Pseq([3,4],2)], 2)]
-        self.assertEqual(f, [1,2,1,2,3,4,3,4,1,2,1,2,3,4,3,4])
+        f = [i for i in Pseq([Pseq([1, 2], 2), Pseq([3, 4], 2)], 2)]
+        self.assertEqual(f, [1, 2, 1, 2, 3, 4, 3, 4, 1, 2, 1, 2, 3, 4, 3, 4])
 
 
 if __name__ == '__main__':
