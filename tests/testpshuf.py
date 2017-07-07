@@ -3,11 +3,12 @@ import unittest
 from expremigen.pshuf import Pshuf
 
 
-class TestPseq(unittest.TestCase):
+class TestPshuf(unittest.TestCase):
     def test_normal(self):
-        a = [i for i in Pshuf([4, 5, 6], 10)]
-        self.assertCountEqual(a, [4, 5, 6] * 10)
-        self.assertNotEqual(a, [4, 5, 6] * 10)
+        a = [i for i in Pshuf([4, 5, 6, 7, 8, 9, 10], 2)]
+        self.assertCountEqual(a, [4, 5, 6, 7, 8, 9, 10] * 2)
+        self.assertNotEqual(a, [4, 5, 6, 7, 8, 9, 10] * 2)
+        self.assertEqual(a[:7],a[7:]) # check supercollider semantics
 
     def test_empty(self):
         b = [i for i in Pshuf([4, 5, 6], 0)]
