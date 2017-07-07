@@ -22,3 +22,8 @@ def flatten(l):
             yield from flatten(el)
         else:
             yield el
+
+import itertools
+def take(n, iterable):
+    "Return first n items of the iterable as a list"
+    return itertools.islice(iterable, n)

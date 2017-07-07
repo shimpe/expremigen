@@ -2,14 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a548a0b3-44ec-4944-9d6e-6d4749f7a078" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/expremigen/prand.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/expremigen/utils.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/testprand.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/expremigen/padd.py" afterPath="$PROJECT_DIR$/expremigen/padd.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/expremigen/pattern.py" afterPath="$PROJECT_DIR$/expremigen/pattern.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/expremigen/pconst.py" afterPath="$PROJECT_DIR$/expremigen/pconst.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/expremigen/pseq.py" afterPath="$PROJECT_DIR$/expremigen/pseq.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/expremigen/pshuf.py" afterPath="$PROJECT_DIR$/expremigen/pshuf.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/expremigen/utils.py" afterPath="$PROJECT_DIR$/expremigen/utils.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -34,18 +29,20 @@
       <file leaf-file-name="prand.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/expremigen/prand.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" column="21" lean-forward="false" selection-start-line="3" selection-start-column="21" selection-end-line="3" selection-end-column="21" />
-              <folding />
+            <state relative-caret-position="183">
+              <caret line="11" column="17" lean-forward="false" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
+              <folding>
+                <element signature="e#0#11#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="testpseq.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tests/testpseq.py">
+      <file leaf-file-name="testprand.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/tests/testprand.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="19" column="97" lean-forward="false" selection-start-line="19" selection-start-column="97" selection-end-line="19" selection-end-column="97" />
+            <state relative-caret-position="187">
+              <caret line="11" column="45" lean-forward="false" selection-start-line="11" selection-start-column="45" selection-end-line="11" selection-end-column="45" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
@@ -53,11 +50,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pshuf.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/expremigen/pshuf.py">
+      <file leaf-file-name="testpshuf.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tests/testpshuf.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="21" lean-forward="false" selection-start-line="6" selection-start-column="21" selection-end-line="6" selection-end-column="21" />
+            <state relative-caret-position="272">
+              <caret line="18" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -66,8 +63,8 @@
       <file leaf-file-name="utils.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/expremigen/utils.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="1" column="38" lean-forward="false" selection-start-line="1" selection-start-column="38" selection-end-line="1" selection-end-column="38" />
+            <state relative-caret-position="376">
+              <caret line="28" column="40" lean-forward="true" selection-start-line="28" selection-start-column="40" selection-end-line="28" selection-end-column="40" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
               </folding>
@@ -75,24 +72,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="padd.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="padd.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/expremigen/padd.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+            <state relative-caret-position="221">
+              <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
               <folding>
                 <element signature="e#0#16#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="testpadd.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tests/testpadd.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="393">
-              <caret line="43" column="38" lean-forward="true" selection-start-line="43" selection-start-column="38" selection-end-line="43" selection-end-column="38" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -103,6 +90,18 @@
             <state relative-caret-position="85">
               <caret line="5" column="22" lean-forward="false" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="testpconst.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tests/testpconst.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#15#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -138,6 +137,11 @@
       </list>
     </option>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>math</find>
+    </findStrings>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -153,13 +157,14 @@
         <option value="$PROJECT_DIR$/tests/testpshuf.py" />
         <option value="$PROJECT_DIR$/tests/testpseq.py" />
         <option value="$PROJECT_DIR$/tests/testpadd.py" />
-        <option value="$PROJECT_DIR$/expremigen/utils.py" />
         <option value="$PROJECT_DIR$/expremigen/pattern.py" />
         <option value="$PROJECT_DIR$/expremigen/pshuf.py" />
         <option value="$PROJECT_DIR$/expremigen/pseq.py" />
-        <option value="$PROJECT_DIR$/expremigen/prand.py" />
         <option value="$PROJECT_DIR$/expremigen/pconst.py" />
         <option value="$PROJECT_DIR$/expremigen/padd.py" />
+        <option value="$PROJECT_DIR$/expremigen/utils.py" />
+        <option value="$PROJECT_DIR$/expremigen/prand.py" />
+        <option value="$PROJECT_DIR$/tests/testprand.py" />
       </list>
     </option>
   </component>
@@ -231,6 +236,7 @@
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/tests" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -435,34 +441,34 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Unittests_in_tests - 2017.07.07 at 22h 31m 18s.xml">
+    <history-entry file="Unittests_in_tests - 2017.07.08 at 00h 07m 46s.xml">
       <configuration name="Unittests in tests" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_tests - 2017.07.07 at 22h 32m 11s.xml">
+    <history-entry file="Unittests_in_tests - 2017.07.08 at 00h 08m 30s.xml">
       <configuration name="Unittests in tests" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_tests - 2017.07.07 at 22h 32m 28s.xml">
+    <history-entry file="Unittests_in_tests - 2017.07.08 at 00h 09m 58s.xml">
       <configuration name="Unittests in tests" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_tests - 2017.07.07 at 22h 32m 59s.xml">
+    <history-entry file="Unittests_in_tests - 2017.07.08 at 00h 10m 38s.xml">
       <configuration name="Unittests in tests" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_tests - 2017.07.07 at 22h 36m 25s.xml">
+    <history-entry file="Unittests_in_tests - 2017.07.08 at 00h 11m 02s.xml">
       <configuration name="Unittests in tests" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_tests - 2017.07.07 at 22h 36m 52s.xml">
+    <history-entry file="Unittests_in_tests - 2017.07.08 at 00h 11m 14s.xml">
       <configuration name="Unittests in tests" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_tests - 2017.07.07 at 22h 37m 33s.xml">
+    <history-entry file="Unittests_in_tests - 2017.07.08 at 00h 12m 22s.xml">
       <configuration name="Unittests in tests" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_tests - 2017.07.07 at 22h 39m 57s.xml">
+    <history-entry file="Unittests_in_tests - 2017.07.08 at 00h 13m 30s.xml">
       <configuration name="Unittests in tests" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_tests - 2017.07.07 at 22h 40m 27s.xml">
+    <history-entry file="Unittests_in_tests - 2017.07.08 at 00h 13m 49s.xml">
       <configuration name="Unittests in tests" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_tests - 2017.07.07 at 23h 59m 44s.xml">
+    <history-entry file="Unittests_in_tests - 2017.07.08 at 00h 14m 00s.xml">
       <configuration name="Unittests in tests" configurationId="tests" />
     </history-entry>
   </component>
@@ -500,14 +506,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/expremigen/pattern.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/expremigen/padd.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -796,24 +794,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/expremigen/patternify.py" />
-    <entry file="file://$PROJECT_DIR$/tests/testpconst.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="23" column="66" lean-forward="false" selection-start-line="23" selection-start-column="66" selection-end-line="23" selection-end-column="66" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/testpshuf.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="15" lean-forward="false" selection-start-line="6" selection-start-column="15" selection-end-line="6" selection-end-column="15" />
-          <folding>
-            <element signature="e#0#15#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tests/testpseq.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
@@ -832,16 +812,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/expremigen/utils.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="38" lean-forward="false" selection-start-line="1" selection-start-column="38" selection-end-line="1" selection-end-column="38" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/expremigen/pshuf.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
@@ -854,14 +824,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="5" column="22" lean-forward="false" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/expremigen/prand.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="21" lean-forward="false" selection-start-line="3" selection-start-column="21" selection-end-line="3" selection-end-column="21" />
           <folding />
         </state>
       </provider>
@@ -894,10 +856,58 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/expremigen/padd.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+        <state relative-caret-position="221">
+          <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
           <folding>
             <element signature="e#0#16#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/testpconst.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/testpshuf.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="18" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/expremigen/utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="376">
+          <caret line="28" column="40" lean-forward="true" selection-start-line="28" selection-start-column="40" selection-end-line="28" selection-end-column="40" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/expremigen/prand.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="183">
+          <caret line="11" column="17" lean-forward="false" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/testprand.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="45" lean-forward="false" selection-start-line="11" selection-start-column="45" selection-end-line="11" selection-end-column="45" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
           </folding>
         </state>
       </provider>
