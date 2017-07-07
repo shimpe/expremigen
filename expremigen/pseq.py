@@ -3,7 +3,7 @@ import itertools
 import math
 
 from expremigen.pattern import Pattern
-from expremigen.pattern import flatten
+from expremigen.utils import flatten
 
 
 class Pseq(Pattern):
@@ -19,6 +19,3 @@ class Pseq(Pattern):
 
     def __str__(self):
         return "{0}({1}, {2})".format(self.__class__.__name__, self.alist, self.repeats)
-
-    def __repr__(self):
-        return self.__str__()

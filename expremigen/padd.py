@@ -3,7 +3,7 @@ import operator
 
 from expremigen.pattern import Pattern
 from expremigen.pbinop import Pbinop
-from expremigen.pattern import flatten
+from expremigen.utils import flatten
 
 class Padd(Pbinop):
     def __init__(self, a: Pattern, b: Pattern):

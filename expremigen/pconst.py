@@ -2,7 +2,7 @@ import itertools
 import math
 
 from expremigen.pattern import Pattern
-from expremigen.pattern import flatten
+from expremigen.utils import flatten
 
 
 class Pconst(Pattern):
