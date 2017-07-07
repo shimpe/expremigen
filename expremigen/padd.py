@@ -3,11 +3,11 @@ import operator
 
 from expremigen.pattern import Pattern
 from expremigen.pbinop import Pbinop
-
+from expremigen.pattern import flatten
 
 class Padd(Pbinop):
     def __init__(self, a: Pattern, b: Pattern):
         super().__init__(a, b)
 
     def __iter__(self):
-        return (i for i in itertools.starmap(operator.__add__, zip(self.a, self.b)))
+        return flatten(i for i in itertools.starmap(operator.__add__, zip(self.a, self.b)))

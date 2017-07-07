@@ -16,3 +16,6 @@ class Pconst(Pattern):
 
     def __iter__(self):
         return flatten(c for c in itertools.repeat(self.constant, self.repeats))
+
+    def __repr__(self):
+        return self.__str__()

@@ -19,3 +19,6 @@ class Pseq(Pattern):
 
     def __str__(self):
         return "{0}({1}, {2})".format(self.__class__.__name__, self.alist, self.repeats)
+
+    def __repr__(self):
+        return self.__str__()

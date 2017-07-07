@@ -39,6 +39,9 @@ class TestPadd(unittest.TestCase):
         expected = "Padd(Pconst(4, 5), Pseq([1, 2, 3], 1))"
         self.assertEqual(tested, expected)
 
+    def test_nesting(self):
+        a = [i for i in Padd(Padd(Pseq([1,2],2), Pconst(10,3)), Pseq([4,5],2))]
+        self.assertEqual(a, [15, 17, 15])
 
 if __name__ == '__main__':
     unittest.main()

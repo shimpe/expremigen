@@ -1,7 +1,7 @@
 import unittest
 
 from expremigen.pseq import Pseq
-
+from expremigen.pconst import Pconst
 
 class TestPseq(unittest.TestCase):
     def test_normal(self):
@@ -17,15 +17,15 @@ class TestPseq(unittest.TestCase):
         self.assertEqual(d, ["X", "Y", "X"] * 3)
 
     def test_repr(self):
-        self.assertEqual("{0}".format(Pseq([1, -1, 2], 3)), "Pseq([1, -1, 2], 3)")
+        self.assertEqual("{0}".format(Pseq([1, -1, Pconst(2, 2)], 3)), "Pseq([1, -1, Pconst(2, 2)], 3)")
 
     def test_defaultvalue(self):
         e = [i for i in Pseq(repeats=2)]
         self.assertEqual(e, [])
 
     def test_nesting(self):
-        f = [i for i in Pseq([Pseq([1, 2], 2), Pseq([3, 4], 2)], 2)]
-        self.assertEqual(f, [1, 2, 1, 2, 3, 4, 3, 4, 1, 2, 1, 2, 3, 4, 3, 4])
+        f = [i for i in Pseq([Pseq([1, Pconst(2,2)], 2), Pseq([3, 4], 2)], 2)]
+        self.assertEqual(f, [1, 2, 2, 1, 2, 2, 3, 4, 3, 4, 1, 2, 2, 1, 2, 2, 3, 4, 3, 4])
 
 
 if __name__ == '__main__':
