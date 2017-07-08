@@ -23,5 +23,6 @@ class TestPgeom(unittest.TestCase):
     def test_repr(self):
         self.assertEqual("{0}".format(Pgeom(0, 10, 5)), "Pgeom(0, 10, 5)")
 
+
 if __name__ == '__main__':
     unittest.main()

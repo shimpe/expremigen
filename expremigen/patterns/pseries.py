@@ -1,7 +1,7 @@
 import itertools
 
-from expremigen.patterns.utils import take
 from expremigen.patterns.pattern import Pattern
+from expremigen.patterns.utils import take
 
 
 class Pseries(Pattern):

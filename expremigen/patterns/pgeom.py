@@ -1,5 +1,5 @@
-from expremigen.patterns.utils import take, geom
 from expremigen.patterns.pattern import Pattern
+from expremigen.patterns.utils import take, geom
 
 
 class Pgeom(Pattern):

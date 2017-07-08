@@ -18,6 +18,7 @@ def myrepeat(object, function, times=None):
         for i in range(times):
             yield function(object)
 
+
 def flatten(l):
     for el in l:
         if isinstance(el, Pattern):
@@ -25,10 +26,14 @@ def flatten(l):
         else:
             yield el
 
+
 import itertools
+
+
 def take(n, iterable):
     "Return first n items of the iterable as a list"
     return itertools.islice(iterable, n)
+
 
 def geom(start=1, factor=2):
     # geom(1) --> 1 2 4 8 ...

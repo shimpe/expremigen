@@ -1,9 +1,8 @@
 import unittest
 
 from expremigen.patterns.padd import Padd
-from expremigen.patterns.pseq import Pseq
-
 from expremigen.patterns.pconst import Pconst
+from expremigen.patterns.pseq import Pseq
 
 
 class TestPadd(unittest.TestCase):
@@ -41,8 +40,9 @@ class TestPadd(unittest.TestCase):
         self.assertEqual(tested, expected)
 
     def test_nesting(self):
-        a = [i for i in Padd(Padd(Pseq([1,2],2), Pconst(10,3)), Pseq([4,5],2))]
+        a = [i for i in Padd(Padd(Pseq([1, 2], 2), Pconst(10, 3)), Pseq([4, 5], 2))]
         self.assertEqual(a, [15, 17, 15])
+
 
 if __name__ == '__main__':
     unittest.main()

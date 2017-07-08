@@ -23,5 +23,6 @@ class TestPseries(unittest.TestCase):
     def test_repr(self):
         self.assertEqual("{0}".format(Pseries(0, 10, 5)), "Pseries(0, 10, 5)")
 
+
 if __name__ == '__main__':
     unittest.main()

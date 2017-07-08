@@ -2,10 +2,9 @@ import copy
 import itertools
 import sys
 
+from expremigen.patterns.pattern import Pattern
 from expremigen.patterns.utils import flatten, take
 from expremigen.patterns.utils import random_permutation
-
-from expremigen.patterns.pattern import Pattern
 
 
 class Prand(Pattern):

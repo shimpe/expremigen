@@ -1,7 +1,7 @@
 import unittest
 
-from expremigen.patterns.pseq import Pseq
 from expremigen.patterns.pconst import Pconst
+from expremigen.patterns.pseq import Pseq
 
 
 class TestPseq(unittest.TestCase):
@@ -25,7 +25,7 @@ class TestPseq(unittest.TestCase):
         self.assertEqual(e, [])
 
     def test_nesting(self):
-        f = [i for i in Pseq([Pseq([1, Pconst(2,2)], 2), Pseq([3, 4], 2)], 2)]
+        f = [i for i in Pseq([Pseq([1, Pconst(2, 2)], 2), Pseq([3, 4], 2)], 2)]
         self.assertEqual(f, [1, 2, 2, 1, 2, 2, 3, 4, 3, 4, 1, 2, 2, 1, 2, 2, 3, 4, 3, 4])
 
 

@@ -2,8 +2,8 @@ import copy
 import itertools
 import math
 
-from expremigen.patterns.utils import flatten
 from expremigen.patterns.pattern import Pattern
+from expremigen.patterns.utils import flatten
 
 
 class Pseq(Pattern):
