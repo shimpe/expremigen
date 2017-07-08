@@ -1,13 +1,13 @@
 import copy
 import itertools
-import math
+import sys
 
 from expremigen.patterns.pattern import Pattern
 from expremigen.patterns.utils import flatten
 
 
 class Pseq(Pattern):
-    def __init__(self, alist=None, repeats=math.inf):
+    def __init__(self, alist=None, repeats=sys.maxsize):
         super().__init__()
         if alist is None:
             alist = []

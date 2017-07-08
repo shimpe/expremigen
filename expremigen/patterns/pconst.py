@@ -1,12 +1,12 @@
 import itertools
-import math
+import sys
 
 from expremigen.patterns.pattern import Pattern
 from expremigen.patterns.utils import flatten
 
 
 class Pconst(Pattern):
-    def __init__(self, constant=0, repeats=math.inf):
+    def __init__(self, constant=0, repeats=sys.maxsize):
         super().__init__()
         self.constant = constant
         self.repeats = repeats
