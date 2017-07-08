@@ -27,3 +27,11 @@ import itertools
 def take(n, iterable):
     "Return first n items of the iterable as a list"
     return itertools.islice(iterable, n)
+
+def geom(start=1, factor=2):
+    # geom(1) --> 1 2 4 8 ...
+    # geom(16, 0.5) -> 16 8 4 2 1 0.5 ...
+    n = start
+    while True:
+        yield n
+        n *= factor
