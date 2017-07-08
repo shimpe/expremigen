@@ -13,10 +13,16 @@ def random_permutation(iterable, r=None):
 def myrepeat(object, function, times=None):
     if times is None:
         while True:
-            yield function(object)
+            if function is not None:
+                yield function(object)
+            else:
+                yield object
     else:
         for i in range(times):
-            yield function(object)
+            if function is not None:
+                yield function(object)
+            else:
+                yield object
 
 
 def flatten(l):
