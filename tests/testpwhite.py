@@ -6,7 +6,7 @@ from expremigen.patterns.pwhite import Pwhite
 class TestPwhite(unittest.TestCase):
     def test_normal(self):
         a = [i for i in Pwhite(4, 5, 10)]
-        print(a)
+        #print(a)
         self.assertEqual(len(a), 10)
 
     def test_empty(self):
