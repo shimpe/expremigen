@@ -1,6 +1,6 @@
 import unittest
 
-from expremigen.pconst import Pconst
+from expremigen.patterns.pconst import Pconst
 
 
 class TestPconst(unittest.TestCase):

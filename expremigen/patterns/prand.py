@@ -1,11 +1,12 @@
 import copy
 import itertools
-import math
 import sys
 
-from expremigen.pattern import Pattern
-from expremigen.utils import flatten, take
-from expremigen.utils import random_permutation
+from expremigen.patterns.utils import flatten, take
+from expremigen.patterns.utils import random_permutation
+
+from expremigen.patterns.pattern import Pattern
+
 
 class Prand(Pattern):
     def __init__(self, alist=None, repeats=sys.maxsize):

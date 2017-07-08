@@ -1,6 +1,7 @@
 import unittest
 
-from expremigen.pgeom import Pgeom
+from expremigen.patterns.pgeom import Pgeom
+
 
 class TestPgeom(unittest.TestCase):
     def test_normal(self):

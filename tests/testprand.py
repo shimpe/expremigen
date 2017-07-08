@@ -1,6 +1,6 @@
 import unittest
 
-from expremigen.prand import Prand
+from expremigen.patterns.prand import Prand
 
 
 class TestPrand(unittest.TestCase):

@@ -1,11 +1,9 @@
 import copy
 import itertools
 import math
-import random
 
-from expremigen.pattern import Pattern
-from expremigen.utils import flatten
-from expremigen.utils import random_permutation
+from expremigen.patterns.utils import random_permutation
+from expremigen.patterns.pattern import Pattern
 
 
 class Pshuf(Pattern):

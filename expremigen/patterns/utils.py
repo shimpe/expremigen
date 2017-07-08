@@ -1,5 +1,7 @@
 import random
-from expremigen.pattern import Pattern
+
+from expremigen.patterns.pattern import Pattern
+
 
 def random_permutation(iterable, r=None):
     "Random selection from itertools.permutations(iterable, r)"

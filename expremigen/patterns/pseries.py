@@ -1,7 +1,8 @@
 import itertools
 
-from expremigen.pattern import Pattern
-from expremigen.utils import take
+from expremigen.patterns.utils import take
+from expremigen.patterns.pattern import Pattern
+
 
 class Pseries(Pattern):
     def __init__(self, frm=0, step=1, length=5):

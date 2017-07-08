@@ -1,6 +1,6 @@
 import unittest
 
-from expremigen.pshuf import Pshuf
+from expremigen.patterns.pshuf import Pshuf
 
 
 class TestPshuf(unittest.TestCase):

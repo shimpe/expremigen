@@ -1,7 +1,8 @@
 import unittest
 
-from expremigen.pseq import Pseq
-from expremigen.pconst import Pconst
+from expremigen.patterns.pseq import Pseq
+from expremigen.patterns.pconst import Pconst
+
 
 class TestPseq(unittest.TestCase):
     def test_normal(self):

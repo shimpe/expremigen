@@ -1,6 +1,6 @@
 import abc
 
-from expremigen.pattern import Pattern
+from expremigen.patterns.pattern import Pattern
 
 
 class Pbinop(Pattern, metaclass=abc.ABCMeta):

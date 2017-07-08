@@ -1,7 +1,6 @@
-import itertools
+from expremigen.patterns.utils import take, geom
+from expremigen.patterns.pattern import Pattern
 
-from expremigen.pattern import Pattern
-from expremigen.utils import take, geom
 
 class Pgeom(Pattern):
     def __init__(self, frm=0, factor=1, length=5):

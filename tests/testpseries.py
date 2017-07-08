@@ -1,6 +1,7 @@
 import unittest
 
-from expremigen.pseries import Pseries
+from expremigen.patterns.pseries import Pseries
+
 
 class TestPseries(unittest.TestCase):
     def test_normal(self):

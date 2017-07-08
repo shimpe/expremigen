@@ -1,9 +1,11 @@
 import itertools
 import operator
 
-from expremigen.pattern import Pattern
-from expremigen.pbinop import Pbinop
-from expremigen.utils import flatten
+from expremigen.patterns.pbinop import Pbinop
+from expremigen.patterns.utils import flatten
+
+from expremigen.patterns.pattern import Pattern
+
 
 class Padd(Pbinop):
     def __init__(self, a: Pattern, b: Pattern):

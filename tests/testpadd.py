@@ -1,8 +1,9 @@
 import unittest
 
-from expremigen.padd import Padd
-from expremigen.pconst import Pconst
-from expremigen.pseq import Pseq
+from expremigen.patterns.padd import Padd
+from expremigen.patterns.pseq import Pseq
+
+from expremigen.patterns.pconst import Pconst
 
 
 class TestPadd(unittest.TestCase):
