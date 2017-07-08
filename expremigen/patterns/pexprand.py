@@ -8,7 +8,7 @@ from expremigen.patterns.pattern import Pattern
 class Pexprand(Pattern):
     def __init__(self, lo=1, hi=10, repeats=sys.maxsize):
         super().__init__()
-        assert (lo*hi) > 0 #need same sign and != 0
+        assert (lo * hi) > 0  # need same sign and != 0
         self.lo = lo
         self.hi = hi
         self.repeats = repeats
