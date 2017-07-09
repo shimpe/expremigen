@@ -4,7 +4,7 @@ from expremigen.io.constants import PhraseProperty as PP
 from expremigen.io.phrase import Phrase
 
 
-class Pat2Mid:
+class Pat2Midi:
     def __init__(self, numTracks=1, removeDuplicates=True, deinterleave=True, file_format=1):
         self.midiFile = MIDIFile(numTracks=numTracks, removeDuplicates=removeDuplicates, deinterleave=deinterleave,
                                  adjust_origin=False, file_format=file_format)
@@ -29,7 +29,7 @@ class Pat2Mid:
         for phrase in list_of_phrase:
             duration = self.addPhrase(phrase, track, channel, start_time + time_delta)
             time_delta += duration
-        return time_delta
+        return start_time+time_delta
 
     def write(self, filename):
         try:

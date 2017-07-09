@@ -1,5 +1,5 @@
 from expremigen.io.constants import PhraseProperty as PP
-from expremigen.io.pat2mid import Pat2Mid
+from expremigen.io.pat2midi import Pat2Midi
 from expremigen.io.phrase import Phrase
 from expremigen.musicalmappings.durations import Durations as Dur
 from expremigen.musicalmappings.dynamics import Dynamics as Dyn
@@ -43,9 +43,9 @@ def create_phrase():
 
     p1 = Phrase(properties1)
     p2 = Phrase(properties2)
-    p2m = Pat2Mid()
+    p2m = Pat2Midi()
     p2m.setTempo(120)
-    total_dur = p2m.addPhrases([p1, p2])
+    total_dur = p2m.addPhrases([p1, p2], start_time=1)
     print(total_dur)
     p2m.write(outputfile)
 
