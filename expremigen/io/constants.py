@@ -1,11 +1,13 @@
 from enum import Enum
 
+
 class Defaults:
     note = "a4"
     dur = 1 / 4
     playeddur = 0.9
     lag = 0
     vol = 70
+
 
 class PhraseProperty(Enum):
     NOTE = 0
