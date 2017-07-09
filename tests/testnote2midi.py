@@ -1,7 +1,7 @@
 import unittest
 
-from expremigen.io.constants import REST
-from expremigen.io.note2midi import Note2Midi
+from expremigen.musicalmappings.constants import REST
+from expremigen.musicalmappings.note2midi import Note2Midi
 
 
 class TestNote2Midi(unittest.TestCase):
@@ -16,10 +16,11 @@ class TestNote2Midi(unittest.TestCase):
 
     def test_map(self):
         n = Note2Midi()
-        m = n.convert(["a4", "b4", "c5", "d5", "e5", "f5", "g#4", "f5", "e5", "d5", "UNKNOWN" , "b4"])
+        m = n.convert(["a4", "b4", "c5", "d5", "e5", "f5", "g#4", "f5", "e5", "d5", "UNKNOWN", "b4"])
         m2 = [i for i in m]
         expected = [69, 71, 72, 74, 76, 77, 68, 77, 76, 74, REST, 71]
         self.assertListEqual(m2, expected)
+
 
 if __name__ == '__main__':
     unittest.main()

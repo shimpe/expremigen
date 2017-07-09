@@ -1,12 +1,15 @@
-from expremigen.io.constants import PhraseProperty as PP, Dynamics as Dyn, Durations as Dur
-from expremigen.io.note2midi import Note2Midi
+from expremigen.io.constants import PhraseProperty as PP
 from expremigen.io.pat2mid import Pat2Mid
 from expremigen.io.phrase import Phrase
+from expremigen.musicalmappings.durations import Durations as Dur
+from expremigen.musicalmappings.dynamics import Dynamics as Dyn
+from expremigen.musicalmappings.note2midi import Note2Midi
 from expremigen.patterns.pconst import Pconst
 from expremigen.patterns.pseq import Pseq
 from expremigen.patterns.ptween import Ptween
 
 outputfile = "output/singlephrase.mid"
+
 
 def create_phrase():
     n = Note2Midi()
@@ -30,8 +33,10 @@ def create_phrase():
     p = Phrase(properties)
     p2m = Pat2Mid()
     p2m.setTempo(120)
-    p2m.addPhrase(p)
+    total_dur = p2m.addPhrase(p)
+    print(total_dur)
     p2m.write(outputfile)
+
 
 if __name__ == "__main__":
     create_phrase()

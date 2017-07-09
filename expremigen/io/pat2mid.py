@@ -1,6 +1,8 @@
+from midiutil import MIDIFile
+
 from expremigen.io.constants import PhraseProperty as PP
 from expremigen.io.phrase import Phrase
-from midiutil import MIDIFile
+
 
 class Pat2Mid:
     def __init__(self, numTracks=1, removeDuplicates=True, deinterleave=True, file_format=1):
@@ -10,15 +12,15 @@ class Pat2Mid:
     def setTempo(self, tempo=100, time=0):
         self.midiFile.addTempo(track=0, time=time, tempo=tempo)
 
-    def addPhrase(self, phrase : Phrase, track = 0, channel = 0, start_time = 0):
+    def addPhrase(self, phrase: Phrase, track=0, channel=0, start_time=0):
         for event in phrase:
             self.midiFile.addNote(
-                track = 0,
-                channel = 0,
-                pitch = event[PP.NOTE],
-                time = start_time + phrase.generated_duration() + event[PP.LAG],
-                duration = event[PP.DUR] * event[PP.PLAYEDDUR],
-                volume = event[PP.VOL],
+                track=0,
+                channel=0,
+                pitch=event[PP.NOTE],
+                time=start_time + phrase.generated_duration() + event[PP.LAG],
+                duration=event[PP.DUR] * event[PP.PLAYEDDUR],
+                volume=event[PP.VOL],
                 annotation=None)
         return phrase.generated_duration()
 

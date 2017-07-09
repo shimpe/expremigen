@@ -1,4 +1,5 @@
-from expremigen.io.constants import REST
+from expremigen.musicalmappings.constants import REST
+
 
 class Note2Midi:
     chromatic_scale = [['c', 'b#', 'dbb'],  # one row contains all synonyms (i.e. synonym for our purpose)
@@ -21,7 +22,7 @@ class Note2Midi:
         for octave in range(10):
             for note_synonyms in self.chromatic_scale:
                 for note in note_synonyms:
-                    self.note_to_midi["{0}{1}".format(note, octave-1)] = notenum
+                    self.note_to_midi["{0}{1}".format(note, octave - 1)] = notenum
                 notenum += 1
 
     def lookup(self, note):

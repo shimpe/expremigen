@@ -21,4 +21,4 @@ class Ptween(Pattern):
 
     def __str__(self):
         return "{0}(<anim>, {1}, {2}, {3}, {4}, {5})".format(self.__class__.__name__, self.bf,
-                                                          self.staf, self.stof, self.df, self.nf)
+                                                             self.staf, self.stof, self.df, self.nf)

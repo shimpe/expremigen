@@ -1,5 +1,6 @@
-from expremigen.io.constants import PhraseProperty as PP, Defaults, REST
-from expremigen.io.note2midi import Note2Midi
+from expremigen.io.constants import PhraseProperty as PP, Defaults
+from expremigen.musicalmappings.constants import REST
+from expremigen.musicalmappings.note2midi import Note2Midi
 from expremigen.patterns.pconst import Pconst
 
 
@@ -25,7 +26,7 @@ class Phrase:
     def __iter__(self):
         self.time = 0
         for value in zip(self.p[PP.NOTE], self.p[PP.DUR], self.p[PP.PLAYEDDUR], self.p[PP.VOL], self.p[PP.LAG]):
-            if value[0] != REST: #128 denotes a rest
+            if value[0] != REST:  # 128 denotes a rest
                 yield {PP.NOTE: value[0],
                        PP.DUR: value[1],
                        PP.PLAYEDDUR: value[2],
