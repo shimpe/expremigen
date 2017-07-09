@@ -4,8 +4,8 @@ from expremigen.io.phrase import Phrase
 from expremigen.musicalmappings.durations import Durations as Dur
 from expremigen.musicalmappings.dynamics import Dynamics as Dyn
 from expremigen.musicalmappings.note2midi import Note2Midi
-from expremigen.patterns.pconst import Pconst
 from expremigen.patterns.pchord import Pchord as C
+from expremigen.patterns.pconst import Pconst
 from expremigen.patterns.pseq import Pseq
 from expremigen.patterns.ptween import Ptween
 
@@ -36,20 +36,22 @@ def add_melody(p2m, track, channel):
     p2m.addPhrase(p, track=track, channel=channel, start_time=0)
     return p2m
 
+
 def add_chords(p2m, track, channel):
     n = Note2Midi()
     notes = [C(["c3", "e3", "g3"]), C(["b2", "d3", "g3"]), C(["c3", "e3", "g3", "c4"])]
     from vectortween.NumberAnimation import NumberAnimation
     decrease = NumberAnimation(frm=Dyn.f, to=Dyn.p)
     properties = {
-        PP.NOTE : Pseq(n.convert2(notes)),
-        PP.DUR : Pseq([Pconst(Dur.whole, 2), Pconst(Dur.doublewhole, 1)]),
-        PP.PLAYEDDUR : Pconst(1),
-        PP.VOL : Ptween(decrease, 0, 0, len(notes), len(notes), None)
+        PP.NOTE: Pseq(n.convert2(notes)),
+        PP.DUR: Pseq([Pconst(Dur.whole, 2), Pconst(Dur.doublewhole, 1)]),
+        PP.PLAYEDDUR: Pconst(1),
+        PP.VOL: Ptween(decrease, 0, 0, len(notes), len(notes), None)
     }
     p = Phrase(properties)
     p2m.addPhrase(p, track=track, channel=channel, start_time=0)
     return p2m
+
 
 if __name__ == "__main__":
     p2m = Pat2Midi(numTracks=2)

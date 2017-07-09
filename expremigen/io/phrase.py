@@ -1,8 +1,8 @@
 from expremigen.io.constants import PhraseProperty as PP, Defaults
 from expremigen.musicalmappings.constants import REST
 from expremigen.musicalmappings.note2midi import Note2Midi
-from expremigen.patterns.pconst import Pconst
 from expremigen.patterns.pchord import Pchord
+from expremigen.patterns.pconst import Pconst
 
 
 class Phrase:
