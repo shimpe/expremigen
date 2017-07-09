@@ -28,7 +28,7 @@ class Dynamics:
     fff = 120
     ffff = 127
 
-class Dur:
+class Durations:
     onehundredtwentyeighth = 1/128
     sixtyfourth = 1/64
     thirtysecond = 1/32

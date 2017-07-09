@@ -1,7 +1,7 @@
 import unittest
 import sys
 
-from expremigen.io.constants import Defaults, REST, PhraseProperty as PP, Dynamics as Dyn, Dur as Dur
+from expremigen.io.constants import Defaults, REST, PhraseProperty as PP, Dynamics as Dyn, Durations as Dur
 from expremigen.io.phrase import Phrase
 from expremigen.io.note2midi import Note2Midi
 from expremigen.patterns.pseries import Pseries
