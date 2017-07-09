@@ -16,11 +16,11 @@ class Pat2Midi:
     def addPhrase(self, phrase: Phrase, track=0, channel=0, start_time=0):
         for event in phrase:
             if isinstance(event[PP.NOTE], Pchord):
-                for n in event[PP.NOTE].notes():
+                for n in event[PP.NOTE].notes:
                     self.midiFile.addNote(
                         track=track,
                         channel=channel,
-                        pitch=event[PP.NOTE],
+                        pitch=n,
                         time=start_time + phrase.generated_duration() + event[PP.LAG],
                         duration=event[PP.DUR] * event[PP.PLAYEDDUR],
                         volume=event[PP.VOL],
@@ -47,5 +47,5 @@ class Pat2Midi:
         try:
             with open(filename, "wb") as f:
                 self.midiFile.writeFile(fileHandle=f)
-        except Exception:
-            print("we hit a SNAFU while writing to {0}".format(filename))
+        except Exception as e:
+            print("we hit a SNAFU while writing to {0}: {1}".format(filename, e))
