@@ -1,3 +1,4 @@
+import itertools
 import random
 
 from expremigen.patterns.pattern import Pattern
@@ -5,25 +6,25 @@ from expremigen.patterns.pchord import Pchord
 
 
 def random_permutation(iterable, r=None):
-    "Random selection from itertools.permutations(iterable, r)"
+    """Random selection from itertools.permutations(iterable, r)"""
     pool = tuple(iterable)
     r = len(pool) if r is None else r
     return tuple(random.sample(pool, r))
 
 
-def myrepeat(object, function, times=None):
+def myrepeat(what, fn, times=None):
     if times is None:
         while True:
-            if function is not None:
-                yield function(object)
+            if fn is not None:
+                yield fn(what)
             else:
-                yield object
+                yield what
     else:
         for i in range(times):
-            if function is not None:
-                yield function(object)
+            if fn is not None:
+                yield fn(what)
             else:
-                yield object
+                yield what
 
 
 def flatten(l):
@@ -34,11 +35,8 @@ def flatten(l):
             yield el
 
 
-import itertools
-
-
 def take(n, iterable):
-    "Return first n items of the iterable as a list"
+    """Return first n items of the iterable as a list"""
     return itertools.islice(iterable, n)
 
 

@@ -32,8 +32,8 @@ def create_phrase():
     }
     p = Phrase(properties)
     p2m = Pat2Midi()
-    p2m.setTempo(120)
-    total_dur = p2m.addPhrase(p)
+    p2m.set_tempo(120)
+    total_dur = p2m.add_phrase(p)
     print(total_dur)
     p2m.write(outputfile)
 

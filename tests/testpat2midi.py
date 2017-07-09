@@ -21,13 +21,13 @@ class TestPat2Midi(unittest.TestCase):
         }
         p = Phrase(properties)
         p2m = Pat2Midi()
-        duration = p2m.addPhrase(p)
+        duration = p2m.add_phrase(p)
         self.assertEqual(duration, 3 * Dur.quarter)
-        duration2 = p2m.addPhrase(p, start_time=duration)
+        duration2 = p2m.add_phrase(p, start_time=duration)
         # just adding a single phrase returns the duration of that phrase only
         self.assertEqual(duration, duration2)
         # adding a list of phrases returns the total duration
-        total_duration = p2m.addPhrases([p], start_time=duration + duration2)
+        total_duration = p2m.add_phrases([p], start_time=duration + duration2)
         self.assertEqual(total_duration, 3 * duration)
 
 

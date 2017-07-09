@@ -6,14 +6,15 @@ from expremigen.patterns.pchord import Pchord
 
 
 class Pat2Midi:
-    def __init__(self, numTracks=1, removeDuplicates=True, deinterleave=True, file_format=1):
-        self.midiFile = MIDIFile(numTracks=numTracks, removeDuplicates=removeDuplicates, deinterleave=deinterleave,
+    def __init__(self, num_tracks: int = 1, remove_duplicates: bool = True, deinterleave: bool = True,
+                 file_format: int = 1):
+        self.midiFile = MIDIFile(numTracks=num_tracks, removeDuplicates=remove_duplicates, deinterleave=deinterleave,
                                  adjust_origin=False, file_format=file_format)
 
-    def setTempo(self, tempo=100, time=0):
+    def set_tempo(self, tempo=100, time=0):
         self.midiFile.addTempo(track=0, time=time, tempo=tempo)
 
-    def addPhrase(self, phrase: Phrase, track=0, channel=0, start_time=0):
+    def add_phrase(self, phrase: Phrase, track=0, channel=0, start_time=0):
         for event in phrase:
             if isinstance(event[PP.NOTE], Pchord):
                 for n in event[PP.NOTE].notes:
@@ -36,10 +37,10 @@ class Pat2Midi:
                     annotation=None)
         return phrase.generated_duration()
 
-    def addPhrases(self, list_of_phrase, track=0, channel=0, start_time=0):
+    def add_phrases(self, list_of_phrase, track=0, channel=0, start_time=0):
         time_delta = 0
         for phrase in list_of_phrase:
-            duration = self.addPhrase(phrase, track, channel, start_time + time_delta)
+            duration = self.add_phrase(phrase, track, channel, start_time + time_delta)
             time_delta += duration
         return start_time + time_delta
 

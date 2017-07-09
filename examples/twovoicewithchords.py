@@ -12,7 +12,7 @@ from expremigen.patterns.ptween import Ptween
 outputfile = "output/twovoicewithchords.mid"
 
 
-def add_melody(p2m, track, channel):
+def add_melody(pat2mid, track, channel):
     n = Note2Midi()
     notes = ["c4", "e4", "g4", "c5", "b4", "g4", "f4", "d4", "c4"]
     from vectortween.NumberAnimation import NumberAnimation
@@ -32,12 +32,12 @@ def add_melody(p2m, track, channel):
         PP.VOL: Ptween(swell_dim, 0, 0, len(notes), len(notes), None),
     }
     p = Phrase(properties)
-    p2m.setTempo(120)
-    p2m.addPhrase(p, track=track, channel=channel, start_time=0)
-    return p2m
+    pat2mid.set_tempo(120)
+    pat2mid.add_phrase(p, track=track, channel=channel, start_time=0)
+    return pat2mid
 
 
-def add_chords(p2m, track, channel):
+def add_chords(pat2mid, track, channel):
     n = Note2Midi()
     notes = [C(["c3", "e3", "g3"]), C(["b2", "d3", "g3"]), C(["c3", "e3", "g3", "c4"])]
     from vectortween.NumberAnimation import NumberAnimation
@@ -49,12 +49,12 @@ def add_chords(p2m, track, channel):
         PP.VOL: Ptween(decrease, 0, 0, len(notes), len(notes), None)
     }
     p = Phrase(properties)
-    p2m.addPhrase(p, track=track, channel=channel, start_time=0)
-    return p2m
+    pat2mid.add_phrase(p, track=track, channel=channel, start_time=0)
+    return pat2mid
 
 
 if __name__ == "__main__":
-    p2m = Pat2Midi(numTracks=2)
+    p2m = Pat2Midi(num_tracks=2)
     p2m = add_melody(p2m, 0, 0)
     p2m = add_chords(p2m, 1, 1)
     p2m.write(outputfile)

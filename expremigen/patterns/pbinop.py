@@ -4,7 +4,7 @@ from expremigen.patterns.pattern import Pattern
 
 
 class Pbinop(Pattern, metaclass=abc.ABCMeta):
-    def __init__(self, a: Pattern, b: Pattern) -> Pattern:
+    def __init__(self, a: Pattern, b: Pattern):
         super().__init__()
         self.a = a
         self.b = b
