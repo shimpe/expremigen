@@ -2,6 +2,7 @@ from midiutil import MIDIFile
 
 from expremigen.io.constants import PhraseProperty as PP
 from expremigen.io.phrase import Phrase
+from expremigen.patterns.pchord import Pchord
 
 
 class Pat2Midi:
@@ -14,14 +15,25 @@ class Pat2Midi:
 
     def addPhrase(self, phrase: Phrase, track=0, channel=0, start_time=0):
         for event in phrase:
-            self.midiFile.addNote(
-                track=0,
-                channel=0,
-                pitch=event[PP.NOTE],
-                time=start_time + phrase.generated_duration() + event[PP.LAG],
-                duration=event[PP.DUR] * event[PP.PLAYEDDUR],
-                volume=event[PP.VOL],
-                annotation=None)
+            if isinstance(event[PP.NOTE], Pchord):
+                for n in event[PP.NOTE].notes():
+                    self.midiFile.addNote(
+                        track=track,
+                        channel=channel,
+                        pitch=event[PP.NOTE],
+                        time=start_time + phrase.generated_duration() + event[PP.LAG],
+                        duration=event[PP.DUR] * event[PP.PLAYEDDUR],
+                        volume=event[PP.VOL],
+                        annotation=None)
+            else:
+                self.midiFile.addNote(
+                    track=track,
+                    channel=channel,
+                    pitch=event[PP.NOTE],
+                    time=start_time + phrase.generated_duration() + event[PP.LAG],
+                    duration=event[PP.DUR] * event[PP.PLAYEDDUR],
+                    volume=event[PP.VOL],
+                    annotation=None)
         return phrase.generated_duration()
 
     def addPhrases(self, list_of_phrase, track=0, channel=0, start_time=0):
@@ -29,7 +41,7 @@ class Pat2Midi:
         for phrase in list_of_phrase:
             duration = self.addPhrase(phrase, track, channel, start_time + time_delta)
             time_delta += duration
-        return start_time+time_delta
+        return start_time + time_delta
 
     def write(self, filename):
         try:

@@ -1,5 +1,6 @@
 import unittest
 
+from expremigen.patterns.pchord import Pchord
 from expremigen.patterns.pconst import Pconst
 from expremigen.patterns.pseq import Pseq
 
@@ -27,6 +28,11 @@ class TestPseq(unittest.TestCase):
     def test_nesting(self):
         f = [i for i in Pseq([Pseq([1, Pconst(2, 2)], 2), Pseq([3, 4], 2)], 2)]
         self.assertEqual(f, [1, 2, 2, 1, 2, 2, 3, 4, 3, 4, 1, 2, 2, 1, 2, 2, 3, 4, 3, 4])
+
+    def test_withchord(self):
+        f = [i for i in Pseq([Pseq([1, Pconst(2, 2)], 2), Pseq(Pchord([3, 4]), 2)], 2)]
+        self.assertEqual(f, [1, 2, 2, 1, 2, 2, Pchord([3, 4]), Pchord([3, 4]), 1, 2, 2, 1, 2, 2, Pchord([3, 4]),
+                             Pchord([3, 4])])
 
 
 if __name__ == '__main__':

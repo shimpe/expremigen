@@ -1,6 +1,7 @@
 import random
 
 from expremigen.patterns.pattern import Pattern
+from expremigen.patterns.pchord import Pchord
 
 
 def random_permutation(iterable, r=None):
@@ -27,7 +28,7 @@ def myrepeat(object, function, times=None):
 
 def flatten(l):
     for el in l:
-        if isinstance(el, Pattern):
+        if isinstance(el, Pattern) and not isinstance(el, Pchord):
             yield from flatten(el)
         else:
             yield el

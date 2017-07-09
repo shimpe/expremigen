@@ -29,7 +29,7 @@ class TestPat2Midi(unittest.TestCase):
         # adding a list of phrases returns the total duration
         total_duration = p2m.addPhrases([p], start_time=duration + duration2)
         self.assertEqual(total_duration, 3 * duration)
-        
+
 
 if __name__ == '__main__':
     unittest.main()

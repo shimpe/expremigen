@@ -1,4 +1,5 @@
 from expremigen.musicalmappings.constants import REST
+from expremigen.patterns.pchord import Pchord
 
 
 class Note2Midi:
@@ -28,7 +29,10 @@ class Note2Midi:
 
     def lookup(self, note):
         try:
-            return self.note_to_midi[note.lower()]
+            if isinstance(note, Pchord):
+                return Pchord([self.note_to_midi[n.lower()] for n in note.notes])
+            else:
+                return self.note_to_midi[note.lower()]
         except KeyError:
             return REST
 
