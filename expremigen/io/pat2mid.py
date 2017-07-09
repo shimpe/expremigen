@@ -24,13 +24,12 @@ class Pat2Mid:
                 annotation=None)
         return phrase.generated_duration()
 
-    def addPhrases(self, list_of_phrase, track = 0, channel=0, start_time=0):
+    def addPhrases(self, list_of_phrase, track=0, channel=0, start_time=0):
         time_delta = 0
         for phrase in list_of_phrase:
             duration = self.addPhrase(phrase, track, channel, start_time + time_delta)
             time_delta += duration
         return time_delta
-
 
     def write(self, filename):
         try:

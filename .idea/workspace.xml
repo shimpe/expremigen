@@ -2,9 +2,28 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a548a0b3-44ec-4944-9d6e-6d4749f7a078" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/dualphrase.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/examples/dualphrase.py" afterPath="$PROJECT_DIR$/examples/dualphrase.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/expremigen/io/pat2mid.py" afterPath="$PROJECT_DIR$/expremigen/io/pat2mid.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/expremigen/patterns/padd.py" afterPath="$PROJECT_DIR$/expremigen/patterns/padd.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/expremigen/patterns/pbinop.py" afterPath="$PROJECT_DIR$/expremigen/patterns/pbinop.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/expremigen/patterns/pexprand.py" afterPath="$PROJECT_DIR$/expremigen/patterns/pexprand.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/expremigen/patterns/prand.py" afterPath="$PROJECT_DIR$/expremigen/patterns/prand.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/expremigen/patterns/pseq.py" afterPath="$PROJECT_DIR$/expremigen/patterns/pseq.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/expremigen/patterns/pseries.py" afterPath="$PROJECT_DIR$/expremigen/patterns/pseries.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/expremigen/patterns/pshuf.py" afterPath="$PROJECT_DIR$/expremigen/patterns/pshuf.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/expremigen/patterns/ptween.py" afterPath="$PROJECT_DIR$/expremigen/patterns/ptween.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/expremigen/patterns/pwhite.py" afterPath="$PROJECT_DIR$/expremigen/patterns/pwhite.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/expremigen/patterns/utils.py" afterPath="$PROJECT_DIR$/expremigen/patterns/utils.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/testpadd.py" afterPath="$PROJECT_DIR$/tests/testpadd.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/testpconst.py" afterPath="$PROJECT_DIR$/tests/testpconst.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/testpexprand.py" afterPath="$PROJECT_DIR$/tests/testpexprand.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/testphrase.py" afterPath="$PROJECT_DIR$/tests/testphrase.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/testprand.py" afterPath="$PROJECT_DIR$/tests/testprand.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/testpseq.py" afterPath="$PROJECT_DIR$/tests/testpseq.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/testpseries.py" afterPath="$PROJECT_DIR$/tests/testpseries.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/testpshuf.py" afterPath="$PROJECT_DIR$/tests/testpshuf.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/testptween.py" afterPath="$PROJECT_DIR$/tests/testptween.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/testpwhite.py" afterPath="$PROJECT_DIR$/tests/testpwhite.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -21,9 +40,7 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="285">
               <caret line="31" column="25" lean-forward="false" selection-start-line="31" selection-start-column="25" selection-end-line="31" selection-end-column="25" />
-              <folding>
-                <element signature="e#0#29#0" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -52,7 +69,7 @@
         <entry file="file://$PROJECT_DIR$/expremigen/io/phrase.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="506">
-              <caret line="37" column="8" lean-forward="true" selection-start-line="37" selection-start-column="8" selection-end-line="37" selection-end-column="8" />
+              <caret line="37" column="8" lean-forward="false" selection-start-line="37" selection-start-column="8" selection-end-line="37" selection-end-column="8" />
               <folding>
                 <element signature="e#0#66#0" expanded="true" />
               </folding>
@@ -75,8 +92,8 @@
       <file leaf-file-name="dualphrase.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/examples/dualphrase.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="441">
-              <caret line="47" column="25" lean-forward="true" selection-start-line="47" selection-start-column="25" selection-end-line="47" selection-end-column="25" />
+            <state relative-caret-position="339">
+              <caret line="41" column="5" lean-forward="false" selection-start-line="41" selection-start-column="5" selection-end-line="41" selection-end-column="5" />
               <folding>
                 <element signature="e#0#56#0" expanded="true" />
               </folding>
@@ -616,9 +633,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1044" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28975454" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28975454" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295838" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -979,7 +995,7 @@
     <entry file="file://$PROJECT_DIR$/expremigen/io/phrase.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="506">
-          <caret line="37" column="8" lean-forward="true" selection-start-line="37" selection-start-column="8" selection-end-line="37" selection-end-column="8" />
+          <caret line="37" column="8" lean-forward="false" selection-start-line="37" selection-start-column="8" selection-end-line="37" selection-end-column="8" />
           <folding>
             <element signature="e#0#66#0" expanded="true" />
           </folding>
@@ -1024,16 +1040,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
           <caret line="31" column="25" lean-forward="false" selection-start-line="31" selection-start-column="25" selection-end-line="31" selection-end-column="25" />
-          <folding>
-            <element signature="e#0#29#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/examples/dualphrase.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="441">
-          <caret line="47" column="25" lean-forward="true" selection-start-line="47" selection-start-column="25" selection-end-line="47" selection-end-column="25" />
+        <state relative-caret-position="339">
+          <caret line="41" column="5" lean-forward="false" selection-start-line="41" selection-start-column="5" selection-end-line="41" selection-end-column="5" />
           <folding>
             <element signature="e#0#56#0" expanded="true" />
           </folding>

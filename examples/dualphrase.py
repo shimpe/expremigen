@@ -45,7 +45,7 @@ def create_phrase():
     p2 = Phrase(properties2)
     p2m = Pat2Mid()
     p2m.setTempo(120)
-    total_dur = p2m.addPhrases([p1,p2])
+    total_dur = p2m.addPhrases([p1, p2])
     print(total_dur)
     p2m.write(outputfile)
 
