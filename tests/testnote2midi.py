@@ -13,6 +13,7 @@ class TestNote2Midi(unittest.TestCase):
         self.assertEqual(n.lookup("c#4"), 61)
         self.assertEqual(n.lookup("db4"), 61)
         self.assertEqual(n.lookup("dbb3"), 48)
+        self.assertEqual(n.lookup("b10"), REST) # note number > 127 not allowed
 
     def test_map(self):
         n = Note2Midi()

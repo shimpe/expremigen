@@ -21,9 +21,10 @@ class Note2Midi:
         notenum = 0
         for octave in range(10):
             for note_synonyms in self.chromatic_scale:
-                for note in note_synonyms:
-                    self.note_to_midi["{0}{1}".format(note, octave - 1)] = notenum
-                notenum += 1
+                if notenum <= 127:
+                    for note in note_synonyms:
+                        self.note_to_midi["{0}{1}".format(note, octave - 1)] = notenum
+                    notenum += 1
 
     def lookup(self, note):
         try:
