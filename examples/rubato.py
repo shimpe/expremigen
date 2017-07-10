@@ -49,7 +49,15 @@ def create_phrase():
         "d4 e4 f4 d4 a3 g3 f3 g3 a3 b3 c4 d4 c4 d4 e4 c4 g3 f3 e3 f3 g3 a3 b3 c4 a3 b3 c4 d4 e4 g#4 a4".split(" "))
     notes.extend(notes2)
 
-    properties = {
+    properties_plain = {
+        PP.NOTE: Pseq(notes, 1),
+        PP.VOL: Pconst(100),
+        PP.PLAYEDDUR: Pconst(0.95),
+        PP.DUR: Pseq([Pconst(Dur.quarter_triplet, len(notes2) - 1), Pconst(Dur.whole, 1)], 2),
+        PP.LAG: Pconst(0),
+        PP.TEMPO : Pconst(60)
+    }
+    properties_rubato = {
         PP.NOTE: Pseq(notes, 1),
         PP.VOL: Ptween(vol, 0, 0, len(notes), len(notes), None),
         PP.PLAYEDDUR: Ptween(dur, 0, 0, len(notes), len(notes), None),
@@ -58,8 +66,9 @@ def create_phrase():
         PP.TEMPO: Ptween(tempo_slowdown, 0, 0, len(notes), len(notes), None)
     }
 
-    ph = Phrase(properties)
-    p.add_phrase(ph, 0, 0, 0)
+    ph = Phrase(properties_plain)
+    ph2= Phrase(properties_rubato)
+    p.add_phrases([ph, ph2], 0, 0, 0)
 
     p.write(outputfile)
 
