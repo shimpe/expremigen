@@ -45,7 +45,7 @@ the lag and the tempo.
 The following example shows off some of the possibilities for creating
 a phrase using tweened animations.
 
-The examples folder has more things to examine.
+The examples folder has more things to examine. The tests folder has unit tests for a substantial part of the library.
 
 ```python
 from expremigen.io.constants import PhraseProperty as PP
@@ -57,6 +57,8 @@ from expremigen.musicalmappings.note2midi import Note2Midi
 from expremigen.patterns.pconst import Pconst
 from expremigen.patterns.pseq import Pseq
 from expremigen.patterns.ptween import Ptween
+from vectortween.NumberAnimation import NumberAnimation
+from vectortween.SequentialAnimation import SequentialAnimation
 
 outputfile = "output/singlephrase.mid"
 
@@ -67,8 +69,6 @@ def create_phrase():
     n = Note2Midi()
     # notes is a list of music notes
     notes = "c4 e4 g4 c5 b4 g4 f4 d4 c4".split(" ")
-    from vectortween.NumberAnimation import NumberAnimation
-    from vectortween.SequentialAnimation import SequentialAnimation
     # specify a (volume) animation that increases linearly from mp to f
     crescendo = NumberAnimation(frm=Dyn.mp, to=Dyn.f, tween=['linear'])
     # specify a (volume) animation that decreases linearly from f to ppp
