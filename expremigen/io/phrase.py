@@ -28,14 +28,15 @@ class Phrase:
 
     def __iter__(self):
         self.time = 0
-        for value in zip(self.p[PP.NOTE], self.p[PP.DUR], self.p[PP.PLAYEDDUR], self.p[PP.VOL], self.p[PP.LAG], self.p[PP.TEMPO]):
+        for value in zip(self.p[PP.NOTE], self.p[PP.DUR], self.p[PP.PLAYEDDUR], self.p[PP.VOL], self.p[PP.LAG],
+                         self.p[PP.TEMPO]):
             if isinstance(value[0], Pchord) or value[0] != REST:  # 128 denotes a rest
                 yield {PP.NOTE: value[0],
                        PP.DUR: value[1],
                        PP.PLAYEDDUR: value[2],
                        PP.VOL: int(value[3]),
                        PP.LAG: value[4],
-                       PP.TEMPO : value[5]
+                       PP.TEMPO: value[5]
                        }
             self.time += value[1]
 

@@ -1,7 +1,7 @@
 from midiutil import MIDIFile
 
-from expremigen.io.constants import PhraseProperty as PP
 from expremigen.io.constants import Defaults
+from expremigen.io.constants import PhraseProperty as PP
 from expremigen.io.phrase import Phrase
 from expremigen.patterns.pchord import Pchord
 
@@ -11,7 +11,7 @@ class Pat2Midi:
                  file_format: int = 1):
         self.midiFile = MIDIFile(numTracks=num_tracks, removeDuplicates=remove_duplicates, deinterleave=deinterleave,
                                  adjust_origin=False, file_format=file_format)
-        self.last_set_tempo = [Defaults.tempo for _ in range(16)] # set every track to default tempo
+        self.last_set_tempo = [Defaults.tempo for _ in range(16)]  # set every track to default tempo
         self.set_tempo(Defaults.tempo, 0)
 
     def set_tempo(self, tempo=100, time=0):

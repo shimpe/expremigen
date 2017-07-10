@@ -1,17 +1,18 @@
+from vectortween.NumberAnimation import NumberAnimation
+from vectortween.SequentialAnimation import SequentialAnimation
+
 from expremigen.io.constants import PhraseProperty as PP
 from expremigen.io.pat2midi import Pat2Midi
 from expremigen.io.phrase import Phrase
-from expremigen.musicalmappings.note2midi import Note2Midi
-from expremigen.musicalmappings.dynamics import Dynamics as Dyn
 from expremigen.musicalmappings.durations import Durations as Dur
+from expremigen.musicalmappings.dynamics import Dynamics as Dyn
+from expremigen.musicalmappings.note2midi import Note2Midi
 from expremigen.patterns.pconst import Pconst
 from expremigen.patterns.pseq import Pseq
 from expremigen.patterns.ptween import Ptween
 
-from vectortween.NumberAnimation import NumberAnimation
-from vectortween.SequentialAnimation import SequentialAnimation
-
 outputfile = "output/rubato.mid"
+
 
 def create_phrase():
     p = Pat2Midi()
@@ -42,8 +43,10 @@ def create_phrase():
     tempo_slowdown = NumberAnimation(frm=100, to=60, tween=['easeOutQuad'])
 
     # play some random cadenza
-    notes = n.convert2("a5 b5 c6 a5 e5 d5 c5 d5 e5 c5 a4 g#4 a4 b4 c5 a4 e4 d4 c4 d4 e4 c4 a3 g#3 a3 b3 c4 d4 e4 g#4 a4".split(" "))
-    notes2 = n.convert2("d4 e4 f4 d4 a3 g3 f3 g3 a3 b3 c4 d4 c4 d4 e4 c4 g3 f3 e3 f3 g3 a3 b3 c4 a3 b3 c4 d4 e4 g#4 a4".split(" "))
+    notes = n.convert2(
+        "a5 b5 c6 a5 e5 d5 c5 d5 e5 c5 a4 g#4 a4 b4 c5 a4 e4 d4 c4 d4 e4 c4 a3 g#3 a3 b3 c4 d4 e4 g#4 a4".split(" "))
+    notes2 = n.convert2(
+        "d4 e4 f4 d4 a3 g3 f3 g3 a3 b3 c4 d4 c4 d4 e4 c4 g3 f3 e3 f3 g3 a3 b3 c4 a3 b3 c4 d4 e4 g#4 a4".split(" "))
     notes.extend(notes2)
 
     properties = {
@@ -60,7 +63,6 @@ def create_phrase():
 
     p.write(outputfile)
 
-if __name__=="__main__":
+
+if __name__ == "__main__":
     create_phrase()
-
-
