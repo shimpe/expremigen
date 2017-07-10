@@ -25,6 +25,7 @@ class TestPhrase(unittest.TestCase):
         self.assertEqual(result[0][PP.DUR], Defaults.dur)
         self.assertEqual(result[0][PP.PLAYEDDUR], Defaults.playeddur)
         self.assertEqual(result[0][PP.LAG], Defaults.lag)
+        self.assertEqual(result[0][PP.TEMPO], Defaults.tempo)
 
     def test_phrase(self):
         n = Note2Midi()

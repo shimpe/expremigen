@@ -7,6 +7,7 @@ class Defaults:
     playeddur = 0.9
     lag = 0
     vol = 70
+    tempo = 100
 
 
 class PhraseProperty(Enum):
@@ -15,3 +16,4 @@ class PhraseProperty(Enum):
     PLAYEDDUR = 2
     VOL = 3
     LAG = 4
+    TEMPO = 5

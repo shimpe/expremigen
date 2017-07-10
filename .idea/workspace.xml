@@ -2,9 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a548a0b3-44ec-4944-9d6e-6d4749f7a078" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/rubato.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/expremigen/musicalmappings/durations.py" afterPath="$PROJECT_DIR$/expremigen/musicalmappings/durations.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/examples/output/rubato.mid" afterPath="$PROJECT_DIR$/examples/output/rubato.mid" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/examples/rubato.py" afterPath="$PROJECT_DIR$/examples/rubato.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/expremigen/io/constants.py" afterPath="$PROJECT_DIR$/expremigen/io/constants.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/expremigen/io/pat2midi.py" afterPath="$PROJECT_DIR$/expremigen/io/pat2midi.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/expremigen/io/phrase.py" afterPath="$PROJECT_DIR$/expremigen/io/phrase.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/testphrase.py" afterPath="$PROJECT_DIR$/tests/testphrase.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -16,21 +19,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="__init__.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/expremigen/musicalmappings/__init__.py">
+      <file leaf-file-name="phrase.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/expremigen/io/phrase.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="constants.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/expremigen/musicalmappings/constants.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+            <state relative-caret-position="404">
+              <caret line="38" column="24" lean-forward="true" selection-start-line="38" selection-start-column="24" selection-end-line="38" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -42,28 +35,6 @@
             <state relative-caret-position="34">
               <caret line="2" column="63" lean-forward="true" selection-start-line="2" selection-start-column="63" selection-end-line="2" selection-end-column="63" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="dynamics.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/expremigen/musicalmappings/dynamics.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="note2midi.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/expremigen/musicalmappings/note2midi.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="527">
-              <caret line="32" column="79" lean-forward="false" selection-start-line="32" selection-start-column="79" selection-end-line="32" selection-end-column="79" />
-              <folding>
-                <element signature="e#0#53#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -110,13 +81,45 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="rubato.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="rubato.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/examples/rubato.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="248">
-              <caret line="46" column="14" lean-forward="false" selection-start-line="46" selection-start-column="14" selection-end-line="46" selection-end-column="14" />
+              <caret line="46" column="24" lean-forward="true" selection-start-line="46" selection-start-column="24" selection-end-line="46" selection-end-column="24" />
               <folding>
                 <element signature="e#0#56#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="testphrase.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/tests/testphrase.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="132">
+              <caret line="64" column="9" lean-forward="true" selection-start-line="64" selection-start-column="9" selection-end-line="64" selection-end-column="9" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="constants.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/expremigen/io/constants.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="8" column="12" lean-forward="true" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pat2midi.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/expremigen/io/pat2midi.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="14" column="40" lean-forward="true" selection-start-line="14" selection-start-column="40" selection-end-line="14" selection-end-column="40" />
+              <folding>
+                <element signature="e#0#29#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -175,7 +178,6 @@
         <option value="$PROJECT_DIR$/expremigen/io/note2midi.py" />
         <option value="$PROJECT_DIR$/expremigen/musicalmappings/dynamics.py" />
         <option value="$PROJECT_DIR$/expremigen/musicalmappings/constants.py" />
-        <option value="$PROJECT_DIR$/tests/testphrase.py" />
         <option value="$PROJECT_DIR$/examples/singlephrase.py" />
         <option value="$PROJECT_DIR$/examples/output/dualphrase.py" />
         <option value="$PROJECT_DIR$/expremigen/patterns/pn.py" />
@@ -187,9 +189,6 @@
         <option value="$PROJECT_DIR$/expremigen/patterns/pchord.py" />
         <option value="$PROJECT_DIR$/tests/testnote2midi.py" />
         <option value="$PROJECT_DIR$/tests/testpseq.py" />
-        <option value="$PROJECT_DIR$/expremigen/io/phrase.py" />
-        <option value="$PROJECT_DIR$/expremigen/io/pat2midi.py" />
-        <option value="$PROJECT_DIR$/expremigen/io/constants.py" />
         <option value="$PROJECT_DIR$/expremigen/patterns/pshuf.py" />
         <option value="$PROJECT_DIR$/examples/twovoicewithchords.py" />
         <option value="$PROJECT_DIR$/expremigen/patterns/utils.py" />
@@ -197,7 +196,11 @@
         <option value="$PROJECT_DIR$/setup.py" />
         <option value="$PROJECT_DIR$/tests/testpchord.py" />
         <option value="$PROJECT_DIR$/expremigen/musicalmappings/durations.py" />
+        <option value="$PROJECT_DIR$/expremigen/io/constants.py" />
+        <option value="$PROJECT_DIR$/expremigen/io/phrase.py" />
+        <option value="$PROJECT_DIR$/expremigen/io/pat2midi.py" />
         <option value="$PROJECT_DIR$/examples/rubato.py" />
+        <option value="$PROJECT_DIR$/tests/testphrase.py" />
       </list>
     </option>
   </component>
@@ -360,7 +363,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.rubato">
+  <component name="RunManager" selected="Python tests.Unittests in tests">
     <configuration default="false" name="testnote2midi" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -566,9 +569,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Unittests_in_tests - 2017.07.09 at 17h 17m 10s.xml">
-      <configuration name="Unittests in tests" configurationId="tests" />
-    </history-entry>
     <history-entry file="Unittests_in_tests - 2017.07.09 at 17h 43m 12s.xml">
       <configuration name="Unittests in tests" configurationId="tests" />
     </history-entry>
@@ -596,6 +596,9 @@
     <history-entry file="Unittests_in_tests - 2017.07.09 at 23h 57m 06s.xml">
       <configuration name="Unittests in tests" configurationId="tests" />
     </history-entry>
+    <history-entry file="Unittests_in_tests - 2017.07.10 at 22h 33m 31s.xml">
+      <configuration name="Unittests in tests" configurationId="tests" />
+    </history-entry>
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -608,12 +611,11 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1044" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29295623" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295838" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3295838" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3295838" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -778,13 +780,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/testphrase.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tests/testgeom.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="442">
@@ -797,6 +792,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="295">
           <caret line="608" column="0" lean-forward="false" selection-start-line="608" selection-start-column="0" selection-end-line="608" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -856,6 +852,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="244">
           <caret line="935" column="0" lean-forward="false" selection-start-line="935" selection-start-column="0" selection-end-line="935" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -906,32 +903,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/expremigen/io/constants.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/expremigen/io/pat2midi.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="81">
-          <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#29#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/expremigen/io/phrase.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="8" column="37" lean-forward="false" selection-start-line="8" selection-start-column="37" selection-end-line="8" selection-end-column="37" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1011,13 +982,47 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/expremigen/io/constants.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="12" lean-forward="true" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/expremigen/io/phrase.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="404">
+          <caret line="38" column="24" lean-forward="true" selection-start-line="38" selection-start-column="24" selection-end-line="38" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/expremigen/io/pat2midi.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="14" column="40" lean-forward="true" selection-start-line="14" selection-start-column="40" selection-end-line="14" selection-end-column="40" />
+          <folding>
+            <element signature="e#0#29#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/examples/rubato.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="248">
-          <caret line="46" column="14" lean-forward="false" selection-start-line="46" selection-start-column="14" selection-end-line="46" selection-end-column="14" />
+          <caret line="46" column="24" lean-forward="true" selection-start-line="46" selection-start-column="24" selection-end-line="46" selection-end-column="24" />
           <folding>
             <element signature="e#0#56#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/testphrase.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="64" column="9" lean-forward="true" selection-start-line="64" selection-start-column="9" selection-end-line="64" selection-end-column="9" />
+          <folding />
         </state>
       </provider>
     </entry>

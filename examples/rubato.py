@@ -38,6 +38,9 @@ def create_phrase():
     staccato_to_legato = NumberAnimation(frm=0.1, to=1, tween=['easeOutBounce'])
     dur = SequentialAnimation([legato_to_staccato, staccato_to_legato])
 
+    # animate the tempo
+    tempo_slowdown = NumberAnimation(frm=100, to=60, tween=['easeOutQuad'])
+
     # play some random cadenza
     notes = n.convert2("a5 b5 c6 a5 e5 d5 c5 d5 e5 c5 a4 g#4 a4 b4 c5 a4 e4 d4 c4 d4 e4 c4 a3 g#3 a3 b3 c4 d4 e4 g#4 a4".split(" "))
     notes2 = n.convert2("d4 e4 f4 d4 a3 g3 f3 g3 a3 b3 c4 d4 c4 d4 e4 c4 g3 f3 e3 f3 g3 a3 b3 c4 a3 b3 c4 d4 e4 g#4 a4".split(" "))
@@ -48,12 +51,11 @@ def create_phrase():
         PP.VOL: Ptween(vol, 0, 0, len(notes), len(notes), None),
         PP.PLAYEDDUR: Ptween(dur, 0, 0, len(notes), len(notes), None),
         PP.DUR: Pseq([Pconst(Dur.quarter_triplet, len(notes2) - 1), Pconst(Dur.whole, 1)], 2),
-        PP.LAG: Ptween(lag, 0, 0, len(notes), len(notes), None)
+        PP.LAG: Ptween(lag, 0, 0, len(notes), len(notes), None),
+        PP.TEMPO: Ptween(tempo_slowdown, 0, 0, len(notes), len(notes), None)
     }
 
     ph = Phrase(properties)
-
-    p.set_tempo(60, 0)
     p.add_phrase(ph, 0, 0, 0)
 
     p.write(outputfile)
