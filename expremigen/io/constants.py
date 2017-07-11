@@ -1,5 +1,5 @@
-from enum import Enum
-
+NO_OF_CONTROLLERS = 128
+NO_OF_TRACKS = 16
 
 class Defaults:
     """
@@ -13,13 +13,22 @@ class Defaults:
     tempo = 100
 
 
-class PhraseProperty(Enum):
+class PhraseProperty:
     """
     list of animatable properties
     """
-    NOTE = 0
-    DUR = 1
-    PLAYEDDUR = 2
-    VOL = 3
-    LAG = 4
-    TEMPO = 5
+    NOTE = "0"
+    DUR = "1"
+    PLAYEDDUR = "2"
+    VOL = "3"
+    LAG = "4"
+    TEMPO = "5"
+
+    @classmethod
+    def CtrlDurKey(cls, CCNumber):
+        return f"D{CCNumber}"
+
+    @classmethod
+    def CtrlValKey(cls, CCNumber):
+        return f"V{CCNumber}"
+
