@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a548a0b3-44ec-4944-9d6e-6d4749f7a078" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/expremigen/patterns/pexprand.py" afterPath="$PROJECT_DIR$/expremigen/patterns/pexprand.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/expremigen/musicalmappings/tempo.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -14,21 +15,21 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="pconst.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/expremigen/patterns/pconst.py">
+      <file leaf-file-name="pexprand.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/expremigen/patterns/pexprand.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="9" column="34" lean-forward="false" selection-start-line="9" selection-start-column="34" selection-end-line="9" selection-end-column="34" />
+            <state relative-caret-position="476">
+              <caret line="32" column="0" lean-forward="true" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pexprand.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/expremigen/patterns/pexprand.py">
+      <file leaf-file-name="tempo.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/expremigen/musicalmappings/tempo.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="18" column="64" lean-forward="false" selection-start-line="18" selection-start-column="64" selection-end-line="18" selection-end-column="64" />
+            <state relative-caret-position="68">
+              <caret line="4" column="6" lean-forward="false" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
               <folding />
             </state>
           </provider>
@@ -139,7 +140,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/expremigen/pconst.py" />
         <option value="$PROJECT_DIR$/expremigen/padd.py" />
         <option value="$PROJECT_DIR$/expremigen/prand.py" />
         <option value="$PROJECT_DIR$/tests/testprand.py" />
@@ -190,6 +190,7 @@
         <option value="$PROJECT_DIR$/expremigen/patterns/pwhite.py" />
         <option value="$PROJECT_DIR$/expremigen/patterns/utils.py" />
         <option value="$PROJECT_DIR$/expremigen/patterns/pexprand.py" />
+        <option value="$PROJECT_DIR$/expremigen/musicalmappings/tempo.py" />
       </list>
     </option>
   </component>
@@ -588,7 +589,7 @@
     <frame x="0" y="0" width="1920" height="1044" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29935965" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29722518" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295838" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3295838" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -626,13 +627,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file:///usr/lib/python3.6/unittest/suite.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="121" column="0" lean-forward="false" selection-start-line="121" selection-start-column="0" selection-end-line="121" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/expremigen/patternify.py" />
     <entry file="file://$PROJECT_DIR$/tests/testpshuf.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -1006,8 +1000,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/expremigen/patterns/pexprand.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="18" column="64" lean-forward="false" selection-start-line="18" selection-start-column="64" selection-end-line="18" selection-end-column="64" />
+        <state relative-caret-position="476">
+          <caret line="32" column="0" lean-forward="true" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/expremigen/musicalmappings/tempo.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="6" lean-forward="false" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
           <folding />
         </state>
       </provider>
