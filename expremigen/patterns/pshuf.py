@@ -7,6 +7,10 @@ from expremigen.patterns.utils import random_permutation
 
 
 class Pshuf(Pattern):
+    """
+    pattern to randomly shuffle elements from a list; the randomly shuffled list
+    then is repeated verbatim for repats times
+    """
     def __init__(self, alist=None, repeats=sys.maxsize):
         super().__init__()
         if alist is None:

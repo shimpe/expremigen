@@ -6,7 +6,18 @@ from expremigen.patterns.pattern import Pattern
 
 
 class Pexprand(Pattern):
+    """
+    pattern that returns random numbers with a uniform logarithmic distribution
+    """
     def __init__(self, lo=1, hi=10, repeats=sys.maxsize):
+        """
+
+        :param lo: lowerbound for random numbers: != 0
+        :param hi: upperbound for random numbers: != 0
+        :param repeats: counter to repeat generating extra numbers
+
+        note: lo and hi should be != 0 and should have same sign
+        """
         super().__init__()
         assert (lo * hi) > 0  # need same sign and != 0
         self.lo = lo

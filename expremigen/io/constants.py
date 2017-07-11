@@ -2,6 +2,9 @@ from enum import Enum
 
 
 class Defaults:
+    """
+    some default values used to fill in missing data
+    """
     note = "a4"
     dur = 1 / 4
     playeddur = 0.9
@@ -11,6 +14,9 @@ class Defaults:
 
 
 class PhraseProperty(Enum):
+    """
+    list of animatable properties
+    """
     NOTE = 0
     DUR = 1
     PLAYEDDUR = 2

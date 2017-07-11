@@ -2,6 +2,9 @@ from expremigen.patterns.pattern import Pattern
 
 
 class Pchord(Pattern):
+    """
+    special pattern that is never flattened; interpreted as a chord by the rest of the system
+    """
     def __init__(self, notes=0):
         super().__init__()
         self.notes = notes

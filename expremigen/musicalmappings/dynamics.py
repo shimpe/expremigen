@@ -1,4 +1,7 @@
 class Dynamics:
+    """
+    a convenience class containing some dynamics
+    """
     ppppp = 10
     pppp = 20
     ppp = 30

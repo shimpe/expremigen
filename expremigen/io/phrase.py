@@ -6,6 +6,9 @@ from expremigen.patterns.pconst import Pconst
 
 
 class Phrase:
+    """
+    class to hold a Phrase, i.e. a collection of (animated) phrase properties
+    """
     def __init__(self, properties: dict = None):
         self.n2m = Note2Midi()
         if properties is None:
@@ -27,6 +30,10 @@ class Phrase:
         self.time = 0
 
     def __iter__(self):
+        """
+        converts the phrase to an iterable containing events
+        :return: total time taken by this phrase
+        """
         self.time = 0
         for value in zip(self.p[PP.NOTE], self.p[PP.DUR], self.p[PP.PLAYEDDUR], self.p[PP.VOL], self.p[PP.LAG],
                          self.p[PP.TEMPO]):

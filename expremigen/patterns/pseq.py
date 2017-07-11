@@ -7,6 +7,9 @@ from expremigen.patterns.utils import flatten
 
 
 class Pseq(Pattern):
+    """
+    pattern that generates numbers one by one from a list
+    """
     def __init__(self, alist=None, repeats=sys.maxsize):
         super().__init__()
         if alist is None:

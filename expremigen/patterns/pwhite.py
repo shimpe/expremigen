@@ -5,6 +5,9 @@ from expremigen.patterns.pattern import Pattern
 
 
 class Pwhite(Pattern):
+    """
+    class to generate random numbers
+    """
     def __init__(self, lo=0, hi=1, repeats=sys.maxsize):
         super().__init__()
         self.lo = lo

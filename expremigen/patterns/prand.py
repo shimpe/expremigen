@@ -8,7 +8,16 @@ from expremigen.patterns.utils import random_permutation
 
 
 class Prand(Pattern):
+    """
+    Pattern used to draw random numbers from a list
+    (numbers may repeat themselves)
+    """
     def __init__(self, alist=None, repeats=sys.maxsize):
+        """
+        pattern that
+        :param alist: possible numbers
+        :param repeats: how many numbers to draw
+        """
         super().__init__()
         if alist is None:
             alist = []

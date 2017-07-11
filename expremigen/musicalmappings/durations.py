@@ -1,4 +1,7 @@
 class Durations:
+    """
+    a convenience class of note durations
+    """
     onehundredtwentyeighth = 1 / 128
     onehundredtwentyeighth_triplet = onehundredtwentyeighth * 2 / 3
     sixtyfourth = 1 / 64

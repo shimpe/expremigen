@@ -6,6 +6,9 @@ from expremigen.patterns.utils import flatten
 
 
 class Pconst(Pattern):
+    """
+    pattern that returns a given "constant" for "repeats" time
+    """
     def __init__(self, constant=0, repeats=sys.maxsize):
         super().__init__()
         self.constant = constant

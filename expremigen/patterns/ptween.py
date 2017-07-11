@@ -4,6 +4,9 @@ from expremigen.patterns.pattern import Pattern
 
 
 class Ptween(Pattern):
+    """
+    class to glue pyvectortween to expremigen
+    """
     def __init__(self, animation: Animation, birthframe=0, startframe=0, stopframe=0,
                  deathframe=0, noiseframe=None):
         super().__init__()
