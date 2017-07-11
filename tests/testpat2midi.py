@@ -22,7 +22,7 @@ class TestPat2Midi(unittest.TestCase):
         p = Phrase(properties)
         p2m = Pat2Midi()
         duration = p2m.add_phrase(p)
-        self.assertEqual(duration, 3 * Dur.quarter)
+        self.assertEqual(duration, 3 * 4 * Dur.quarter)
         duration2 = p2m.add_phrase(p, start_time=duration)
         # just adding a single phrase returns the duration of that phrase only
         self.assertEqual(duration, duration2)

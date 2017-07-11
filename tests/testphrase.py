@@ -22,7 +22,7 @@ class TestPhrase(unittest.TestCase):
         self.assertEqual(len(result), 1)
         self.assertEqual(result[0][PP.NOTE], n.lookup(Defaults.note))
         self.assertEqual(result[0][PP.VOL], Defaults.vol)
-        self.assertEqual(result[0][PP.DUR], Defaults.dur)
+        self.assertEqual(result[0][PP.DUR], 4 * Defaults.dur)
         self.assertEqual(result[0][PP.PLAYEDDUR], Defaults.playeddur)
         self.assertEqual(result[0][PP.LAG], Defaults.lag)
         self.assertEqual(result[0][PP.TEMPO], Defaults.tempo)
@@ -43,7 +43,7 @@ class TestPhrase(unittest.TestCase):
         self.assertEqual(len(result), 12)
         self.assertEqual(result[1][PP.NOTE], n.lookup("c#4"))
         self.assertEqual(result[5][PP.VOL], 100)
-        self.assertEqual(result[9][PP.DUR], 0.0625)
+        self.assertEqual(result[9][PP.DUR], 4 * 0.0625)
 
     def test_phrase2(self):
         n = Note2Midi()
@@ -70,8 +70,8 @@ class TestPhrase(unittest.TestCase):
             result.append(event)
         self.assertEqual(len(result), 9)
         # check that last note longer
-        self.assertEqual(result[7][PP.DUR], 1 / 4)
-        self.assertEqual(result[8][PP.DUR], 1)
+        self.assertEqual(result[7][PP.DUR], 4 * 1 / 4)
+        self.assertEqual(result[8][PP.DUR], 4 * 1)
         # check that volume increases then decreases
         self.assertLess(result[0][PP.VOL], result[4][PP.VOL])
         self.assertLess(result[8][PP.VOL], result[4][PP.VOL])

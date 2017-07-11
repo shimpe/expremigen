@@ -32,13 +32,13 @@ class Phrase:
                          self.p[PP.TEMPO]):
             if isinstance(value[0], Pchord) or value[0] != REST:  # 128 denotes a rest
                 yield {PP.NOTE: value[0],
-                       PP.DUR: value[1],
+                       PP.DUR: value[1] * 4, # convert from quarter note to beat
                        PP.PLAYEDDUR: value[2],
                        PP.VOL: int(value[3]),
                        PP.LAG: value[4],
                        PP.TEMPO: value[5]
                        }
-            self.time += value[1]
+            self.time += value[1] * 4 # convert from quarter note to beat
 
     def generated_duration(self):
         # only works as expected after you iterated over the phrase

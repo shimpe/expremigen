@@ -32,7 +32,7 @@ def add_melody(pat2mid, track, channel):
         PP.VOL: Ptween(swell_dim, 0, 0, len(notes), len(notes), None),
     }
     p = Phrase(properties)
-    pat2mid.set_tempo(120)
+    pat2mid.set_tempo(60)
     pat2mid.add_phrase(p, track=track, channel=channel, start_time=0)
     return pat2mid
 

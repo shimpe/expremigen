@@ -24,7 +24,7 @@ def create_phrase():
         # convert from note names to midi numbers
         PP.NOTE: Pseq(n.convert2(notes)),
         # last note is longer than the rest
-        PP.DUR: Pseq([Pconst(Dur.quarter, len(notes) - 1), Pconst(Dur.whole, 1)]),
+        PP.DUR: Pseq([Pconst(Dur.eighth, len(notes) - 1), Pconst(Dur.whole, 1)]),
         # animate staccato
         PP.PLAYEDDUR: Ptween(increasing_staccato, 0, 0, len(notes), len(notes)),
         # volume should linearly go up from mp to f, then go down from f to ppp as the phrase progresses

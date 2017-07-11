@@ -40,7 +40,7 @@ def create_phrase():
     dur = SequentialAnimation([legato_to_staccato, staccato_to_legato])
 
     # animate the tempo
-    tempo_slowdown = NumberAnimation(frm=100, to=60, tween=['easeOutQuad'])
+    tempo_slowdown = NumberAnimation(frm=120, to=80, tween=['easeOutQuad'])
 
     # play some random cadenza
     notes = n.convert2(
@@ -53,15 +53,15 @@ def create_phrase():
         PP.NOTE: Pseq(notes, 1),
         PP.VOL: Pconst(100),
         PP.PLAYEDDUR: Pconst(0.95),
-        PP.DUR: Pseq([Pconst(Dur.quarter_triplet, len(notes2) - 1), Pconst(Dur.whole, 1)], 2),
+        PP.DUR: Pseq([Pconst(Dur.sixteenth_triplet, len(notes2) - 1), Pconst(Dur.half, 1)], 2),
         PP.LAG: Pconst(0),
-        PP.TEMPO : Pconst(60)
+        PP.TEMPO : Pconst(120)
     }
     properties_rubato = {
         PP.NOTE: Pseq(notes, 1),
         PP.VOL: Ptween(vol, 0, 0, len(notes), len(notes), None),
         PP.PLAYEDDUR: Ptween(dur, 0, 0, len(notes), len(notes), None),
-        PP.DUR: Pseq([Pconst(Dur.quarter_triplet, len(notes2) - 1), Pconst(Dur.whole, 1)], 2),
+        PP.DUR: Pseq([Pconst(Dur.sixteenth_triplet, len(notes2) - 1), Pconst(Dur.half, 1)], 2),
         PP.LAG: Ptween(lag, 0, 0, len(notes), len(notes), None),
         PP.TEMPO: Ptween(tempo_slowdown, 0, 0, len(notes), len(notes), None)
     }
