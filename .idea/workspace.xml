@@ -2,10 +2,42 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a548a0b3-44ec-4944-9d6e-6d4749f7a078" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dictionaries/shimpe.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/pitchbendanimation.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/expremigen/io/midicontrolchanges.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/examples/pitchbendanimation.py" afterPath="$PROJECT_DIR$/examples/pitchbendanimation.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/examples/rubato.py" afterPath="$PROJECT_DIR$/examples/rubato.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/expremigen/io/constants.py" afterPath="$PROJECT_DIR$/expremigen/io/constants.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/expremigen/io/midicontrolchanges.py" afterPath="$PROJECT_DIR$/expremigen/io/midicontrolchanges.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/expremigen/io/pat2midi.py" afterPath="$PROJECT_DIR$/expremigen/io/pat2midi.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/expremigen/io/phrase.py" afterPath="$PROJECT_DIR$/expremigen/io/phrase.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/expremigen/patterns/padd.py" afterPath="$PROJECT_DIR$/expremigen/patterns/padd.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/expremigen/patterns/pattern.py" afterPath="$PROJECT_DIR$/expremigen/patterns/pattern.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/expremigen/patterns/pbinop.py" afterPath="$PROJECT_DIR$/expremigen/patterns/pbinop.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/expremigen/patterns/pchord.py" afterPath="$PROJECT_DIR$/expremigen/patterns/pchord.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/expremigen/patterns/pconst.py" afterPath="$PROJECT_DIR$/expremigen/patterns/pconst.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/expremigen/patterns/pexprand.py" afterPath="$PROJECT_DIR$/expremigen/patterns/pexprand.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/expremigen/patterns/pgeom.py" afterPath="$PROJECT_DIR$/expremigen/patterns/pgeom.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/expremigen/patterns/prand.py" afterPath="$PROJECT_DIR$/expremigen/patterns/prand.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/expremigen/patterns/pseq.py" afterPath="$PROJECT_DIR$/expremigen/patterns/pseq.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/expremigen/patterns/pseries.py" afterPath="$PROJECT_DIR$/expremigen/patterns/pseries.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/expremigen/patterns/pshuf.py" afterPath="$PROJECT_DIR$/expremigen/patterns/pshuf.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/expremigen/patterns/ptween.py" afterPath="$PROJECT_DIR$/expremigen/patterns/ptween.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/expremigen/patterns/pwhite.py" afterPath="$PROJECT_DIR$/expremigen/patterns/pwhite.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/expremigen/patterns/utils.py" afterPath="$PROJECT_DIR$/expremigen/patterns/utils.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/testgeom.py" afterPath="$PROJECT_DIR$/tests/testgeom.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/testnote2midi.py" afterPath="$PROJECT_DIR$/tests/testnote2midi.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/testpadd.py" afterPath="$PROJECT_DIR$/tests/testpadd.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/testpat2midi.py" afterPath="$PROJECT_DIR$/tests/testpat2midi.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/testpchord.py" afterPath="$PROJECT_DIR$/tests/testpchord.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/testpconst.py" afterPath="$PROJECT_DIR$/tests/testpconst.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/testpexprand.py" afterPath="$PROJECT_DIR$/tests/testpexprand.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/testphrase.py" afterPath="$PROJECT_DIR$/tests/testphrase.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/testphraseproperty.py" afterPath="$PROJECT_DIR$/tests/testphraseproperty.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/testprand.py" afterPath="$PROJECT_DIR$/tests/testprand.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/testpseq.py" afterPath="$PROJECT_DIR$/tests/testpseq.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/testpseries.py" afterPath="$PROJECT_DIR$/tests/testpseries.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/testpshuf.py" afterPath="$PROJECT_DIR$/tests/testpshuf.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/testptween.py" afterPath="$PROJECT_DIR$/tests/testptween.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/testpwhite.py" afterPath="$PROJECT_DIR$/tests/testpwhite.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -20,8 +52,8 @@
       <file leaf-file-name="phrase.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/expremigen/io/phrase.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="444">
+              <caret line="80" column="11" lean-forward="false" selection-start-line="80" selection-start-column="11" selection-end-line="80" selection-end-column="11" />
               <folding />
             </state>
           </provider>
@@ -30,30 +62,8 @@
       <file leaf-file-name="constants.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/expremigen/io/constants.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="28" column="13" lean-forward="false" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="testphraseproperty.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tests/testphraseproperty.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="11" column="19" lean-forward="false" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
-              <folding>
-                <element signature="e#0#15#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="testprand.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tests/testprand.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="19" selection-end-column="19" />
+            <state relative-caret-position="342">
+              <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -62,40 +72,48 @@
       <file leaf-file-name="testphrase.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tests/testphrase.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="82" column="0" lean-forward="true" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
+            <state relative-caret-position="1207">
+              <caret line="82" column="0" lean-forward="false" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pitchbendanimation.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="pitchbendanimation.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/examples/pitchbendanimation.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="153">
-              <caret line="9" column="22" lean-forward="false" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
-              <folding>
-                <element signature="e#0#56#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="midicontrolchanges.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/expremigen/io/midicontrolchanges.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="731">
-              <caret line="152" column="70" lean-forward="true" selection-start-line="152" selection-start-column="70" selection-end-line="152" selection-end-column="70" />
+              <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="testpconst.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tests/testpconst.py">
+      <file leaf-file-name="SequentialAnimation.py" pinned="false" current-in-tab="false">
+        <entry file="file:///usr/lib/python3.6/site-packages/vectortween/SequentialAnimation.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+            <state relative-caret-position="136">
+              <caret line="14" column="8" lean-forward="false" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="8" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="codecs.py" pinned="false" current-in-tab="false">
+        <entry file="file:///usr/lib/python3.6/codecs.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="168">
+              <caret line="308" column="0" lean-forward="false" selection-start-line="308" selection-start-column="0" selection-end-line="308" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="midicontrolchanges.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/expremigen/io/midicontrolchanges.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="438">
+              <caret line="154" column="39" lean-forward="false" selection-start-line="154" selection-start-column="39" selection-end-line="154" selection-end-column="39" />
               <folding />
             </state>
           </provider>
@@ -104,8 +122,8 @@
       <file leaf-file-name="pconst.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/expremigen/patterns/pconst.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="9" column="34" lean-forward="false" selection-start-line="9" selection-start-column="34" selection-end-line="9" selection-end-column="34" />
+            <state relative-caret-position="119">
+              <caret line="12" column="8" lean-forward="false" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="8" />
               <folding />
             </state>
           </provider>
@@ -114,11 +132,19 @@
       <file leaf-file-name="pat2midi.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/expremigen/io/pat2midi.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="76" column="17" lean-forward="false" selection-start-line="76" selection-start-column="17" selection-end-line="76" selection-end-column="17" />
-              <folding>
-                <element signature="e#0#29#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="404">
+              <caret line="89" column="58" lean-forward="false" selection-start-line="89" selection-start-column="58" selection-end-line="89" selection-end-column="58" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MidiFile.py" pinned="false" current-in-tab="false">
+        <entry file="jar:///usr/lib/python3.6/site-packages/MIDIUtil-1.1.4-py3.6.egg!/midiutil/MidiFile.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="261">
+              <caret line="580" column="0" lean-forward="false" selection-start-line="580" selection-start-column="0" selection-end-line="580" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -137,6 +163,21 @@
     <findStrings>
       <find>math</find>
       <find>math.inf</find>
+      <find>1</find>
+      <find>12</find>
+      <find>128</find>
+      <find>N</find>
+      <find>NO</find>
+      <find>NO_OF</find>
+      <find>NO_OF_</find>
+      <find>NO_OF_C</find>
+      <find>NO_OF_CO</find>
+      <find>NO_OF_CON</find>
+      <find>NO_OF_CONT</find>
+      <find>NO_OF_CONTRO</find>
+      <find>NO_OF_CONTROLL</find>
+      <find>NO_OF_CONTROLLER</find>
+      <find>NO_OF_CONTROLLERS</find>
     </findStrings>
     <replaceStrings>
       <replace>Ia</replace>
@@ -191,14 +232,14 @@
         <option value="$PROJECT_DIR$/expremigen/patterns/utils.py" />
         <option value="$PROJECT_DIR$/expremigen/patterns/pexprand.py" />
         <option value="$PROJECT_DIR$/expremigen/musicalmappings/tempo.py" />
-        <option value="$PROJECT_DIR$/expremigen/io/pat2midi.py" />
-        <option value="$PROJECT_DIR$/expremigen/io/phrase.py" />
         <option value="$PROJECT_DIR$/tests/testphraseproperty.py" />
-        <option value="$PROJECT_DIR$/expremigen/io/constants.py" />
         <option value="$PROJECT_DIR$/tests/testphrase.py" />
         <option value="$PROJECT_DIR$/examples/output/pitchbendanimation.py" />
-        <option value="$PROJECT_DIR$/examples/pitchbendanimation.py" />
         <option value="$PROJECT_DIR$/expremigen/io/midicontrolchanges.py" />
+        <option value="$PROJECT_DIR$/expremigen/io/constants.py" />
+        <option value="$PROJECT_DIR$/expremigen/io/phrase.py" />
+        <option value="$PROJECT_DIR$/expremigen/io/pat2midi.py" />
+        <option value="$PROJECT_DIR$/examples/pitchbendanimation.py" />
       </list>
     </option>
   </component>
@@ -406,25 +447,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.testphrase">
-    <configuration default="false" name="rubato" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/examples" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="expremigen" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/examples/rubato.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="Python.pitchbendanimation">
     <configuration default="false" name="singlephrase" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -492,6 +515,24 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="expremigen" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tests/testphrase.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="pitchbendanimation" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/examples" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="expremigen" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/examples/pitchbendanimation.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -579,19 +620,19 @@
     </configuration>
     <list size="6">
       <item index="0" class="java.lang.String" itemvalue="Python tests.Unittests in tests" />
-      <item index="1" class="java.lang.String" itemvalue="Python.rubato" />
-      <item index="2" class="java.lang.String" itemvalue="Python.singlephrase" />
-      <item index="3" class="java.lang.String" itemvalue="Python.dualphrase" />
-      <item index="4" class="java.lang.String" itemvalue="Python.testphraseproperty" />
-      <item index="5" class="java.lang.String" itemvalue="Python.testphrase" />
+      <item index="1" class="java.lang.String" itemvalue="Python.singlephrase" />
+      <item index="2" class="java.lang.String" itemvalue="Python.dualphrase" />
+      <item index="3" class="java.lang.String" itemvalue="Python.testphraseproperty" />
+      <item index="4" class="java.lang.String" itemvalue="Python.testphrase" />
+      <item index="5" class="java.lang.String" itemvalue="Python.pitchbendanimation" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.testphrase" />
-        <item index="1" class="java.lang.String" itemvalue="Python.testphraseproperty" />
-        <item index="2" class="java.lang.String" itemvalue="Python.dualphrase" />
-        <item index="3" class="java.lang.String" itemvalue="Python.singlephrase" />
-        <item index="4" class="java.lang.String" itemvalue="Python.rubato" />
+        <item index="0" class="java.lang.String" itemvalue="Python.pitchbendanimation" />
+        <item index="1" class="java.lang.String" itemvalue="Python.testphrase" />
+        <item index="2" class="java.lang.String" itemvalue="Python.testphraseproperty" />
+        <item index="3" class="java.lang.String" itemvalue="Python.dualphrase" />
+        <item index="4" class="java.lang.String" itemvalue="Python.singlephrase" />
       </list>
     </recent_temporary>
   </component>
@@ -656,10 +697,11 @@
     <frame x="0" y="0" width="1920" height="1044" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3036286" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30683032" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295838" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295838" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295838" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3295838" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -673,7 +715,6 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295838" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295838" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -688,41 +729,16 @@
           <line>29</line>
           <option name="timeStamp" value="6" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/tests/testphraseproperty.py</url>
-          <option name="timeStamp" value="15" />
-        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="16" />
+      <option name="time" value="30" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/tests/testpexprand.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/testpseries.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tests/testptween.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///usr/lib/python3.6/site-packages/vectortween/SequentialAnimation.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="14" column="8" lean-forward="false" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="8" />
         </state>
       </provider>
     </entry>
@@ -745,7 +761,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="295">
           <caret line="608" column="0" lean-forward="false" selection-start-line="608" selection-start-column="0" selection-end-line="608" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1000,36 +1015,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/tests/testphraseproperty.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
+        <state relative-caret-position="153">
           <caret line="11" column="19" lean-forward="false" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/expremigen/io/constants.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="28" column="13" lean-forward="false" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/expremigen/io/pat2midi.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="76" column="17" lean-forward="false" selection-start-line="76" selection-start-column="17" selection-end-line="76" selection-end-column="17" />
-          <folding>
-            <element signature="e#0#29#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/expremigen/io/phrase.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1042,18 +1029,74 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/expremigen/patterns/pconst.py">
+    <entry file="file://$PROJECT_DIR$/tests/testphrase.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="9" column="34" lean-forward="false" selection-start-line="9" selection-start-column="34" selection-end-line="9" selection-end-column="34" />
+        <state relative-caret-position="1207">
+          <caret line="82" column="0" lean-forward="false" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/testphrase.py">
+    <entry file="file://$PROJECT_DIR$/expremigen/io/constants.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="82" column="0" lean-forward="true" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
+        <state relative-caret-position="342">
+          <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/lib/python3.6/codecs.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="308" column="0" lean-forward="false" selection-start-line="308" selection-start-column="0" selection-end-line="308" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/expremigen/patterns/pconst.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="12" column="8" lean-forward="false" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/lib/python3.6/site-packages/vectortween/SequentialAnimation.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="14" column="8" lean-forward="false" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/expremigen/io/midicontrolchanges.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="438">
+          <caret line="154" column="39" lean-forward="false" selection-start-line="154" selection-start-column="39" selection-end-line="154" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///usr/lib/python3.6/site-packages/MIDIUtil-1.1.4-py3.6.egg!/midiutil/MidiFile.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="261">
+          <caret line="580" column="0" lean-forward="false" selection-start-line="580" selection-start-column="0" selection-end-line="580" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/expremigen/io/phrase.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="444">
+          <caret line="80" column="11" lean-forward="false" selection-start-line="80" selection-start-column="11" selection-end-line="80" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/expremigen/io/pat2midi.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="404">
+          <caret line="89" column="58" lean-forward="false" selection-start-line="89" selection-start-column="58" selection-end-line="89" selection-end-column="58" />
           <folding />
         </state>
       </provider>
@@ -1061,17 +1104,7 @@
     <entry file="file://$PROJECT_DIR$/examples/pitchbendanimation.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
-          <caret line="9" column="22" lean-forward="false" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
-          <folding>
-            <element signature="e#0#56#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/expremigen/io/midicontrolchanges.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="731">
-          <caret line="152" column="70" lean-forward="true" selection-start-line="152" selection-start-column="70" selection-end-line="152" selection-end-column="70" />
+          <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
           <folding />
         </state>
       </provider>

@@ -1,7 +1,8 @@
 from midiutil import MIDIFile
 
-from expremigen.io.constants import Defaults, NO_OF_CONTROLLERS, NO_OF_TRACKS
+from expremigen.io.constants import Defaults, NO_OF_CONTROLLERS, NO_OF_OFFICIAL_CONTROLLERS, NO_OF_TRACKS
 from expremigen.io.constants import PhraseProperty as PP
+from expremigen.io.midicontrolchanges import MidiControlChanges
 from expremigen.io.phrase import Phrase
 from expremigen.patterns.pchord import Pchord
 
@@ -10,6 +11,7 @@ class Pat2Midi:
     """
     class to convert Pattern to Midi
     """
+
     def __init__(self, num_tracks: int = 1, remove_duplicates: bool = True, deinterleave: bool = True,
                  file_format: int = 1):
         """
@@ -23,7 +25,7 @@ class Pat2Midi:
                                  adjust_origin=False, file_format=file_format)
         self.last_set_tempo = [Defaults.tempo for _ in range(16)]  # set every track to default tempo
         self.set_tempo(Defaults.tempo, 0)
-        self.last_set_cc = [[None for _ in range(NO_OF_CONTROLLERS)] for _ in range(NO_OF_TRACKS) ]
+        self.last_set_cc = [[None for _ in range(NO_OF_CONTROLLERS)] for _ in range(NO_OF_TRACKS)]
 
     def set_tempo(self, tempo=100, time=0):
         """
@@ -73,13 +75,23 @@ class Pat2Midi:
                         annotation=None)
             # handle controller events (only if they changed since last time)
             else:
-                for cc in range(128):
+                for cc in range(NO_OF_OFFICIAL_CONTROLLERS):
                     if PP.CtrlDurKey(cc) in event:
+                        time = start_time + phrase.generated_ctrl_duration(cc)
+                        value = event[PP.CtrlValKey(cc)]
                         self.midiFile.addControllerEvent(track=track,
                                                          channel=channel,
-                                                         time=event[PP.CtrlDurKey(cc)],
+                                                         time=time,
                                                          controller_number=cc,
-                                                         parameter=event[PP.CtrlValKey(cc)])
+                                                         parameter=value)
+                for cc in [MidiControlChanges.PitchWheel]:
+                    if PP.CtrlDurKey(cc) in event:
+                        time = start_time + phrase.generated_ctrl_duration(cc)
+                        pwvalue = event[PP.CtrlValKey(cc)]
+                        self.midiFile.addPitchWheelEvent(track=track,
+                                                         channel=channel,
+                                                         time=time,
+                                                         pitchWheelValue=pwvalue)
 
         return phrase.generated_duration()
 

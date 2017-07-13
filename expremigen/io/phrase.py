@@ -1,4 +1,5 @@
-from expremigen.io.constants import PhraseProperty as PP, Defaults
+from expremigen.io.constants import PhraseProperty as PP, Defaults, NO_OF_CONTROLLERS, NO_OF_OFFICIAL_CONTROLLERS
+from expremigen.io.midicontrolchanges import MidiControlChanges as MCC
 from expremigen.musicalmappings.constants import REST
 from expremigen.musicalmappings.note2midi import Note2Midi
 from expremigen.patterns.pchord import Pchord
@@ -18,6 +19,7 @@ class Phrase:
         PhraseProperty.CtrlDur(CCNumber)
         PhraseProperty.CtrlVal(CCNumber)
     """
+
     def __init__(self, properties: dict = None):
         self.n2m = Note2Midi()
         if properties is None:
@@ -37,7 +39,7 @@ class Phrase:
             self.p[PP.TEMPO] = Pconst(Defaults.tempo)
 
         self.note_time = 0
-        self.ctrl_time = [0 for _ in range(128)]
+        self.ctrl_time = [0 for _ in range(NO_OF_CONTROLLERS)]
 
     def __iter__(self):
         """
@@ -46,7 +48,7 @@ class Phrase:
         :return: total time taken by this phrase
         """
         self.note_time = 0
-        self.ctrl_time = [0 for _ in range(128)]
+        self.ctrl_time = [0 for _ in range(NO_OF_CONTROLLERS)]
 
         # note events are basically governed by the DUR key
         for value in zip(self.p[PP.NOTE], self.p[PP.DUR], self.p[PP.PLAYEDDUR], self.p[PP.VOL], self.p[PP.LAG],
@@ -54,26 +56,37 @@ class Phrase:
             if isinstance(value[0], Pchord) or value[0] != REST:  # 128 denotes a rest
                 yield {
                     PP.NOTE: value[0],
-                    PP.DUR: value[1] * 4, # convert from quarter note to beat
+                    PP.DUR: value[1] * 4,  # convert from quarter note to beat
                     PP.PLAYEDDUR: value[2],
                     PP.VOL: int(value[3]),
                     PP.LAG: value[4],
                     PP.TEMPO: value[5]
-                    }
-            self.note_time += value[1] * 4 # convert from quarter note to beat
+                }
+            self.note_time += value[1] * 4  # convert from quarter note to beat
 
         # control change events can have their own timeline (e.g. this allows for pitchbend or modwheel variations
         # while notes are playing)
-        for cc in range(128):
+        for cc in range(NO_OF_OFFICIAL_CONTROLLERS):
             if PP.CtrlDurKey(cc) in self.p and PP.CtrlValKey(cc) in self.p:
                 for value in zip(self.p[PP.CtrlDurKey(cc)], self.p[PP.CtrlValKey(cc)]):
                     yield {
-                        PP.CtrlDurKey(cc) : value[0] * 4,
-                        PP.CtrlValKey(cc) : value[1]
+                        PP.CtrlDurKey(cc): value[0] * 4,
+                        PP.CtrlValKey(cc): value[1]
                     }
-                self.ctrl_time[cc] += value[0] * 4
+                    self.ctrl_time[cc] += value[0] * 4
+        for cc in [MCC.PitchWheel]:
+            if PP.CtrlDurKey(cc) in self.p and PP.CtrlValKey(cc) in self.p:
+                for value in zip(self.p[PP.CtrlDurKey(cc)], self.p[PP.CtrlValKey(cc)]):
+                    yield {
+                        PP.CtrlDurKey(cc): value[0] * 4,
+                        PP.CtrlValKey(cc): int(value[1])
+                    }
+                    self.ctrl_time[cc] += value[0] * 4
 
     def generated_duration(self):
         # only works as expected after you iterated over the phrase already
         # timeline of control change events is taken into account as well (time will tell if this makes sense?)
-        return max([self.note_time, max(self.ctrl_time)])
+        return self.note_time
+
+    def generated_ctrl_duration(self, CCValue):
+        return self.ctrl_time[CCValue]

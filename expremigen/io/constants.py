@@ -1,5 +1,7 @@
-NO_OF_CONTROLLERS = 128
+NO_OF_OFFICIAL_CONTROLLERS = 128
+NO_OF_CONTROLLERS = 129
 NO_OF_TRACKS = 16
+
 
 class Defaults:
     """
@@ -31,4 +33,3 @@ class PhraseProperty:
     @classmethod
     def CtrlValKey(cls, CCNumber):
         return f"V{CCNumber}"
-
