@@ -12,6 +12,7 @@ class Prand(Pattern):
     Pattern used to draw random numbers from a list
     (numbers may repeat themselves)
     """
+
     def __init__(self, alist=None, repeats=sys.maxsize):
         """
         pattern that

@@ -6,6 +6,7 @@ class Pgeom(Pattern):
     """
     pattern that generates numbers in geometric series, e.g. Pgeom(1, 2, 5) -> 1, 2, 4, 8, 16
     """
+
     def __init__(self, frm=0, factor=1, length=5):
         """
 

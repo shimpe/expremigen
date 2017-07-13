@@ -8,6 +8,7 @@ class Pseries(Pattern):
     """
     pattern to generate an arithmetic series, e.g. Pseries(0, 1, 5) -> 0, 1, 2, 3, 4
     """
+
     def __init__(self, frm=0, step=1, length=5):
         super().__init__()
         self.frm = frm

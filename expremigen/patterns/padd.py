@@ -10,6 +10,7 @@ class Padd(Pbinop):
     """
     pattern that returns the sum of two other patterns
     """
+
     def __init__(self, a: Pattern, b: Pattern):
         super().__init__(a, b)
 

@@ -84,11 +84,11 @@ class TestPhrase(unittest.TestCase):
     def test_cc(self):
         properties = {
             PP.NOTE: Pconst(67, 5),
-            PP.DUR : Pconst(1/2, 5),
-            "D35" : Pconst(1/4, 10),
-            "V35" : Pseq([1,2,3,4,5,6,7,8,9,10], 10),
-            "D34" : Pconst(1/8,20),
-            "V34" : Pseq([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20],20)
+            PP.DUR: Pconst(1 / 2, 5),
+            "D35": Pconst(1 / 4, 10),
+            "V35": Pseq([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 10),
+            "D34": Pconst(1 / 8, 20),
+            "V34": Pseq([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20], 20)
         }
         p = Phrase(properties)
         result = []
@@ -96,9 +96,10 @@ class TestPhrase(unittest.TestCase):
             result.append(event)
         self.assertEqual(len(result), 5 + 10 + 20)
         self.assertEqual(result[-2]["V35"], 9)
-        self.assertEqual(result[-2]["D35"], 4 * 1/4)
+        self.assertEqual(result[-2]["D35"], 4 * 1 / 4)
         self.assertEqual(result[-12]["V34"], 19)
-        self.assertEqual(result[-12]["D34"], 4 * 1/8)
+        self.assertEqual(result[-12]["D34"], 4 * 1 / 8)
+
 
 if __name__ == '__main__':
     unittest.main()

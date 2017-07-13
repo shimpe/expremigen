@@ -7,6 +7,7 @@ class Pbinop(Pattern, metaclass=abc.ABCMeta):
     """
     abstract base class for patterns that rely on two patterns
     """
+
     def __init__(self, a: Pattern, b: Pattern):
         super().__init__()
         self.a = a

@@ -55,7 +55,7 @@ def create_phrase():
         PP.PLAYEDDUR: Pconst(0.95),
         PP.DUR: Pseq([Pconst(Dur.sixteenth_triplet, len(notes2) - 1), Pconst(Dur.half, 1)], 2),
         PP.LAG: Pconst(0),
-        PP.TEMPO : Pconst(120)
+        PP.TEMPO: Pconst(120)
     }
     properties_rubato = {
         PP.NOTE: Pseq(notes, 1),
@@ -67,7 +67,7 @@ def create_phrase():
     }
 
     ph = Phrase(properties_plain)
-    ph2= Phrase(properties_rubato)
+    ph2 = Phrase(properties_rubato)
     p.add_phrases([ph, ph2], 0, 0, 0)
 
     p.write(outputfile)

@@ -9,6 +9,7 @@ class Pexprand(Pattern):
     """
     pattern that returns random numbers with a uniform logarithmic distribution
     """
+
     def __init__(self, lo=1, hi=10, repeats=sys.maxsize):
         """
 
