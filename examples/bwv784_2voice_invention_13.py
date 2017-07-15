@@ -118,17 +118,17 @@ def play_bach():
     # upper voice
     uppervoice = []
     uppervoice_fragments = [
-        ["l2s", "r_16 e4 a4 c5 b4 e4 b4 d5 c5_8", [Dyn.f, Dyn.ff]],
+        ["l2s", "r_16 e4 a c5 b4 e b d5 c_8", [Dyn.f, Dyn.ff]],
         ["s2s", "e5_8 g#4 e5 a4_16", [Dyn.ff, Dyn.f]],
-        ["l2s", "e4_16 a4 c5 b4 e4 b4 d5 c5_8", [Dyn.f, Dyn.ff]],
+        ["l2s", "e4_16 a4 c5 b4 e b d5 c_8", [Dyn.f, Dyn.ff]],
         ["s2s", "a4_8 r_4", [Dyn.f]],
-        ["l2s", "r_16 e5 c5 e5 a4 c5 e4 g4 f4_8", [Dyn.p, Dyn.ff]],
-        ["s2l", "a4_8 d5 f5_8.", [Dyn.f, Dyn.p]],
-        ["s2l", "d5_16 b4 d5 g4 b4 d4 f4 e4_8", [Dyn.p, Dyn.ff]],
-        ["s2l", "g4 c5 e5_8.", [Dyn.f, Dyn.p]],
+        ["l2s", "r_16 e5 c e a4 c5 e4 g f_8", [Dyn.p, Dyn.ff]],
+        ["s2l", "a4_8 d5 f_8.", [Dyn.f, Dyn.p]],
+        ["s2l", "d5_16 b4 d5 g4 b d f e_8", [Dyn.p, Dyn.ff]],
+        ["s2l", "g4 c5 e_8.", [Dyn.f, Dyn.p]],
         ["l2s", "c5_16 a4 c5 f4_8", [Dyn.p, Dyn.ff]],
-        ["s2l", "d5_8. b4_16 g4 b4 e4_8", [Dyn.p, Dyn.ff]],
-        ["l2s", "c5_8. a4_16 f4 a4 d4_8", [Dyn.p, Dyn.ff]],
+        ["s2l", "d5_8. b4_16 g b e_8", [Dyn.p, Dyn.ff]],
+        ["l2s", "c5_8. a4_16 f a d_8", [Dyn.p, Dyn.ff]],
         ["s2s", "b4_8 c5_8 r_8 r_4", [Dyn.ff]]
     ]
     for fragment in uppervoice_fragments:
@@ -138,15 +138,15 @@ def play_bach():
 
     lowervoice = []
     lowervoice_fragments = [
-        ["s2s", "a2_8", [Dyn.f]],
-        ["l2s", "a3_4 g#3_8 a3_16", [Dyn.f, Dyn.mf, Dyn.f]],
-        ["l2s", "e3_16 a3 c4 b3 e3 b3 d4 c4_8", [Dyn.f, Dyn.ff]],
-        ["s2s", "a3_8 g#3 e3 a3_16", [Dyn.ff, Dyn.f]],
-        ["l2s", "e3_16 a3 c4 b3 e3 b3 d4 c4_8", [Dyn.f, Dyn.ff]],
+        ["s2s", "a2_8", [Dyn.mf]],
+        ["l2s", "a3_4 g#_8 a_16", [Dyn.f, Dyn.mf, Dyn.f]],
+        ["l2s", "e3_16 a c4 b3 e b d4 c_8", [Dyn.f, Dyn.ff]],
+        ["s2s", "a3_8 g# e a_16", [Dyn.ff, Dyn.f]],
+        ["l2s", "e3_16 a c4 b3 e b d4 c_8", [Dyn.f, Dyn.ff]],
         ["s2s", "a3_8 c4 a3 d4_16", [Dyn.ff, Dyn.f]],
-        ["l2s", "a3_16 f3 a3 d3 f3 a2 c3 b2_8", [Dyn.f, Dyn.p]],
-        ["s2l", "d3_8 g3 b3_8.", [Dyn.p, Dyn.f]],
-        ["l2s", "g3_16 e3 g3 c3 e3 g2 b2 a2_8", [Dyn.f, Dyn.p]]
+        ["l2s", "a3_16 f a d f a2 c3 b2_8", [Dyn.f, Dyn.p]],
+        ["s2l", "d3_8 g b_8.", [Dyn.p, Dyn.f]],
+        ["l2s", "g3_16 e g c e g2 b a_8", [Dyn.f, Dyn.p]]
     ]
     for fragment in lowervoice_fragments:
         lowervoice.append(ff(type=fragment[0],

@@ -2,39 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a548a0b3-44ec-4944-9d6e-6d4749f7a078" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/bwv784_2voice_invention_13.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/expremigen/musicalmappings/nanonotation.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/testnanonotation.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/examples/pitchbendanimation.py" afterPath="$PROJECT_DIR$/examples/pitchbendanimation.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/examples/rubato.py" afterPath="$PROJECT_DIR$/examples/rubato.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/expremigen/io/pat2midi.py" afterPath="$PROJECT_DIR$/expremigen/io/pat2midi.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/expremigen/patterns/padd.py" afterPath="$PROJECT_DIR$/expremigen/patterns/padd.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/expremigen/patterns/pbinop.py" afterPath="$PROJECT_DIR$/expremigen/patterns/pbinop.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/expremigen/patterns/pconst.py" afterPath="$PROJECT_DIR$/expremigen/patterns/pconst.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/expremigen/patterns/pexprand.py" afterPath="$PROJECT_DIR$/expremigen/patterns/pexprand.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/expremigen/patterns/prand.py" afterPath="$PROJECT_DIR$/expremigen/patterns/prand.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/expremigen/patterns/pseq.py" afterPath="$PROJECT_DIR$/expremigen/patterns/pseq.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/expremigen/patterns/pseries.py" afterPath="$PROJECT_DIR$/expremigen/patterns/pseries.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/expremigen/patterns/pshuf.py" afterPath="$PROJECT_DIR$/expremigen/patterns/pshuf.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/expremigen/patterns/ptween.py" afterPath="$PROJECT_DIR$/expremigen/patterns/ptween.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/expremigen/patterns/pwhite.py" afterPath="$PROJECT_DIR$/expremigen/patterns/pwhite.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/expremigen/patterns/utils.py" afterPath="$PROJECT_DIR$/expremigen/patterns/utils.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/testgeom.py" afterPath="$PROJECT_DIR$/tests/testgeom.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/testnote2midi.py" afterPath="$PROJECT_DIR$/tests/testnote2midi.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/testpadd.py" afterPath="$PROJECT_DIR$/tests/testpadd.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/testpat2midi.py" afterPath="$PROJECT_DIR$/tests/testpat2midi.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/testpchord.py" afterPath="$PROJECT_DIR$/tests/testpchord.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/testpconst.py" afterPath="$PROJECT_DIR$/tests/testpconst.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/testpexprand.py" afterPath="$PROJECT_DIR$/tests/testpexprand.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/testphrase.py" afterPath="$PROJECT_DIR$/tests/testphrase.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/testphraseproperty.py" afterPath="$PROJECT_DIR$/tests/testphraseproperty.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/testprand.py" afterPath="$PROJECT_DIR$/tests/testprand.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/testpseq.py" afterPath="$PROJECT_DIR$/tests/testpseq.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/testpseries.py" afterPath="$PROJECT_DIR$/tests/testpseries.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/testpshuf.py" afterPath="$PROJECT_DIR$/tests/testpshuf.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/testptween.py" afterPath="$PROJECT_DIR$/tests/testptween.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/testpwhite.py" afterPath="$PROJECT_DIR$/tests/testpwhite.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/examples/output/bwv784_2voice_invention_13.mid" afterPath="$PROJECT_DIR$/examples/output/bwv784_2voice_invention_13.mid" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/examples/bwv784_2voice_invention_13.py" afterPath="$PROJECT_DIR$/examples/bwv784_2voice_invention_13.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/expremigen/musicalmappings/nanonotation.py" afterPath="$PROJECT_DIR$/expremigen/musicalmappings/nanonotation.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/testnanonotation.py" afterPath="$PROJECT_DIR$/tests/testnanonotation.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -46,21 +17,23 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="bwv784_2voice_invention_13.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="bwv784_2voice_invention_13.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/examples/bwv784_2voice_invention_13.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="489">
-              <caret line="147" column="21" lean-forward="false" selection-start-line="147" selection-start-column="21" selection-end-line="147" selection-end-column="21" />
-              <folding />
+            <state relative-caret-position="353">
+              <caret line="139" column="28" lean-forward="true" selection-start-line="139" selection-start-column="28" selection-end-line="139" selection-end-column="28" />
+              <folding>
+                <element signature="e#0#25#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="nanonotation.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/expremigen/musicalmappings/nanonotation.py">
+      <file leaf-file-name="testnanonotation.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tests/testnanonotation.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="15" column="39" lean-forward="false" selection-start-line="15" selection-start-column="39" selection-end-line="15" selection-end-column="39" />
+            <state relative-caret-position="289">
+              <caret line="20" column="50" lean-forward="false" selection-start-line="20" selection-start-column="50" selection-end-line="20" selection-end-column="50" />
               <folding />
             </state>
           </provider>
@@ -154,10 +127,10 @@
         <option value="$PROJECT_DIR$/expremigen/io/constants.py" />
         <option value="$PROJECT_DIR$/expremigen/io/phrase.py" />
         <option value="$PROJECT_DIR$/examples/pitchbendanimation.py" />
-        <option value="$PROJECT_DIR$/tests/testnanonotation.py" />
         <option value="$PROJECT_DIR$/expremigen/io/pat2midi.py" />
-        <option value="$PROJECT_DIR$/examples/bwv784_2voice_invention_13.py" />
         <option value="$PROJECT_DIR$/expremigen/musicalmappings/nanonotation.py" />
+        <option value="$PROJECT_DIR$/tests/testnanonotation.py" />
+        <option value="$PROJECT_DIR$/examples/bwv784_2voice_invention_13.py" />
       </list>
     </option>
   </component>
@@ -254,43 +227,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="patterns" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="expremigen" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="expremigen" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="expremigen" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="musicalmappings" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="expremigen" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="expremigen" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="expremigen" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="io" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -348,24 +285,6 @@
     </option>
   </component>
   <component name="RunManager" selected="Python.bwv784_2voice_invention_13">
-    <configuration default="false" name="testphraseproperty" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="expremigen" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tests/testphraseproperty.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <method />
-    </configuration>
     <configuration default="false" name="testphrase" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -436,6 +355,21 @@
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="Unittests for testnanonotation.TestNanoNotation.test_octaves" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="expremigen" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;testnanonotation.TestNanoNotation.test_octaves&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method />
     </configuration>
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
@@ -520,19 +454,19 @@
     </configuration>
     <list size="6">
       <item index="0" class="java.lang.String" itemvalue="Python tests.Unittests in tests" />
-      <item index="1" class="java.lang.String" itemvalue="Python.testphraseproperty" />
-      <item index="2" class="java.lang.String" itemvalue="Python.testphrase" />
-      <item index="3" class="java.lang.String" itemvalue="Python.pitchbendanimation" />
-      <item index="4" class="java.lang.String" itemvalue="Python.bwv784_2voice_invention_13" />
-      <item index="5" class="java.lang.String" itemvalue="Python.testnanonotation" />
+      <item index="1" class="java.lang.String" itemvalue="Python.testphrase" />
+      <item index="2" class="java.lang.String" itemvalue="Python.pitchbendanimation" />
+      <item index="3" class="java.lang.String" itemvalue="Python.bwv784_2voice_invention_13" />
+      <item index="4" class="java.lang.String" itemvalue="Python.testnanonotation" />
+      <item index="5" class="java.lang.String" itemvalue="Python tests.Unittests for testnanonotation.TestNanoNotation.test_octaves" />
     </list>
     <recent_temporary>
       <list size="5">
         <item index="0" class="java.lang.String" itemvalue="Python.bwv784_2voice_invention_13" />
-        <item index="1" class="java.lang.String" itemvalue="Python.testnanonotation" />
-        <item index="2" class="java.lang.String" itemvalue="Python.pitchbendanimation" />
-        <item index="3" class="java.lang.String" itemvalue="Python.testphrase" />
-        <item index="4" class="java.lang.String" itemvalue="Python.testphraseproperty" />
+        <item index="1" class="java.lang.String" itemvalue="Python tests.Unittests for testnanonotation.TestNanoNotation.test_octaves" />
+        <item index="2" class="java.lang.String" itemvalue="Python.testnanonotation" />
+        <item index="3" class="java.lang.String" itemvalue="Python.pitchbendanimation" />
+        <item index="4" class="java.lang.String" itemvalue="Python.testphrase" />
       </list>
     </recent_temporary>
   </component>
@@ -553,23 +487,14 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Unittests_in_tests - 2017.07.11 at 08h 16m 40s.xml">
-      <configuration name="Unittests in tests" configurationId="tests" />
+    <history-entry file="Unittests_for_testnanonotation_TestNanoNotation_test_octaves - 2017.07.15 at 22h 20m 22s.xml">
+      <configuration name="Unittests for testnanonotation.TestNanoNotation.test_octaves" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_tests - 2017.07.11 at 08h 17m 05s.xml">
-      <configuration name="Unittests in tests" configurationId="tests" />
+    <history-entry file="Unittests_for_testnanonotation_TestNanoNotation_test_octaves - 2017.07.15 at 22h 22m 45s.xml">
+      <configuration name="Unittests for testnanonotation.TestNanoNotation.test_octaves" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_tests - 2017.07.11 at 08h 17m 19s.xml">
-      <configuration name="Unittests in tests" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_tests - 2017.07.11 at 08h 17m 33s.xml">
-      <configuration name="Unittests in tests" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_tests - 2017.07.11 at 08h 17m 51s.xml">
-      <configuration name="Unittests in tests" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_tests - 2017.07.11 at 08h 18m 33s.xml">
-      <configuration name="Unittests in tests" configurationId="tests" />
+    <history-entry file="Unittests_for_testnanonotation_TestNanoNotation_test_octaves - 2017.07.15 at 22h 22m 47s.xml">
+      <configuration name="Unittests for testnanonotation.TestNanoNotation.test_octaves" configurationId="tests" />
     </history-entry>
     <history-entry file="Unittests_in_tests - 2017.07.11 at 21h 28m 07s.xml">
       <configuration name="Unittests in tests" configurationId="tests" />
@@ -581,6 +506,15 @@
       <configuration name="Unittests in tests" configurationId="tests" />
     </history-entry>
     <history-entry file="Unittests_in_tests - 2017.07.11 at 23h 49m 32s.xml">
+      <configuration name="Unittests in tests" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_tests - 2017.07.15 at 22h 22m 58s.xml">
+      <configuration name="Unittests in tests" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_tests - 2017.07.15 at 22h 23m 46s.xml">
+      <configuration name="Unittests in tests" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_tests - 2017.07.15 at 22h 25m 50s.xml">
       <configuration name="Unittests in tests" configurationId="tests" />
     </history-entry>
   </component>
@@ -595,12 +529,13 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1044" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31590182" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31590182" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295838" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3295838" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295838" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295838" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3295838" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -628,8 +563,13 @@
           <line>29</line>
           <option name="timeStamp" value="6" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/expremigen/musicalmappings/nanonotation.py</url>
+          <line>22</line>
+          <option name="timeStamp" value="33" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="33" />
+      <option name="time" value="34" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -931,13 +871,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="600" column="0" lean-forward="false" selection-start-line="600" selection-start-column="0" selection-end-line="600" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/testnanonotation.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -982,19 +915,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/examples/bwv784_2voice_invention_13.py">
+    <entry file="file://$PROJECT_DIR$/expremigen/musicalmappings/nanonotation.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="489">
-          <caret line="147" column="21" lean-forward="false" selection-start-line="147" selection-start-column="21" selection-end-line="147" selection-end-column="21" />
+        <state relative-caret-position="282">
+          <caret line="31" column="39" lean-forward="false" selection-start-line="31" selection-start-column="39" selection-end-line="31" selection-end-column="39" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/testnanonotation.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="20" column="50" lean-forward="false" selection-start-line="20" selection-start-column="50" selection-end-line="20" selection-end-column="50" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/expremigen/musicalmappings/nanonotation.py">
+    <entry file="file://$PROJECT_DIR$/examples/bwv784_2voice_invention_13.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="15" column="39" lean-forward="false" selection-start-line="15" selection-start-column="39" selection-end-line="15" selection-end-column="39" />
-          <folding />
+        <state relative-caret-position="353">
+          <caret line="139" column="28" lean-forward="true" selection-start-line="139" selection-start-column="28" selection-end-line="139" selection-end-column="28" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
