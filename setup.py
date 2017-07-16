@@ -4,7 +4,7 @@ setup(
     name='expremigen',
     version='0.0.1',
     packages=['tests', 'expremigen', 'expremigen.io', 'expremigen.patterns', 'expremigen.musicalmappings'],
-    install_requires=['vectortween', 'MIDIUtil'],
+    install_requires=['vectortween', 'MIDIUtil', 'textX'],
     url='https://github.com/shimpe/expremigen',
     license='GPL v3',
     author='stefaan himpe',

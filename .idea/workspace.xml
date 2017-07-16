@@ -2,16 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a548a0b3-44ec-4944-9d6e-6d4749f7a078" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/expremigen/mispel/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/expremigen/mispel/exception.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/expremigen/mispel/mispel.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/testmispel.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/examples/output/bwv784_2voice_invention_13.mid" afterPath="$PROJECT_DIR$/examples/output/bwv784_2voice_invention_13.mid" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/examples/bwv784_2voice_invention_13.py" afterPath="$PROJECT_DIR$/examples/bwv784_2voice_invention_13.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/expremigen/io/constants.py" afterPath="$PROJECT_DIR$/expremigen/io/constants.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/expremigen/musicalmappings/dynamics.py" afterPath="$PROJECT_DIR$/expremigen/musicalmappings/dynamics.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/expremigen/musicalmappings/nanonotation.py" afterPath="$PROJECT_DIR$/expremigen/musicalmappings/nanonotation.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/setup.py" afterPath="$PROJECT_DIR$/setup.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -87,7 +78,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mispel.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="mispel.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/expremigen/mispel/mispel.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-197">
@@ -95,6 +86,16 @@
               <folding>
                 <element signature="e#0#46#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="setup.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/setup.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="6" column="55" lean-forward="false" selection-start-line="6" selection-start-column="55" selection-end-line="6" selection-end-column="55" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -114,16 +115,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="34">
               <caret line="2" column="41" lean-forward="false" selection-start-line="2" selection-start-column="41" selection-end-line="2" selection-end-column="41" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="exception.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/expremigen/mispel/exception.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="16" lean-forward="false" selection-start-line="0" selection-start-column="16" selection-end-line="0" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -186,7 +177,6 @@
         <option value="$PROJECT_DIR$/tests/testpat2mid.py" />
         <option value="$PROJECT_DIR$/tests/testnote2midi.py" />
         <option value="$PROJECT_DIR$/tests/testpseq.py" />
-        <option value="$PROJECT_DIR$/setup.py" />
         <option value="$PROJECT_DIR$/tests/testpchord.py" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/examples/singlephrase.py" />
@@ -228,6 +218,7 @@
         <option value="$PROJECT_DIR$/expremigen/musicalmappings/dynamics.py" />
         <option value="$PROJECT_DIR$/tests/testmispel.py" />
         <option value="$PROJECT_DIR$/expremigen/mispel/mispel.py" />
+        <option value="$PROJECT_DIR$/setup.py" />
       </list>
     </option>
   </component>
@@ -720,13 +711,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/examples/dualphrase.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/expremigen/musicalmappings/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1096,6 +1080,14 @@
           <folding>
             <element signature="e#0#46#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/setup.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="55" lean-forward="false" selection-start-line="6" selection-start-column="55" selection-end-line="6" selection-end-column="55" />
+          <folding />
         </state>
       </provider>
     </entry>
