@@ -13,6 +13,7 @@ class Defaults:
     lag = 0
     vol = 70
     tempo = 100
+    octave = "4"
 
 
 class PhraseProperty:

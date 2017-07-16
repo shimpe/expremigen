@@ -146,7 +146,14 @@ def play_bach():
         ["s2s", "a3_8 c4 a3 d4_16", [Dyn.ff, Dyn.f]],
         ["l2s", "a3_16 f a d f a2 c3 b2_8", [Dyn.f, Dyn.p]],
         ["s2l", "d3_8 g b_8.", [Dyn.p, Dyn.f]],
-        ["l2s", "g3_16 e g c e g2 b a_8", [Dyn.f, Dyn.p]]
+        ["l2s", "g3_16 e g c e g2 b a_8", [Dyn.f, Dyn.p]],
+        ["s2s", "c3_8", [Dyn.mf]],
+        ["l2s", "d3_16 f b2 d3 g2_8", [Dyn.mf, Dyn.f]],
+        ["s2s", "b2_8", [Dyn.f]],
+        ["l2s", "c3_16 e a2 c3 f2_8", [Dyn.f, Dyn.p]],
+        ["s2s", "d2_8 g2_16", [Dyn.p, Dyn.mp]],
+        ["l2s", "g3_16 f g c", [Dyn.mp, Dyn.mf]],
+        ["l2s", "g3_16 c4 e d g3 d4 f e_8", [Dyn.mf, Dyn.f]]
     ]
     for fragment in lowervoice_fragments:
         lowervoice.append(ff(type=fragment[0],
