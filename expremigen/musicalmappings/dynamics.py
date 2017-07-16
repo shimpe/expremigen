@@ -13,3 +13,24 @@ class Dynamics:
     ff = 110
     fff = 120
     ffff = 127
+
+    @classmethod
+    def from_string(cls, thestring):
+        lut = {
+            'ppppp': Dynamics.ppppp,
+            'pppp': Dynamics.pppp,
+            'ppp': Dynamics.ppp,
+            'pp': Dynamics.pp,
+            'p': Dynamics.p,
+            'mp': Dynamics.mp,
+            'mf': Dynamics.mf,
+            'f': Dynamics.f,
+            'ff': Dynamics.ff,
+            'fff': Dynamics.fff,
+            'ffff': Dynamics.ffff
+        }
+        if thestring in lut:
+            return lut[thestring]
+        else:
+            return 0
+
