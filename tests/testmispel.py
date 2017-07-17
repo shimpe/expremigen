@@ -148,7 +148,7 @@ class TestPat2Midi(unittest.TestCase):
                               (('sym', 'static', 'staccato'), ('sym', 'static', 'staccato'), 1)]
                              )
 
-    def test_pdurgeneratorforfunction(self):
+    def test_pdurgeneratorforsection(self):
         m = Mispel()
         model = m.parse(r"""
         with track 1 channel 1 time 0:
@@ -160,6 +160,26 @@ class TestPat2Midi(unittest.TestCase):
                               0.7857142857142857,
                               0.8928571428571429, 1.0, 1.0, 1.0, 1.0, 0.25])
 
+    def test_tempoforsection(self):
+        m = Mispel()
+        model = m.parse(r"""
+        with track 1 channel 1 time 0:
+            c4_4\pdur{staccato}\tempo[allegretto] d e f g a b c5\pdur[legato] d e\tempo{120} d c_1\tempo[40]\pdur[staccato]             
+        """)
+        self.assertListEqual(m.tempo_for_section(0), [(('num', 'static', 100), ('sym', 'static', 'allegretto'), 0),
+                                                      (('sym', 'static', 'allegretto'), ('num', 'anim', 120), 9),
+                                                      (('num', 'anim', 120), ('num', 'static', 40), 2),
+                                                      (('num', 'static', 40), ('num', 'static', 40), 1)]
+                             )
+    def test_tempogeneratorforsection(self):
+        m = Mispel()
+        model = m.parse(r"""
+        with track 1 channel 1 time 0:
+            c4_4\pdur{staccato}\tempo[allegretto] d e f g a b c5\pdur[legato] d e\tempo{120} d c_1\tempo[40]\pdur[staccato]             
+        """)
+
+        tempos = [t for t in m.tempo_generator_for_section(0)]
+        self.assertListEqual(tempos, [120, 120, 120, 120, 120, 120, 120, 120, 120, 120, 80, 40])
 
 if __name__ == '__main__':
     unittest.main()

@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a548a0b3-44ec-4944-9d6e-6d4749f7a078" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/expremigen/musicalmappings/playeddurations.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/expremigen/mispel/mispel.py" afterPath="$PROJECT_DIR$/expremigen/mispel/mispel.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/expremigen/musicalmappings/tempo.py" afterPath="$PROJECT_DIR$/expremigen/musicalmappings/tempo.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/testmispel.py" afterPath="$PROJECT_DIR$/tests/testmispel.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -63,8 +60,8 @@
       <file leaf-file-name="testmispel.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/tests/testmispel.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="308">
-              <caret line="154" column="82" lean-forward="true" selection-start-line="154" selection-start-column="82" selection-end-line="154" selection-end-column="82" />
+            <state relative-caret-position="424">
+              <caret line="182" column="0" lean-forward="true" selection-start-line="182" selection-start-column="0" selection-end-line="182" selection-end-column="0" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
@@ -95,8 +92,8 @@
       <file leaf-file-name="mispel.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/expremigen/mispel/mispel.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-610">
-              <caret line="319" column="57" lean-forward="false" selection-start-line="319" selection-start-column="57" selection-end-line="319" selection-end-column="57" />
+            <state relative-caret-position="663">
+              <caret line="398" column="25" lean-forward="false" selection-start-line="398" selection-start-column="25" selection-end-line="398" selection-end-column="25" />
               <folding>
                 <element signature="e#0#46#0" expanded="true" />
               </folding>
@@ -617,27 +614,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Unittests_in_testmispel_py - 2017.07.17 at 08h 04m 26s.xml">
-      <configuration name="Unittests in testmispel.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_testmispel_py - 2017.07.17 at 08h 10m 35s.xml">
-      <configuration name="Unittests in testmispel.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_testmispel_py - 2017.07.17 at 08h 11m 43s.xml">
-      <configuration name="Unittests in testmispel.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_testmispel_py - 2017.07.17 at 08h 26m 37s.xml">
-      <configuration name="Unittests in testmispel.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_testmispel_py - 2017.07.17 at 08h 27m 42s.xml">
-      <configuration name="Unittests in testmispel.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_testmispel_py - 2017.07.17 at 08h 28m 11s.xml">
-      <configuration name="Unittests in testmispel.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_testmispel_py - 2017.07.17 at 08h 50m 03s.xml">
-      <configuration name="Unittests in testmispel.py" configurationId="tests" />
-    </history-entry>
     <history-entry file="Unittests_in_testmispel_py - 2017.07.17 at 08h 50m 29s.xml">
       <configuration name="Unittests in testmispel.py" configurationId="tests" />
     </history-entry>
@@ -645,6 +621,27 @@
       <configuration name="Unittests in testmispel.py" configurationId="tests" />
     </history-entry>
     <history-entry file="Unittests_in_testmispel_py - 2017.07.17 at 08h 56m 54s.xml">
+      <configuration name="Unittests in testmispel.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_testmispel_py - 2017.07.17 at 09h 08m 09s.xml">
+      <configuration name="Unittests in testmispel.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_testmispel_py - 2017.07.17 at 09h 08m 34s.xml">
+      <configuration name="Unittests in testmispel.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_testmispel_py - 2017.07.17 at 09h 10m 06s.xml">
+      <configuration name="Unittests in testmispel.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_testmispel_py - 2017.07.17 at 09h 11m 07s.xml">
+      <configuration name="Unittests in testmispel.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_testmispel_py - 2017.07.17 at 09h 12m 35s.xml">
+      <configuration name="Unittests in testmispel.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_testmispel_py - 2017.07.17 at 09h 13m 16s.xml">
+      <configuration name="Unittests in testmispel.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_testmispel_py - 2017.07.17 at 09h 14m 16s.xml">
       <configuration name="Unittests in testmispel.py" configurationId="tests" />
     </history-entry>
   </component>
@@ -670,7 +667,7 @@
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39932507" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39932507" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1065,16 +1062,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/expremigen/mispel/mispel.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-610">
-          <caret line="319" column="57" lean-forward="false" selection-start-line="319" selection-start-column="57" selection-end-line="319" selection-end-column="57" />
-          <folding>
-            <element signature="e#0#46#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/expremigen/musicalmappings/tempo.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="427">
@@ -1083,10 +1070,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/expremigen/mispel/mispel.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="663">
+          <caret line="398" column="25" lean-forward="false" selection-start-line="398" selection-start-column="25" selection-end-line="398" selection-end-column="25" />
+          <folding>
+            <element signature="e#0#46#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/tests/testmispel.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="154" column="82" lean-forward="true" selection-start-line="154" selection-start-column="82" selection-end-line="154" selection-end-column="82" />
+        <state relative-caret-position="424">
+          <caret line="182" column="0" lean-forward="true" selection-start-line="182" selection-start-column="0" selection-end-line="182" selection-end-column="0" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
           </folding>

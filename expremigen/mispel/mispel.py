@@ -5,6 +5,7 @@ from expremigen.io.constants import Defaults
 from expremigen.mispel.exception import ValidationException
 from expremigen.musicalmappings.dynamics import Dynamics as Dyn
 from expremigen.musicalmappings.playeddurations import PlayedDurations as PDur
+from expremigen.musicalmappings.tempo import Tempo
 from expremigen.patterns.pseq import Pseq
 from expremigen.patterns.ptween import Ptween
 
@@ -137,6 +138,7 @@ class Mispel:
         self.last_dynamic = ('num', 'static', Defaults.vol)
         self.last_lag = ('num', 'static', Defaults.lag)
         self.last_pdur = ('num', 'static', Defaults.playeddur)
+        self.last_tempo = ('num', 'static', Defaults.tempo)
 
     def parse(self, thestring):
         self.model = self.mm.model_from_str(thestring)
@@ -282,6 +284,24 @@ class Mispel:
                     raise ValidationException(f"Fatal! Couldn't understand static pdur specification {p.spdur}")
         return None
 
+    def extract_tempo(self, event):
+        for p in event.ns.properties:
+            if p.atempo is not None:
+                if p.atempo.symval is not None:
+                    return "sym", "anim", p.atempo.symval.symval
+                elif p.atempo.value is not None:
+                    return "num", "anim", p.atempo.value.value
+                else:
+                    raise ValidationException(f"Fatal! Couldn't understand animated pdur specification {p.atempo}")
+            elif p.stempo is not None:
+                if p.stempo.symval is not None:
+                    return "sym", "static", p.stempo.symval.symval
+                elif p.stempo.value is not None:
+                    return "num", "static", p.stempo.value.value
+                else:
+                    raise ValidationException(f"Fatal! Couldn't understand static pdur specification {p.stempo}")
+        return None
+
     def extract_lag(self, event):
         for p in event.ns.properties:
             if p.alag is not None:
@@ -375,3 +395,9 @@ class Mispel:
 
     def pdur_generator_for_section(self, section_id):
         return self.property_generator_for_section(section_id, PDur.from_string, self.extract_pdur, self.last_pdur)
+
+    def tempo_for_section(self, section_id):
+        return self.property_for_section(section_id, self.extract_tempo, self.last_tempo)
+
+    def tempo_generator_for_section(self, section_id):
+        return self.property_generator_for_section(section_id, Tempo.from_string, self.extract_tempo, self.last_tempo)
