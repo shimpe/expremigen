@@ -34,7 +34,7 @@ class TestPat2Midi(unittest.TestCase):
 
     def test_events1(self):
         m = Mispel()
-        model = m.parse("with channel 2 notedriven :\n a3_8 bb c#3_16.5\\vol{100}\\tempo[vivace] ")
+        model = m.parse("with channel 2 notedriven :\n a3_8 b- c#3_16.5\\vol{100}\\tempo[vivace] ")
         for section in model.sections:
             event = section.events[0]
             self.assertEqual(event.cs, None)
@@ -44,7 +44,7 @@ class TestPat2Midi(unittest.TestCase):
             self.assertEqual(event.ns.invdur.value, 8)
             self.assertEqual(event.ns.properties, [])
             event = section.events[1]
-            self.assertEqual(event.ns.name, 'bb')
+            self.assertEqual(event.ns.name, 'b-')
             self.assertEqual(event.ns.octave, None)
             self.assertEqual(event.ns.invdur, None)
             self.assertEqual(event.ns.properties, [])
@@ -60,7 +60,7 @@ class TestPat2Midi(unittest.TestCase):
                     self.assertEqual(p.stempo.symval.symval, 'vivace')
                     self.assertEqual(p.stempo.value, None)
 
-        self.assertListEqual(m.notes_for_section(0), ["a3", "bb3", "c#3"])
+        self.assertListEqual(m.notes_for_section(0), ["a3", "b-3", "c#3"])
         self.assertListEqual(m.durations_for_section(0), [8, 8, 16.5])
 
     def test_sections(self):
@@ -78,10 +78,10 @@ class TestPat2Midi(unittest.TestCase):
         m = Mispel()
         model = m.parse(r"""
         with track 0:
-            a3_8\vol[mf] b c4_4 d\vol{ff} e f\vol{30} e fbb r ax d\vol[20] c 
+            a3_8\vol[mf] b c4_4 d\vol{ff} e f\vol{30} e f-- r ax d\vol[20] c 
         """)
         self.assertListEqual(m.notes_for_section(0),
-                             ["a3", "b3", "c4", "d4", "e4", "f4", "e4", "fbb4", "r", "ax4", "d4", "c4"])
+                             ["a3", "b3", "c4", "d4", "e4", "f4", "e4", "f--4", "r", "ax4", "d4", "c4"])
         self.assertListEqual(m.dynamics_for_section(0), [(('num', 'static', 70), ('sym', 'static', 'mf'), 0),
                                                          (('sym', 'static', 'mf'), ('sym', 'anim', 'ff'), 3),
                                                          (('sym', 'anim', 'ff'), ('num', 'anim', 30), 2),
@@ -93,7 +93,7 @@ class TestPat2Midi(unittest.TestCase):
         m = Mispel()
         model = m.parse(r"""
         with track 0:
-            a3_8\vol[mf] b c4_4 d\vol{10} e f\vol[30] e fbb r ax d\vol{90} c 
+            a3_8\vol[mf] b c4_4 d\vol{10} e f\vol[30] e f-- r ax d\vol{90} c 
         """)
         vols = [v for v in m.dynamics_generator_for_section(0)]
         self.assertListEqual(vols, [90, 90, 90, 10, 20, 30, 30, 30, 30, 30, 90, 90])
@@ -103,11 +103,39 @@ class TestPat2Midi(unittest.TestCase):
         model = m.parse(r"""
         
         with track 0:
-            a3_8\vol[mf] b c4_4 d\vol{10} e f\vol[30] e fbb r ax d\vol{90} 
+            a3_8\vol[mf] b c4_4 d\vol{10} e f\vol[30] e f-- r ax d\vol{90} 
 
         """)
         vols = [v for v in m.dynamics_generator_for_section(0)]
         self.assertListEqual(vols, [90, 90, 90, 10, 20, 30, 30, 30, 30, 30, 90])
+
+    def test_lagforsection(self):
+        m = Mispel()
+        model = m.parse(r"""
+        with track 0:
+            a2_4 a3 a4_16\lag[0.9] b c5 d e f g a b a g f\lag{1} e d c b\lag{0.3}
+        """)
+        self.assertListEqual(m.notes_for_section(0),
+                             "a2 a3 a4 b4 c5 d5 e5 f5 g5 a5 b5 a5 g5 f5 e5 d5 c5 b5".split(" "))
+        self.assertListEqual(m.lag_for_section(0),
+                             [(('num', 'static', 0), ('num', 'static', 0.9), 2),
+                              (('num', 'static', 0.9), ('num', 'anim', 1.0), 11),
+                              (('num', 'anim', 1.0), ('num', 'anim', 0.3), 4),
+                              (('num', 'anim', 0.3), ('num', 'anim', 0.3), 1)]
+                             )
+
+    def test_laggeneratorforsection(self):
+        m = Mispel()
+        model = m.parse(r"""
+        with track 0:
+            a2_4 a3 a4_16\lag[0.9] b c5 d e f g a b a g f\lag{1} e d c b\lag{0.5}
+        """)
+        lags = [l for l in m.lag_generator_for_section(0)]
+        print(lags)
+        self.assertListEqual(lags,
+                             [0.0, 0.0, 0.9, 0.9, 0.9, 0.9, 0.9, 0.9, 0.9, 0.9, 0.9, 0.9, 0.9, 1.0, 0.875, 0.75, 0.625,
+                              0.5])
+
 
 if __name__ == '__main__':
     unittest.main()

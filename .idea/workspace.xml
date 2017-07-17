@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a548a0b3-44ec-4944-9d6e-6d4749f7a078" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/setup.py" afterPath="$PROJECT_DIR$/setup.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/expremigen/mispel/mispel.py" afterPath="$PROJECT_DIR$/expremigen/mispel/mispel.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/testmispel.py" afterPath="$PROJECT_DIR$/tests/testmispel.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -17,8 +19,8 @@
       <file leaf-file-name="bwv784_2voice_invention_13.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/examples/bwv784_2voice_invention_13.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="155" column="56" lean-forward="true" selection-start-line="155" selection-start-column="56" selection-end-line="155" selection-end-column="56" />
+            <state relative-caret-position="2414">
+              <caret line="155" column="56" lean-forward="false" selection-start-line="155" selection-start-column="56" selection-end-line="155" selection-end-column="56" />
               <folding>
                 <element signature="e#0#25#0" expanded="true" />
               </folding>
@@ -29,7 +31,7 @@
       <file leaf-file-name="dynamics.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/expremigen/musicalmappings/dynamics.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
+            <state relative-caret-position="578">
               <caret line="34" column="8" lean-forward="false" selection-start-line="34" selection-start-column="8" selection-end-line="34" selection-end-column="8" />
               <folding />
             </state>
@@ -39,7 +41,7 @@
       <file leaf-file-name="nanonotation.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/expremigen/musicalmappings/nanonotation.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="159">
+            <state relative-caret-position="714">
               <caret line="43" column="0" lean-forward="false" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
               <folding />
             </state>
@@ -49,18 +51,18 @@
       <file leaf-file-name="model.py" pinned="false" current-in-tab="false">
         <entry file="file:///usr/lib/python3.6/site-packages/textx/model.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="316">
+            <state relative-caret-position="2652">
               <caret line="163" column="42" lean-forward="false" selection-start-line="163" selection-start-column="42" selection-end-line="163" selection-end-column="42" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="testmispel.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="testmispel.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/tests/testmispel.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="380">
-              <caret line="105" column="8" lean-forward="false" selection-start-line="105" selection-start-column="8" selection-end-line="105" selection-end-column="8" />
+            <state relative-caret-position="427">
+              <caret line="137" column="0" lean-forward="true" selection-start-line="137" selection-start-column="0" selection-end-line="137" selection-end-column="0" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
@@ -71,7 +73,7 @@
       <file leaf-file-name="case.py" pinned="false" current-in-tab="false">
         <entry file="file:///usr/lib/python3.6/unittest/case.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="159">
+            <state relative-caret-position="9979">
               <caret line="600" column="0" lean-forward="false" selection-start-line="600" selection-start-column="0" selection-end-line="600" selection-end-column="0" />
               <folding />
             </state>
@@ -81,8 +83,8 @@
       <file leaf-file-name="mispel.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/expremigen/mispel/mispel.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-197">
-              <caret line="285" column="43" lean-forward="false" selection-start-line="285" selection-start-column="43" selection-end-line="285" selection-end-column="43" />
+            <state relative-caret-position="159">
+              <caret line="54" column="27" lean-forward="false" selection-start-line="54" selection-start-column="27" selection-end-line="54" selection-end-column="27" />
               <folding>
                 <element signature="e#0#46#0" expanded="true" />
               </folding>
@@ -90,7 +92,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="setup.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="setup.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/setup.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="102">
@@ -157,6 +159,8 @@
       <find>symvol</find>
       <find>ccspec</find>
       <find>print</find>
+      <find>fbb</find>
+      <find>bb</find>
     </findStrings>
     <replaceStrings>
       <replace>Ia</replace>
@@ -216,9 +220,9 @@
         <option value="$PROJECT_DIR$/expremigen/mispel/exception.py" />
         <option value="$PROJECT_DIR$/expremigen/io/constants.py" />
         <option value="$PROJECT_DIR$/expremigen/musicalmappings/dynamics.py" />
-        <option value="$PROJECT_DIR$/tests/testmispel.py" />
-        <option value="$PROJECT_DIR$/expremigen/mispel/mispel.py" />
         <option value="$PROJECT_DIR$/setup.py" />
+        <option value="$PROJECT_DIR$/expremigen/mispel/mispel.py" />
+        <option value="$PROJECT_DIR$/tests/testmispel.py" />
       </list>
     </option>
   </component>
@@ -608,34 +612,34 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Unittests_in_testmispel_py - 2017.07.16 at 22h 51m 10s.xml">
-      <configuration name="Unittests in testmispel.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_testmispel_py - 2017.07.16 at 22h 51m 31s.xml">
-      <configuration name="Unittests in testmispel.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_testmispel_py - 2017.07.16 at 22h 52m 53s.xml">
-      <configuration name="Unittests in testmispel.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_testmispel_py - 2017.07.16 at 22h 53m 27s.xml">
-      <configuration name="Unittests in testmispel.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_testmispel_py - 2017.07.16 at 23h 30m 36s.xml">
-      <configuration name="Unittests in testmispel.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_testmispel_py - 2017.07.16 at 23h 31m 04s.xml">
-      <configuration name="Unittests in testmispel.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_testmispel_py - 2017.07.16 at 23h 33m 46s.xml">
-      <configuration name="Unittests in testmispel.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_testmispel_py - 2017.07.16 at 23h 37m 39s.xml">
-      <configuration name="Unittests in testmispel.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_testmispel_py - 2017.07.16 at 23h 43m 28s.xml">
-      <configuration name="Unittests in testmispel.py" configurationId="tests" />
-    </history-entry>
     <history-entry file="Unittests_in_testmispel_py - 2017.07.16 at 23h 45m 00s.xml">
+      <configuration name="Unittests in testmispel.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_testmispel_py - 2017.07.17 at 07h 53m 47s.xml">
+      <configuration name="Unittests in testmispel.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_testmispel_py - 2017.07.17 at 07h 59m 23s.xml">
+      <configuration name="Unittests in testmispel.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_testmispel_py - 2017.07.17 at 08h 00m 36s.xml">
+      <configuration name="Unittests in testmispel.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_testmispel_py - 2017.07.17 at 08h 02m 11s.xml">
+      <configuration name="Unittests in testmispel.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_testmispel_py - 2017.07.17 at 08h 02m 42s.xml">
+      <configuration name="Unittests in testmispel.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_testmispel_py - 2017.07.17 at 08h 03m 11s.xml">
+      <configuration name="Unittests in testmispel.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_testmispel_py - 2017.07.17 at 08h 04m 26s.xml">
+      <configuration name="Unittests in testmispel.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_testmispel_py - 2017.07.17 at 08h 10m 35s.xml">
+      <configuration name="Unittests in testmispel.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_testmispel_py - 2017.07.17 at 08h 11m 43s.xml">
       <configuration name="Unittests in testmispel.py" configurationId="tests" />
     </history-entry>
   </component>
@@ -652,10 +656,9 @@
     <frame x="0" y="0" width="1920" height="1044" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31963715" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32337245" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295838" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295838" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295838" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -670,6 +673,7 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295838" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295838" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -885,7 +889,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="527">
           <caret line="80" column="11" lean-forward="false" selection-start-line="80" selection-start-column="11" selection-end-line="80" selection-end-column="11" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -935,7 +938,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="159">
           <caret line="70" column="0" lean-forward="false" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -943,7 +945,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
           <caret line="20" column="50" lean-forward="false" selection-start-line="20" selection-start-column="50" selection-end-line="20" selection-end-column="50" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -951,7 +952,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
           <caret line="24" column="21" lean-forward="false" selection-start-line="6" selection-start-column="4" selection-end-line="24" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -965,14 +965,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/expremigen/mispel/grammar.tx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/expremigen/mispel/grammar.tx" />
     <entry file="file:///usr/lib/python3.6/site-packages/textx/metamodel.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
@@ -985,7 +978,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="47" lean-forward="false" selection-start-line="0" selection-start-column="47" selection-end-line="0" selection-end-column="47" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -993,14 +985,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="16" lean-forward="false" selection-start-line="0" selection-start-column="16" selection-end-line="0" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/examples/bwv784_2voice_invention_13.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="155" column="56" lean-forward="true" selection-start-line="155" selection-start-column="56" selection-end-line="155" selection-end-column="56" />
+        <state relative-caret-position="2414">
+          <caret line="155" column="56" lean-forward="false" selection-start-line="155" selection-start-column="56" selection-end-line="155" selection-end-column="56" />
           <folding>
             <element signature="e#0#25#0" expanded="true" />
           </folding>
@@ -1009,7 +1000,7 @@
     </entry>
     <entry file="file:///usr/lib/python3.6/unittest/case.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="159">
+        <state relative-caret-position="9979">
           <caret line="600" column="0" lean-forward="false" selection-start-line="600" selection-start-column="0" selection-end-line="600" selection-end-column="0" />
           <folding />
         </state>
@@ -1017,7 +1008,7 @@
     </entry>
     <entry file="file:///usr/lib/python3.6/site-packages/textx/model.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="316">
+        <state relative-caret-position="2652">
           <caret line="163" column="42" lean-forward="false" selection-start-line="163" selection-start-column="42" selection-end-line="163" selection-end-column="42" />
           <folding />
         </state>
@@ -1027,17 +1018,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="13" column="8" lean-forward="false" selection-start-line="13" selection-start-column="8" selection-end-line="13" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/testmispel.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="105" column="8" lean-forward="false" selection-start-line="105" selection-start-column="8" selection-end-line="105" selection-end-column="8" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1059,7 +1039,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/expremigen/musicalmappings/dynamics.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
+        <state relative-caret-position="578">
           <caret line="34" column="8" lean-forward="false" selection-start-line="34" selection-start-column="8" selection-end-line="34" selection-end-column="8" />
           <folding />
         </state>
@@ -1067,19 +1047,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/expremigen/musicalmappings/nanonotation.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="159">
+        <state relative-caret-position="714">
           <caret line="43" column="0" lean-forward="false" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/expremigen/mispel/mispel.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-197">
-          <caret line="285" column="43" lean-forward="false" selection-start-line="285" selection-start-column="43" selection-end-line="285" selection-end-column="43" />
-          <folding>
-            <element signature="e#0#46#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1088,6 +1058,26 @@
         <state relative-caret-position="102">
           <caret line="6" column="55" lean-forward="false" selection-start-line="6" selection-start-column="55" selection-end-line="6" selection-end-column="55" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/expremigen/mispel/mispel.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="54" column="27" lean-forward="false" selection-start-line="54" selection-start-column="27" selection-end-line="54" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#46#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/testmispel.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="427">
+          <caret line="137" column="0" lean-forward="true" selection-start-line="137" selection-start-column="0" selection-end-line="137" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

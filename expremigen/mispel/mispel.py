@@ -52,7 +52,7 @@ class Mispel:
             'a' | 'b' | 'c' | 'd' | 'e' | 'f' | 'g' | 'r'
         ;
         NoteModifier:
-            '#' | 'bb' | 'b' | 'x'
+            '#' | '--' | '-' | 'x'
         ;
         OneOrTwoDigits:
             Digit Digit?
@@ -134,7 +134,7 @@ class Mispel:
         self.last_octave = Defaults.octave
         self.last_duration = 1 / Defaults.dur
         self.last_dynamic = ('num', 'static', Defaults.vol)
-        self.last_lag = Defaults.lag
+        self.last_lag = ('num', 'static', Defaults.lag)
         self.last_pdur = Defaults.playeddur
 
     def parse(self, thestring):
@@ -263,6 +263,16 @@ class Mispel:
                     raise ValidationException(f"Fatal! Couldn't understand static dynamics specification {p.svol}")
         return None
 
+    def extract_lag(self, event):
+        for p in event.ns.properties:
+            if p.alag is not None:
+                if p.alag.value is not None:
+                    return "num", "anim", p.alag.value.value
+            elif p.slag is not None:
+                if p.slag.value is not None:
+                    return "num", "static", p.slag.value.value
+        return None
+
     def dynamics_for_section(self, section_id):
         """
         :param section_id:
@@ -306,6 +316,55 @@ class Mispel:
                 else:
                     to_value = to_dyn[2]
                 animation_type = frm_dyn[1]
+                if animation_type == 'anim':
+                    n = Ptween(NumberAnimation(frm=from_value, to=to_value, tween=['linear']), 0, 0, distance, distance,
+                               None)
+                elif animation_type == 'static':
+                    n = Ptween(NumberAnimation(frm=from_value, to=from_value, tween=['linear']), 0, 0, distance,
+                               distance, None)
+                else:
+                    print(animation_type)
+                    assert False
+                patterns.append(n)
+        return Pseq(patterns, 1)
+
+    def lag_for_section(self, section_id):
+        """
+        :param section_id:
+        :return: list of (fromlag, tolag, distance)
+                    where fromlag and tolag correspond to ('num' or 'sym', 'anim' or 'static', distance)
+        """
+        section = self.section(section_id)
+        driver = self.driver_for_section(section_id)
+        lags = []
+        count_since_previous_event = 0
+        for event in self.events_for_section(section_id):
+            if event.ns:
+                lag = self.extract_lag(event)
+                if lag is not None:
+                    lags.append((self.last_lag, lag, count_since_previous_event))
+                    self.last_lag = lag
+                    count_since_previous_event = 0
+            else:
+                # TODO
+                pass
+            count_since_previous_event += 1
+        lags.append((self.last_lag, self.last_lag, count_since_previous_event))
+        return lags
+
+    def lag_generator_for_section(self, section_id):
+        lags = self.lag_for_section(section_id)
+        patterns = []
+        for d in lags:
+            frm_lag = d[0]
+            to_lag = d[1]
+            distance = d[2]
+            if distance:
+                from_value_type = frm_lag[0]
+                from_value = frm_lag[2]
+                to_value_type = to_lag[0]
+                to_value = to_lag[2]
+                animation_type = frm_lag[1]
                 if animation_type == 'anim':
                     n = Ptween(NumberAnimation(frm=from_value, to=to_value, tween=['linear']), 0, 0, distance, distance,
                                None)
