@@ -15,18 +15,18 @@ class Note2Midi:
 
     anything not recognized as a note becomes a rest
     """
-    chromatic_scale = [['c', 'b#', 'dbb'],  # one row contains all synonyms (i.e. synonym for our purpose)
-                       ['c#', 'bx', 'db'],
-                       ['d', 'cx', 'ebb'],
-                       ['d#', 'eb', 'fbb'],
-                       ['e', 'dx', 'fb'],
-                       ['f', 'e#', 'gbb'],
-                       ['f#', 'ex', 'gb'],
-                       ['g', 'fx', 'abb'],
-                       ['g#', 'ab'],
-                       ['a', 'gx', 'bbb'],
-                       ['a#', 'bb', 'cbb'],
-                       ['b', 'ax', 'cb']]
+    chromatic_scale = [['c', 'b#', 'dbb', 'd--'],  # one row contains all synonyms (i.e. synonym for our purpose)
+                       ['c#', 'bx', 'db', 'd-'],
+                       ['d', 'cx', 'ebb', 'e--'],
+                       ['d#', 'eb', 'e-', 'fbb', 'f--'],
+                       ['e', 'dx', 'fb', 'f-'],
+                       ['f', 'e#', 'gbb', 'g--'],
+                       ['f#', 'ex', 'gb', 'g-'],
+                       ['g', 'fx', 'abb', 'a--'],
+                       ['g#', 'ab', 'a-'],
+                       ['a', 'gx', 'bbb', 'b--'],
+                       ['a#', 'bb', 'b-', 'cbb', 'c--'],
+                       ['b', 'ax', 'cb', 'c-']]
 
     def __init__(self):
         # '#' denotes a sharp, 'b' denotes a flat, x denotes a double sharp, bb denotes a double flat
