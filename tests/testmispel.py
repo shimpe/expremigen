@@ -131,10 +131,10 @@ class TestPat2Midi(unittest.TestCase):
             a2_4 a3 a4_16\lag[0.9] b c5 d e f g a b a g f\lag{1} e d c b\lag{0.5}
         """)
         lags = [l for l in m.lag_generator_for_section(0)]
-        print(lags)
         self.assertListEqual(lags,
                              [0.0, 0.0, 0.9, 0.9, 0.9, 0.9, 0.9, 0.9, 0.9, 0.9, 0.9, 0.9, 0.9, 1.0, 0.875, 0.75, 0.625,
                               0.5])
+
 
 
 if __name__ == '__main__':

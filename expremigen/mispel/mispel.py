@@ -110,7 +110,7 @@ class Mispel:
             value=FLOAT
         ;                                                        
         SymPDur:
-            'staccato' | 'legato' | 'normal'
+            symval='staccato' | symval='legato' | symval='normal'
         ;                                        
         StaticVol:
             '\vol' '[' (symval=SymVol|value=NumVol) ']'
@@ -273,32 +273,32 @@ class Mispel:
                     return "num", "static", p.slag.value.value
         return None
 
-    def dynamics_for_section(self, section_id):
+    def property_for_section(self, section_id, property_from_event_fn, default_value):
         """
         :param section_id:
-        :return: list of (fromdynamic, todynamic, distance)
-                    where fromdynamic and todynamic correspond to ('num' or 'sym', 'anim' or 'static', distance)
+        :return: list of (from_property, to_property, distance)
+                    where from_property and to_property correspond to ('num' or 'sym', 'anim' or 'static', distance)
         """
         section = self.section(section_id)
         driver = self.driver_for_section(section_id)
-        dynamics = []
+        properties = []
         count_since_previous_event = 0
         for event in self.events_for_section(section_id):
             if event.ns:
-                dynamic = self.extract_dynamics(event)
-                if dynamic is not None:
-                    dynamics.append((self.last_dynamic, dynamic, count_since_previous_event))
-                    self.last_dynamic = dynamic
+                prop = property_from_event_fn(event)
+                if prop is not None:
+                    properties.append((default_value, prop, count_since_previous_event))
+                    default_value = prop
                     count_since_previous_event = 0
             else:
                 # TODO
                 pass
             count_since_previous_event += 1
-        dynamics.append((self.last_dynamic, self.last_dynamic, count_since_previous_event))
-        return dynamics
+        properties.append((default_value, default_value, count_since_previous_event))
+        return properties
 
-    def dynamics_generator_for_section(self, section_id):
-        dynamics = self.dynamics_for_section(section_id)
+    def property_generator_for_section(self, section_id, property_from_event_fn, default_value):
+        dynamics = self.property_for_section(section_id, property_from_event_fn, default_value)
         patterns = []
         for d in dynamics:
             frm_dyn = d[0]
@@ -328,51 +328,26 @@ class Mispel:
                 patterns.append(n)
         return Pseq(patterns, 1)
 
+
+    def dynamics_for_section(self, section_id):
+        """
+        :param section_id:
+        :return: list of (fromdynamic, todynamic, distance)
+                    where fromdynamic and todynamic correspond to ('num' or 'sym', 'anim' or 'static', distance)
+        """
+        return self.property_for_section(section_id, self.extract_dynamics, self.last_dynamic)
+
+    def dynamics_generator_for_section(self, section_id):
+        return self.property_generator_for_section(section_id, self.extract_dynamics, self.last_dynamic)
+
     def lag_for_section(self, section_id):
         """
         :param section_id:
         :return: list of (fromlag, tolag, distance)
                     where fromlag and tolag correspond to ('num' or 'sym', 'anim' or 'static', distance)
         """
-        section = self.section(section_id)
-        driver = self.driver_for_section(section_id)
-        lags = []
-        count_since_previous_event = 0
-        for event in self.events_for_section(section_id):
-            if event.ns:
-                lag = self.extract_lag(event)
-                if lag is not None:
-                    lags.append((self.last_lag, lag, count_since_previous_event))
-                    self.last_lag = lag
-                    count_since_previous_event = 0
-            else:
-                # TODO
-                pass
-            count_since_previous_event += 1
-        lags.append((self.last_lag, self.last_lag, count_since_previous_event))
-        return lags
+        return self.property_for_section(section_id, self.extract_lag, self.last_lag)
 
     def lag_generator_for_section(self, section_id):
-        lags = self.lag_for_section(section_id)
-        patterns = []
-        for d in lags:
-            frm_lag = d[0]
-            to_lag = d[1]
-            distance = d[2]
-            if distance:
-                from_value_type = frm_lag[0]
-                from_value = frm_lag[2]
-                to_value_type = to_lag[0]
-                to_value = to_lag[2]
-                animation_type = frm_lag[1]
-                if animation_type == 'anim':
-                    n = Ptween(NumberAnimation(frm=from_value, to=to_value, tween=['linear']), 0, 0, distance, distance,
-                               None)
-                elif animation_type == 'static':
-                    n = Ptween(NumberAnimation(frm=from_value, to=from_value, tween=['linear']), 0, 0, distance,
-                               distance, None)
-                else:
-                    print(animation_type)
-                    assert False
-                patterns.append(n)
-        return Pseq(patterns, 1)
+        return self.property_generator_for_section(section_id, self.extract_lag, self.last_lag)
+    
