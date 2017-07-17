@@ -3,6 +3,7 @@ from vectortween.NumberAnimation import NumberAnimation
 
 from expremigen.io.constants import PhraseProperty as PP
 from expremigen.io.constants import Defaults
+from expremigen.io.phrase import Phrase
 from expremigen.mispel.exception import ValidationException
 from expremigen.musicalmappings.dynamics import Dynamics as Dyn
 from expremigen.musicalmappings.playeddurations import PlayedDurations as PDur
@@ -164,19 +165,19 @@ class Mispel:
         section = self.section(section_id)
         if section.headerspecs.track is None:
             return 0
-        return section.headerspecs.track
+        return int(section.headerspecs.track.id)
 
     def channel_for_section(self, section_id):
         section = self.section(section_id)
         if section.headerspecs.channel is None:
             return 0
-        return section.headerspecs.channel
+        return int(section.headerspecs.channel.id)
 
     def time_for_section(self, section_id):
         section = self.section(section_id)
         if section.headerspecs.time is None:
             return 0
-        return section.headerspecs.time
+        return section.headerspecs.time.value
 
     def driver_for_section(self, section_id):
         section = self.section(section_id)
@@ -415,8 +416,11 @@ class Mispel:
             PP.NOTE : self.note_generator_for_section(section_id),
             PP.VOL : self.dynamics_generator_for_section(section_id),
             PP.DUR : self.duration_generator_for_section(section_id),
-            PP.PDUR : self.pdur_generator_for_section(section_id),
+            PP.PLAYEDDUR : self.pdur_generator_for_section(section_id),
             PP.LAG : self.lag_generator_for_section(section_id),
             PP.TEMPO : self.tempo_generator_for_section(section_id)
         }
         return pp
+
+    def phrase_for_section(self, section_id):
+        return Phrase(self.phrase_properties_for_section(section_id))

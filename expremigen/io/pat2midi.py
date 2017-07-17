@@ -5,7 +5,8 @@ from expremigen.io.constants import PhraseProperty as PP
 from expremigen.io.midicontrolchanges import MidiControlChanges
 from expremigen.io.phrase import Phrase
 from expremigen.patterns.pchord import Pchord
-
+from expremigen.musicalmappings.note2midi import Note2Midi
+from expremigen.musicalmappings.constants import REST
 
 class Pat2Midi:
     """
@@ -26,6 +27,7 @@ class Pat2Midi:
         self.last_set_tempo = [Defaults.tempo for _ in range(16)]  # set every track to default tempo
         self.set_tempo(Defaults.tempo, 0)
         self.last_set_cc = [[None for _ in range(NO_OF_CONTROLLERS)] for _ in range(NO_OF_TRACKS)]
+        self.note2midi = Note2Midi()
 
     def set_tempo(self, tempo=100, time=0):
         """
@@ -56,22 +58,37 @@ class Pat2Midi:
                 # set notes always
                 if isinstance(event[PP.NOTE], Pchord):
                     for n in event[PP.NOTE].notes:
+                        try:
+                            intnote = int(n)
+                        except ValueError:
+                            intnote = self.note2midi.lookup(n)
+                            if intnote == REST:
+                                continue
+
                         self.midiFile.addNote(
                             track=track,
                             channel=channel,
-                            pitch=n,
+                            pitch=intnote,
                             time=start_time + phrase.generated_duration() + event[PP.LAG],
                             duration=event[PP.DUR] * event[PP.PLAYEDDUR],
-                            volume=event[PP.VOL],
+                            volume=int(event[PP.VOL]),
                             annotation=None)
                 else:
+
+                    try:
+                        intnote= int(event[PP.NOTE])
+                    except ValueError:
+                        intnote = self.note2midi.lookup(event[PP.NOTE])
+                        if intnote == REST:
+                            continue
+
                     self.midiFile.addNote(
                         track=track,
                         channel=channel,
-                        pitch=event[PP.NOTE],
+                        pitch=intnote,
                         time=start_time + phrase.generated_duration() + event[PP.LAG],
                         duration=event[PP.DUR] * event[PP.PLAYEDDUR],
-                        volume=event[PP.VOL],
+                        volume=int(event[PP.VOL]),
                         annotation=None)
             # handle controller events (only if they changed since last time)
             else:
