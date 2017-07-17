@@ -4,6 +4,7 @@ from vectortween.NumberAnimation import NumberAnimation
 from expremigen.io.constants import Defaults
 from expremigen.mispel.exception import ValidationException
 from expremigen.musicalmappings.dynamics import Dynamics as Dyn
+from expremigen.musicalmappings.playeddurations import PlayedDurations as PDur
 from expremigen.patterns.pseq import Pseq
 from expremigen.patterns.ptween import Ptween
 
@@ -110,7 +111,7 @@ class Mispel:
             value=FLOAT
         ;                                                        
         SymPDur:
-            symval='staccato' | symval='legato' | symval='normal'
+            symval='staccatissimo' | symval='staccato' | symval='legatissimo' | symval='legato' | symval='normal'
         ;                                        
         StaticVol:
             '\vol' '[' (symval=SymVol|value=NumVol) ']'
@@ -135,7 +136,7 @@ class Mispel:
         self.last_duration = 1 / Defaults.dur
         self.last_dynamic = ('num', 'static', Defaults.vol)
         self.last_lag = ('num', 'static', Defaults.lag)
-        self.last_pdur = Defaults.playeddur
+        self.last_pdur = ('num', 'static', Defaults.playeddur)
 
     def parse(self, thestring):
         self.model = self.mm.model_from_str(thestring)
@@ -263,6 +264,24 @@ class Mispel:
                     raise ValidationException(f"Fatal! Couldn't understand static dynamics specification {p.svol}")
         return None
 
+    def extract_pdur(self, event):
+        for p in event.ns.properties:
+            if p.apdur is not None:
+                if p.apdur.symval is not None:
+                    return "sym", "anim", p.apdur.symval.symval
+                elif p.apdur.value is not None:
+                    return "num", "anim", p.apdur.value.value
+                else:
+                    raise ValidationException(f"Fatal! Couldn't understand animated pdur specification {p.apdur}")
+            elif p.spdur is not None:
+                if p.spdur.symval is not None:
+                    return "sym", "static", p.spdur.symval.symval
+                elif p.spdur.value is not None:
+                    return "num", "static", p.spdur.value.value
+                else:
+                    raise ValidationException(f"Fatal! Couldn't understand static pdur specification {p.spdur}")
+        return None
+
     def extract_lag(self, event):
         for p in event.ns.properties:
             if p.alag is not None:
@@ -297,7 +316,7 @@ class Mispel:
         properties.append((default_value, default_value, count_since_previous_event))
         return properties
 
-    def property_generator_for_section(self, section_id, property_from_event_fn, default_value):
+    def property_generator_for_section(self, section_id, symvalue_from_string_fn, property_from_event_fn, default_value):
         dynamics = self.property_for_section(section_id, property_from_event_fn, default_value)
         patterns = []
         for d in dynamics:
@@ -307,12 +326,12 @@ class Mispel:
             if distance:
                 from_value_type = frm_dyn[0]
                 if from_value_type == 'sym':
-                    from_value = Dyn.from_string(frm_dyn[2])
+                    from_value = symvalue_from_string_fn(frm_dyn[2])
                 else:
                     from_value = frm_dyn[2]
                 to_value_type = to_dyn[0]
                 if to_value_type == 'sym':
-                    to_value = Dyn.from_string(to_dyn[2])
+                    to_value = symvalue_from_string_fn(to_dyn[2])
                 else:
                     to_value = to_dyn[2]
                 animation_type = frm_dyn[1]
@@ -338,7 +357,7 @@ class Mispel:
         return self.property_for_section(section_id, self.extract_dynamics, self.last_dynamic)
 
     def dynamics_generator_for_section(self, section_id):
-        return self.property_generator_for_section(section_id, self.extract_dynamics, self.last_dynamic)
+        return self.property_generator_for_section(section_id, Dyn.from_string, self.extract_dynamics, self.last_dynamic)
 
     def lag_for_section(self, section_id):
         """
@@ -349,5 +368,10 @@ class Mispel:
         return self.property_for_section(section_id, self.extract_lag, self.last_lag)
 
     def lag_generator_for_section(self, section_id):
-        return self.property_generator_for_section(section_id, self.extract_lag, self.last_lag)
-    
+        return self.property_generator_for_section(section_id, None, self.extract_lag, self.last_lag)
+
+    def pdur_for_section(self, section_id):
+        return self.property_for_section(section_id, self.extract_pdur, self.last_pdur)
+
+    def pdur_generator_for_section(self, section_id):
+        return self.property_generator_for_section(section_id, PDur.from_string, self.extract_pdur, self.last_pdur)

@@ -135,6 +135,30 @@ class TestPat2Midi(unittest.TestCase):
                              [0.0, 0.0, 0.9, 0.9, 0.9, 0.9, 0.9, 0.9, 0.9, 0.9, 0.9, 0.9, 0.9, 1.0, 0.875, 0.75, 0.625,
                               0.5])
 
+    def test_pdurforsection(self):
+        m = Mispel()
+        model = m.parse(r"""
+        with track 1 channel 1 time 0:
+            c4_4\pdur{staccato} d e f g a b c5\pdur[legato] d e d c_1\pdur[staccato]             
+        """)
+        self.assertListEqual(m.pdur_for_section(0),
+                             [(('num', 'static', 0.9), ('sym', 'anim', 'staccato'), 0),
+                              (('sym', 'anim', 'staccato'), ('sym', 'static', 'legato'), 7),
+                              (('sym', 'static', 'legato'), ('sym', 'static', 'staccato'), 4),
+                              (('sym', 'static', 'staccato'), ('sym', 'static', 'staccato'), 1)]
+                             )
+
+    def test_pdurgeneratorforfunction(self):
+        m = Mispel()
+        model = m.parse(r"""
+        with track 1 channel 1 time 0:
+            c4_4\pdur{staccato} d e f g a b c5\pdur[legato] d e d c_1\pdur[staccato]
+        """)
+        pdurs = [pd for pd in m.pdur_generator_for_section(0)]
+        self.assertListEqual(pdurs,
+                             [0.25, 0.35714285714285715, 0.4642857142857143, 0.5714285714285714, 0.6785714285714286,
+                              0.7857142857142857,
+                              0.8928571428571429, 1.0, 1.0, 1.0, 1.0, 0.25])
 
 
 if __name__ == '__main__':
