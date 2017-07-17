@@ -34,7 +34,7 @@ class TestPat2Midi(unittest.TestCase):
 
     def test_events1(self):
         m = Mispel()
-        model = m.parse("with channel 2 notedriven :\n a3_8 b- c#3_16.5\\vol{100}\\tempo[vivace] ")
+        model = m.parse("with channel 2 notedriven :\n a3_8. b-_16 c#3_16.5\\vol{100}\\tempo[vivace] ")
         for section in model.sections:
             event = section.events[0]
             self.assertEqual(event.cs, None)
@@ -42,11 +42,13 @@ class TestPat2Midi(unittest.TestCase):
             self.assertEqual(event.ns.name, 'a')
             self.assertEqual(event.ns.octave, '3')
             self.assertEqual(event.ns.invdur.value, 8)
+            self.assertListEqual(event.ns.invdur.dots,['.'])
             self.assertEqual(event.ns.properties, [])
             event = section.events[1]
             self.assertEqual(event.ns.name, 'b-')
             self.assertEqual(event.ns.octave, None)
-            self.assertEqual(event.ns.invdur, None)
+            self.assertEqual(event.ns.invdur.value, 16)
+            self.assertListEqual(event.ns.invdur.dots, [])
             self.assertEqual(event.ns.properties, [])
             event = section.events[2]
             self.assertEqual(event.ns.name, 'c#')
@@ -61,7 +63,7 @@ class TestPat2Midi(unittest.TestCase):
                     self.assertEqual(p.stempo.value, None)
 
         self.assertListEqual(m.notes_for_section(0), ["a3", "b-3", "c#3"])
-        self.assertListEqual(m.durations_for_section(0), [8, 8, 16.5])
+        self.assertListEqual(m.durations_for_section(0), [1/8+1/16, 1/16, 1/16.5])
 
     def test_sections(self):
         m = Mispel()
@@ -180,6 +182,12 @@ class TestPat2Midi(unittest.TestCase):
 
         tempos = [t for t in m.tempo_generator_for_section(0)]
         self.assertListEqual(tempos, [120, 120, 120, 120, 120, 120, 120, 120, 120, 120, 80, 40])
+
+    def test_dot(self):
+        m = Mispel()
+        m.parse("with channel 2 notedriven :\n a3_8. b-16")
+        durs = [ d for d in m.duration_generator_for_section(0)]
+        self.assertEqual(durs, [(1/8 + 1/16), (1/8 + 1/16)])
 
 if __name__ == '__main__':
     unittest.main()

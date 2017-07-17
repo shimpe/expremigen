@@ -1,6 +1,7 @@
 from textx.metamodel import metamodel_from_str
 from vectortween.NumberAnimation import NumberAnimation
 
+from expremigen.io.constants import PhraseProperty as PP
 from expremigen.io.constants import Defaults
 from expremigen.mispel.exception import ValidationException
 from expremigen.musicalmappings.dynamics import Dynamics as Dyn
@@ -66,7 +67,7 @@ class Mispel:
             name=Note (octave=OneOrTwoDigits)? (invdur=UnderScoreInt)? properties*=NoteProperties  
         ;
         UnderScoreInt:
-            '_' value=FLOAT
+            '_' value=MyFloat dots*='.'
         ;
         NoteProperties:
             (avol=AnimatedVol|svol=StaticVol|apdur=AnimatedPDur|spdur=StaticPDur|alag=AnimatedLag|slag=StaticLag|
@@ -127,12 +128,15 @@ class Mispel:
             symval='ppppp' | symval='pppp' | symval='ppp' | symval='pp' | symval='p' | symval='mp' | symval='mf' | 
             symval='ffff' | symval='fff' | symval='ff' | symval='f'  
         ;
+        MyFloat:
+            /\d+(\.\d+)?/
+        ;
         Comment:
             /\/\/.*$/ |
             /\/\*(.|\n)*?\*\//
         ;
         """
-        self.mm = metamodel_from_str(self.grammar)
+        self.mm = metamodel_from_str(self.grammar, match_filters={'MyFloat': lambda x: float(x)})
         self.last_octave = Defaults.octave
         self.last_duration = 1 / Defaults.dur
         self.last_dynamic = ('num', 'static', Defaults.vol)
@@ -203,7 +207,11 @@ class Mispel:
             return self.last_duration
         if event.ns.invdur.value is None:
             return self.last_duration
-        self.last_duration = event.ns.invdur.value
+        duration = event.ns.invdur.value
+        if event.ns.invdur.dots:
+            numdots = len(event.ns.invdur.dots)
+            duration = 1/((1/duration) * (2 - 1/pow(2,numdots)))
+        self.last_duration = duration
         return self.last_duration
 
     def notes_for_section(self, section_id):
@@ -242,7 +250,7 @@ class Mispel:
             if event.ns is None:
                 raise ValidationException("Fatal Error! Expected a NoteSpec.")
             duration = self.duration_for_noteevent(event)
-            durations.append(duration)
+            durations.append(1/duration)
         return durations
 
     def duration_generator_for_section(self, section_id):
@@ -401,3 +409,14 @@ class Mispel:
 
     def tempo_generator_for_section(self, section_id):
         return self.property_generator_for_section(section_id, Tempo.from_string, self.extract_tempo, self.last_tempo)
+
+    def phrase_properties_for_section(self, section_id):
+        pp = {
+            PP.NOTE : self.note_generator_for_section(section_id),
+            PP.VOL : self.dynamics_generator_for_section(section_id),
+            PP.DUR : self.duration_generator_for_section(section_id),
+            PP.PDUR : self.pdur_generator_for_section(section_id),
+            PP.LAG : self.lag_generator_for_section(section_id),
+            PP.TEMPO : self.tempo_generator_for_section(section_id)
+        }
+        return pp
