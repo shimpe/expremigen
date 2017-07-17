@@ -3,6 +3,7 @@ import unittest
 from textx.exceptions import TextXSyntaxError
 
 from expremigen.mispel.mispel import Mispel
+from expremigen.patterns.pchord import Pchord
 
 
 class TestPat2Midi(unittest.TestCase):
@@ -188,6 +189,12 @@ class TestPat2Midi(unittest.TestCase):
         m.parse("with channel 2 notedriven :\n a3_8. b-16")
         durs = [ d for d in m.duration_generator_for_section(0)]
         self.assertEqual(durs, [(1/8 + 1/16), (1/8 + 1/16)])
+
+    def test_chord(self):
+        m = Mispel()
+        m.parse("with track 0 : a3_4 <c e g> a")
+        notes = [n for n in m.note_generator_for_section(0)]
+        self.assertListEqual(notes, ['a3', Pchord(['c3', 'e3', 'g3']), 'a3'])
 
 if __name__ == '__main__':
     unittest.main()

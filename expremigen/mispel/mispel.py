@@ -10,6 +10,7 @@ from expremigen.musicalmappings.playeddurations import PlayedDurations as PDur
 from expremigen.musicalmappings.tempo import Tempo
 from expremigen.patterns.pseq import Pseq
 from expremigen.patterns.ptween import Ptween
+from expremigen.patterns.pchord import Pchord
 
 
 class Mispel:
@@ -44,8 +45,11 @@ class Mispel:
             'track' id=INT
         ;
         Event:
-            (ns=NoteSpec | cs=CcSpec)
-        ;        
+            (ks=ChordSpec | ns=NoteSpec | cs=CcSpec)
+        ;
+        ChordSpec:
+            '<' notes+=NoteSpec '>'
+        ;
         CcSpec:
             (acc=AnimatedControlChange|scc=StaticControlChange)
         ;
@@ -137,7 +141,7 @@ class Mispel:
             /\/\*(.|\n)*?\*\//
         ;
         """
-        self.mm = metamodel_from_str(self.grammar, match_filters={'MyFloat': lambda x: float(x)})
+        self.mm = metamodel_from_str(self.grammar, match_filters={'MyFloat': lambda x: float(x)}, ws="' '\n\t'|'")
         self.last_octave = Defaults.octave
         self.last_duration = 1 / Defaults.dur
         self.last_dynamic = ('num', 'static', Defaults.vol)
@@ -189,28 +193,28 @@ class Mispel:
         section = self.section(section_id)
         return section.events
 
-    def name_for_noteevent(self, event):
-        if event.ns is None:
+    def name_for_notespec(self, notespec):
+        if notespec is None:
             raise ValidationException("Fatal Error! Asking name only makes sense for note events.")
-        if event.ns.name is None:
+        if notespec.name is None:
             raise ValidationException("Fatal Error! Note needs a name.")
-        return event.ns.name
+        return notespec.name
 
-    def octave_for_noteevent(self, event):
-        if event.ns.octave is None:
+    def octave_for_notespec(self, notespec):
+        if notespec.octave is None:
             return self.last_octave
-        if event.ns.name != "r":
-            self.last_octave = event.ns.octave
+        if notespec.name != "r":
+            self.last_octave = notespec.octave
         return self.last_octave
 
-    def duration_for_noteevent(self, event):
-        if event.ns.invdur is None:
+    def duration_for_notespec(self, notespec):
+        if notespec.invdur is None:
             return self.last_duration
-        if event.ns.invdur.value is None:
+        if notespec.invdur.value is None:
             return self.last_duration
-        duration = event.ns.invdur.value
-        if event.ns.invdur.dots:
-            numdots = len(event.ns.invdur.dots)
+        duration = notespec.invdur.value
+        if notespec.invdur.dots:
+            numdots = len(notespec.invdur.dots)
             duration = 1/((1/duration) * (2 - 1/pow(2,numdots)))
         self.last_duration = duration
         return self.last_duration
@@ -225,14 +229,25 @@ class Mispel:
             if event.cs is not None:
                 raise ValidationException(
                     "Fatal Error! in note driven sections, control changes must be attached to notes")
-            if event.ns is None:
-                raise ValidationException("Fatal Error! Expected a NoteSpec.")
-            name = self.name_for_noteevent(event)
-            octave = self.octave_for_noteevent(event)
-            if name == "r":
-                notes.append(f"{name}")
-            else:
-                notes.append(f"{name}{octave}")
+            if event.ns is None and event.ks is None:
+                raise ValidationException("Fatal Error! Expected a NoteSpec or a ChordSpec.")
+            if event.ns:
+                name = self.name_for_notespec(event.ns)
+                octave = self.octave_for_notespec(event.ns)
+                if name == "r":
+                    notes.append(f"{name}")
+                else:
+                    notes.append(f"{name}{octave}")
+            elif event.ks:
+                chordnotes = []
+                for note in event.ks.notes:
+                    name = self.name_for_notespec(note)
+                    octave = self.octave_for_notespec(note)
+                    if name == "r":
+                        assert ValidationException("Fatal Error! No rests allowed inside chords.")
+                    else:
+                        chordnotes.append(f"{name}{octave}")
+                notes.append(Pchord(chordnotes))
         return notes
 
     def note_generator_for_section(self, section_id):
@@ -248,17 +263,21 @@ class Mispel:
             if event.cs is not None:
                 raise ValidationException(
                     "Fatal Error! in note driven sections, control changes must be attached to notes")
-            if event.ns is None:
+            if event.ns is None and event.ks is None:
                 raise ValidationException("Fatal Error! Expected a NoteSpec.")
-            duration = self.duration_for_noteevent(event)
-            durations.append(1/duration)
+            if event.ns:
+                duration = self.duration_for_notespec(event.ns)
+                durations.append(1/duration)
+            elif event.ks:
+                duration = self.duration_for_notespec(event.ks.notes[0])
+                durations.append(1/duration)
         return durations
 
     def duration_generator_for_section(self, section_id):
         return Pseq(self.durations_for_section(section_id), 1)
 
-    def extract_dynamics(self, event):
-        for p in event.ns.properties:
+    def extract_dynamics(self, notespec):
+        for p in notespec.properties:
             if p.avol is not None:
                 if p.avol.symval is not None:
                     return "sym", "anim", p.avol.symval.symval
@@ -275,8 +294,8 @@ class Mispel:
                     raise ValidationException(f"Fatal! Couldn't understand static dynamics specification {p.svol}")
         return None
 
-    def extract_pdur(self, event):
-        for p in event.ns.properties:
+    def extract_pdur(self, notespec):
+        for p in notespec.properties:
             if p.apdur is not None:
                 if p.apdur.symval is not None:
                     return "sym", "anim", p.apdur.symval.symval
@@ -293,8 +312,8 @@ class Mispel:
                     raise ValidationException(f"Fatal! Couldn't understand static pdur specification {p.spdur}")
         return None
 
-    def extract_tempo(self, event):
-        for p in event.ns.properties:
+    def extract_tempo(self, notespec):
+        for p in notespec.properties:
             if p.atempo is not None:
                 if p.atempo.symval is not None:
                     return "sym", "anim", p.atempo.symval.symval
@@ -311,8 +330,8 @@ class Mispel:
                     raise ValidationException(f"Fatal! Couldn't understand static pdur specification {p.stempo}")
         return None
 
-    def extract_lag(self, event):
-        for p in event.ns.properties:
+    def extract_lag(self, notespec):
+        for p in notespec.properties:
             if p.alag is not None:
                 if p.alag.value is not None:
                     return "num", "anim", p.alag.value.value
@@ -321,7 +340,7 @@ class Mispel:
                     return "num", "static", p.slag.value.value
         return None
 
-    def property_for_section(self, section_id, property_from_event_fn, default_value):
+    def property_for_section(self, section_id, property_from_notespec_fn, default_value):
         """
         :param section_id:
         :return: list of (from_property, to_property, distance)
@@ -333,7 +352,13 @@ class Mispel:
         count_since_previous_event = 0
         for event in self.events_for_section(section_id):
             if event.ns:
-                prop = property_from_event_fn(event)
+                prop = property_from_notespec_fn(event.ns)
+                if prop is not None:
+                    properties.append((default_value, prop, count_since_previous_event))
+                    default_value = prop
+                    count_since_previous_event = 0
+            elif event.ks:
+                prop = property_from_notespec_fn(event.ks.notes[0])
                 if prop is not None:
                     properties.append((default_value, prop, count_since_previous_event))
                     default_value = prop
@@ -345,8 +370,8 @@ class Mispel:
         properties.append((default_value, default_value, count_since_previous_event))
         return properties
 
-    def property_generator_for_section(self, section_id, symvalue_from_string_fn, property_from_event_fn, default_value):
-        dynamics = self.property_for_section(section_id, property_from_event_fn, default_value)
+    def property_generator_for_section(self, section_id, symvalue_from_string_fn, property_from_notespec_fn, default_value):
+        dynamics = self.property_for_section(section_id, property_from_notespec_fn, default_value)
         patterns = []
         for d in dynamics:
             frm_dyn = d[0]

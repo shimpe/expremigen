@@ -2,11 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a548a0b3-44ec-4944-9d6e-6d4749f7a078" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/examples/output/bwv784_2voice_invention_13.mid" afterPath="$PROJECT_DIR$/examples/output/bwv784_2voice_invention_13.mid" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/mispelchords.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/examples/bwv784_2voice_invention_13.py" afterPath="$PROJECT_DIR$/examples/bwv784_2voice_invention_13.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/expremigen/io/pat2midi.py" afterPath="$PROJECT_DIR$/expremigen/io/pat2midi.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/expremigen/mispel/mispel.py" afterPath="$PROJECT_DIR$/expremigen/mispel/mispel.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/testmispel.py" afterPath="$PROJECT_DIR$/tests/testmispel.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -30,11 +29,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="bwv784_2voice_invention_13.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="bwv784_2voice_invention_13.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/examples/bwv784_2voice_invention_13.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="25" column="50" lean-forward="false" selection-start-line="25" selection-start-column="50" selection-end-line="25" selection-end-column="50" />
+            <state relative-caret-position="432">
+              <caret line="32" column="25" lean-forward="true" selection-start-line="28" selection-start-column="0" selection-end-line="32" selection-end-column="25" />
               <folding>
                 <element signature="e#0#43#0" expanded="true" />
               </folding>
@@ -45,28 +44,8 @@
       <file leaf-file-name="nanonotation.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/expremigen/musicalmappings/nanonotation.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="274">
-              <caret line="85" column="0" lean-forward="true" selection-start-line="85" selection-start-column="0" selection-end-line="85" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="note2midi.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/expremigen/musicalmappings/note2midi.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="28" column="33" lean-forward="true" selection-start-line="28" selection-start-column="33" selection-end-line="28" selection-end-column="33" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="case.py" pinned="false" current-in-tab="false">
-        <entry file="file:///usr/lib/python3.6/unittest/case.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="159">
-              <caret line="600" column="0" lean-forward="false" selection-start-line="600" selection-start-column="0" selection-end-line="600" selection-end-column="0" />
+            <state relative-caret-position="17">
+              <caret line="32" column="0" lean-forward="true" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -75,8 +54,8 @@
       <file leaf-file-name="testmispel.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tests/testmispel.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="308">
+              <caret line="196" column="0" lean-forward="true" selection-start-line="196" selection-start-column="0" selection-end-line="196" selection-end-column="0" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
@@ -84,21 +63,45 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="tempo.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/expremigen/musicalmappings/tempo.py">
+      <file leaf-file-name="testpchord.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tests/testpchord.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="427">
-              <caret line="52" column="21" lean-forward="true" selection-start-line="49" selection-start-column="0" selection-end-line="52" selection-end-column="21" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#15#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="twovoicewithchords.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/examples/twovoicewithchords.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="53">
+              <caret line="41" column="84" lean-forward="false" selection-start-line="41" selection-start-column="17" selection-end-line="41" selection-end-column="84" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mispel.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="mispelchords.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/examples/mispelchords.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#43#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="mispel.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/expremigen/mispel/mispel.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="253">
-              <caret line="415" column="48" lean-forward="true" selection-start-line="415" selection-start-column="48" selection-end-line="415" selection-end-column="48" />
+            <state relative-caret-position="37">
+              <caret line="377" column="25" lean-forward="true" selection-start-line="377" selection-start-column="25" selection-end-line="377" selection-end-column="25" />
               <folding>
                 <element signature="e#0#46#0" expanded="true" />
               </folding>
@@ -140,36 +143,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>NO_OF_C</find>
-      <find>NO_OF_CO</find>
-      <find>NO_OF_CON</find>
-      <find>NO_OF_CONT</find>
-      <find>NO_OF_CONTRO</find>
-      <find>NO_OF_CONTROLL</find>
-      <find>NO_OF_CONTROLLER</find>
-      <find>NO_OF_CONTROLLERS</find>
-      <find>no_of_ei</find>
-      <find>animatedsy</find>
-      <find>rhythm</find>
-      <find>TimeDrive</find>
-      <find>und</find>
-      <find>symvol</find>
-      <find>ccspec</find>
-      <find>print</find>
-      <find>fbb</find>
-      <find>bb</find>
-      <find>s</find>
-      <find>st</find>
-      <find>stacca</find>
-      <find>staccat</find>
-      <find>staccato</find>
-      <find>invdur</find>
-      <find>durations_for</find>
-      <find>duration_</find>
-      <find>LEGATO</find>
-      <find>vol</find>
-      <find>required argument is not an integer</find>
+      <find>event.ks</find>
+      <find>n</find>
+      <find>na</find>
+      <find>nam</find>
+      <find>namefornote</find>
+      <find>namefornot</find>
+      <find>nameforno</find>
+      <find>nameforn</find>
+      <find>namefor</find>
+      <find>namefo</find>
+      <find>namef</find>
+      <find>name</find>
+      <find>name_</find>
+      <find>name_for</find>
+      <find>name_for_e</find>
+      <find>name_for_</find>
+      <find>name_for_note</find>
+      <find>name_for_notee</find>
+      <find>name_for_noteeven</find>
+      <find>name_for_noteevent</find>
       <find>\\dur</find>
+      <find>for_noteevent</find>
+      <find>f</find>
+      <find>from</find>
+      <find>from_e</find>
+      <find>from_ev</find>
+      <find>from_eve</find>
+      <find>from_even</find>
+      <find>from_event</find>
+      <find>_event</find>
     </findStrings>
     <replaceStrings>
       <replace>Ia</replace>
@@ -181,7 +184,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/examples/output/dualphrase.py" />
         <option value="$PROJECT_DIR$/expremigen/patterns/pn.py" />
         <option value="$PROJECT_DIR$/expremigen/io/pat2mid.py" />
         <option value="$PROJECT_DIR$/tests/testpat2mid.py" />
@@ -228,10 +230,11 @@
         <option value="$PROJECT_DIR$/expremigen/musicalmappings/note2midi.py" />
         <option value="$PROJECT_DIR$/examples/nanonotation.py" />
         <option value="$PROJECT_DIR$/examples/example_nanonotation.py" />
-        <option value="$PROJECT_DIR$/tests/testmispel.py" />
-        <option value="$PROJECT_DIR$/expremigen/mispel/mispel.py" />
         <option value="$PROJECT_DIR$/expremigen/io/pat2midi.py" />
         <option value="$PROJECT_DIR$/examples/bwv784_2voice_invention_13.py" />
+        <option value="$PROJECT_DIR$/tests/testmispel.py" />
+        <option value="$PROJECT_DIR$/examples/mispelchords.py" />
+        <option value="$PROJECT_DIR$/expremigen/mispel/mispel.py" />
       </list>
     </option>
   </component>
@@ -421,7 +424,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.bwv784_2voice_invention_13 (1)">
+  <component name="RunManager" selected="Python.mispelchords">
     <configuration default="false" name="bwv784_2voice_invention_13" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -440,21 +443,6 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <method />
     </configuration>
-    <configuration default="false" name="Unittests for testnanonotation.TestNanoNotation.test_octaves" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="expremigen" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;testnanonotation.TestNanoNotation.test_octaves&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
-      <method />
-    </configuration>
     <configuration default="false" name="Unittests in testmispel.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -470,24 +458,6 @@
       <option name="_new_targetType" value="&quot;PATH&quot;" />
       <method />
     </configuration>
-    <configuration default="false" name="mispel" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/expremigen/mispel" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="expremigen" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/expremigen/mispel/mispel.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <method />
-    </configuration>
     <configuration default="false" name="bwv784_2voice_invention_13 (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -501,6 +471,42 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="expremigen" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/examples/bwv784_2voice_invention_13.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="testmispel" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="expremigen" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tests/testmispel.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="mispelchords" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/examples" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="expremigen" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/examples/mispelchords.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -589,18 +595,18 @@
     <list size="6">
       <item index="0" class="java.lang.String" itemvalue="Python tests.Unittests in tests" />
       <item index="1" class="java.lang.String" itemvalue="Python.bwv784_2voice_invention_13" />
-      <item index="2" class="java.lang.String" itemvalue="Python tests.Unittests for testnanonotation.TestNanoNotation.test_octaves" />
-      <item index="3" class="java.lang.String" itemvalue="Python tests.Unittests in testmispel.py" />
-      <item index="4" class="java.lang.String" itemvalue="Python.mispel" />
-      <item index="5" class="java.lang.String" itemvalue="Python.bwv784_2voice_invention_13 (1)" />
+      <item index="2" class="java.lang.String" itemvalue="Python tests.Unittests in testmispel.py" />
+      <item index="3" class="java.lang.String" itemvalue="Python.bwv784_2voice_invention_13 (1)" />
+      <item index="4" class="java.lang.String" itemvalue="Python.testmispel" />
+      <item index="5" class="java.lang.String" itemvalue="Python.mispelchords" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.bwv784_2voice_invention_13 (1)" />
-        <item index="1" class="java.lang.String" itemvalue="Python tests.Unittests in testmispel.py" />
-        <item index="2" class="java.lang.String" itemvalue="Python.mispel" />
-        <item index="3" class="java.lang.String" itemvalue="Python.bwv784_2voice_invention_13" />
-        <item index="4" class="java.lang.String" itemvalue="Python tests.Unittests for testnanonotation.TestNanoNotation.test_octaves" />
+        <item index="0" class="java.lang.String" itemvalue="Python.mispelchords" />
+        <item index="1" class="java.lang.String" itemvalue="Python.testmispel" />
+        <item index="2" class="java.lang.String" itemvalue="Python.bwv784_2voice_invention_13" />
+        <item index="3" class="java.lang.String" itemvalue="Python.bwv784_2voice_invention_13 (1)" />
+        <item index="4" class="java.lang.String" itemvalue="Python tests.Unittests in testmispel.py" />
       </list>
     </recent_temporary>
   </component>
@@ -621,12 +627,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Unittests_in_testmispel_py - 2017.07.17 at 11h 09m 34s.xml">
-      <configuration name="Unittests in testmispel.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_testmispel_py - 2017.07.17 at 11h 10m 41s.xml">
-      <configuration name="Unittests in testmispel.py" configurationId="tests" />
-    </history-entry>
     <history-entry file="Unittests_in_testmispel_py - 2017.07.17 at 11h 11m 44s.xml">
       <configuration name="Unittests in testmispel.py" configurationId="tests" />
     </history-entry>
@@ -651,6 +651,12 @@
     <history-entry file="Unittests_in_testmispel_py - 2017.07.17 at 11h 19m 57s.xml">
       <configuration name="Unittests in testmispel.py" configurationId="tests" />
     </history-entry>
+    <history-entry file="Unittests_in_tests - 2017.07.17 at 14h 00m 58s.xml">
+      <configuration name="Unittests in tests" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_tests - 2017.07.17 at 14h 01m 38s.xml">
+      <configuration name="Unittests in tests" configurationId="tests" />
+    </history-entry>
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -669,7 +675,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295838" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295838" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3295838" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3295838" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -724,20 +730,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/expremigen/patterns/pattern.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="37" lean-forward="false" selection-start-line="5" selection-start-column="37" selection-end-line="5" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/expremigen/patterns/pbinop.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="7" column="62" lean-forward="false" selection-start-line="7" selection-start-column="62" selection-end-line="7" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/expremigen/patterns/pchord.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -902,13 +894,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/examples/twovoicewithchords.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="404">
-          <caret line="58" column="31" lean-forward="true" selection-start-line="58" selection-start-column="31" selection-end-line="58" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/expremigen/io/midicontrolchanges.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="444">
@@ -1048,38 +1033,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/testmispel.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/expremigen/mispel/mispel.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="415" column="48" lean-forward="true" selection-start-line="415" selection-start-column="48" selection-end-line="415" selection-end-column="48" />
-          <folding>
-            <element signature="e#0#46#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar:///usr/lib/python3.6/site-packages/MIDIUtil-1.1.4-py3.6.egg!/midiutil/MidiFile.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="1484" column="0" lean-forward="false" selection-start-line="1484" selection-start-column="0" selection-end-line="1484" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/expremigen/musicalmappings/nanonotation.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="274">
-          <caret line="85" column="0" lean-forward="true" selection-start-line="85" selection-start-column="0" selection-end-line="85" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1094,12 +1051,68 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/expremigen/musicalmappings/nanonotation.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="32" column="0" lean-forward="true" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/testpchord.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/twovoicewithchords.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="53">
+          <caret line="41" column="84" lean-forward="false" selection-start-line="41" selection-start-column="17" selection-end-line="41" selection-end-column="84" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/testmispel.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="196" column="0" lean-forward="true" selection-start-line="196" selection-start-column="0" selection-end-line="196" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/examples/bwv784_2voice_invention_13.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="25" column="50" lean-forward="false" selection-start-line="25" selection-start-column="50" selection-end-line="25" selection-end-column="50" />
+        <state relative-caret-position="432">
+          <caret line="32" column="25" lean-forward="true" selection-start-line="28" selection-start-column="0" selection-end-line="32" selection-end-column="25" />
           <folding>
             <element signature="e#0#43#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/mispelchords.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#43#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/expremigen/mispel/mispel.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="37">
+          <caret line="377" column="25" lean-forward="true" selection-start-line="377" selection-start-column="25" selection-end-line="377" selection-end-column="25" />
+          <folding>
+            <element signature="e#0#46#0" expanded="true" />
           </folding>
         </state>
       </provider>
