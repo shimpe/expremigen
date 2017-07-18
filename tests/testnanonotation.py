@@ -1,7 +1,6 @@
 import unittest
 
 from expremigen.musicalmappings.nanonotation import NanoNotation
-from expremigen.musicalmappings.note2midi import Note2Midi
 
 
 class TestNanoNotation(unittest.TestCase):
@@ -19,6 +18,7 @@ class TestNanoNotation(unittest.TestCase):
         nn = NanoNotation()
         the_notes = nn.notes("r_8 c3 e g4 a_2 e")
         self.assertEqual(the_notes, "r c3 e3 g4 a4 e4".split(" "))
+
 
 if __name__ == '__main__':
     unittest.main()

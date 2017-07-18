@@ -1,7 +1,8 @@
-from expremigen.mispel.mispel import Mispel
 from expremigen.io.pat2midi import Pat2Midi
+from expremigen.mispel.mispel import Mispel
 
 outputfile = "output/mispelchords.mid"
+
 
 def make_midi():
     m = Mispel()
@@ -18,5 +19,6 @@ def make_midi():
 
     p2m.write(outputfile)
 
-if __name__=="__main__":
+
+if __name__ == "__main__":
     make_midi()

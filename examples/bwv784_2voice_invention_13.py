@@ -1,7 +1,8 @@
-from expremigen.mispel.mispel import Mispel
 from expremigen.io.pat2midi import Pat2Midi
+from expremigen.mispel.mispel import Mispel
 
 outputfile = "output/bwv784_2voice_invention_13.mid"
+
 
 def create_bach():
     m = Mispel()
@@ -32,6 +33,6 @@ def create_bach():
 
     p2m.write(outputfile)
 
-if __name__=="__main__":
-    create_bach()
 
+if __name__ == "__main__":
+    create_bach()

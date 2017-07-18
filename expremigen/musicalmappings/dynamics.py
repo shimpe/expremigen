@@ -33,4 +33,3 @@ class Dynamics:
             return lut[thestring]
         else:
             return 0
-

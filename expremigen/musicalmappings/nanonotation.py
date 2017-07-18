@@ -1,4 +1,5 @@
 import re
+
 from expremigen.musicalmappings.note2midi import Note2Midi
 
 
@@ -24,6 +25,7 @@ class NanoNotation:
        note: parameters in {} will animate from this value to the next value
              parameters in [] will remain constant until the next value
     """
+
     def __init__(self):
         self.note2midi = Note2Midi()
         self.note = re.compile("[a-g]")
@@ -54,7 +56,7 @@ class NanoNotation:
                 if m2:
                     note = f"{note}{self.last_octave}"
                 else:
-                    pass # note = note ;)
+                    pass  # note = note ;)
             notes.append(note)
         return notes
 

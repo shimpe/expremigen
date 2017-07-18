@@ -4,9 +4,10 @@ from expremigen.io.constants import Defaults, NO_OF_CONTROLLERS, NO_OF_OFFICIAL_
 from expremigen.io.constants import PhraseProperty as PP
 from expremigen.io.midicontrolchanges import MidiControlChanges
 from expremigen.io.phrase import Phrase
-from expremigen.patterns.pchord import Pchord
-from expremigen.musicalmappings.note2midi import Note2Midi
 from expremigen.musicalmappings.constants import REST
+from expremigen.musicalmappings.note2midi import Note2Midi
+from expremigen.patterns.pchord import Pchord
+
 
 class Pat2Midi:
     """
@@ -77,7 +78,7 @@ class Pat2Midi:
                 else:
 
                     try:
-                        intnote= int(event[PP.NOTE])
+                        intnote = int(event[PP.NOTE])
                     except ValueError:
                         intnote = self.note2midi.lookup(event[PP.NOTE])
                         if intnote == REST:

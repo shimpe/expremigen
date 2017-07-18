@@ -27,7 +27,7 @@ class Tempo:
     @classmethod
     def from_string(cls, thestring):
         lut = {
-            'larghissimo' : 20,
+            'larghissimo': 20,
             'grave': 40,
             'lento': 44,
             'largho': 50,

@@ -2,9 +2,9 @@ import unittest
 
 from textx.exceptions import TextXSyntaxError
 
+from expremigen.io.constants import PhraseProperty as PP
 from expremigen.mispel.mispel import Mispel
 from expremigen.patterns.pchord import Pchord
-from expremigen.io.constants import PhraseProperty as PP
 
 
 class TestPat2Midi(unittest.TestCase):
@@ -224,7 +224,6 @@ class TestPat2Midi(unittest.TestCase):
             print(p[key][PP.CtrlValKey(key)])
             print('\n')
 
+
 if __name__ == '__main__':
     unittest.main()
-
-

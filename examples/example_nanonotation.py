@@ -7,9 +7,9 @@ from expremigen.io.constants import PhraseProperty as PP
 from expremigen.io.pat2midi import Pat2Midi
 from expremigen.io.phrase import Phrase
 from expremigen.musicalmappings.dynamics import Dynamics as Dyn
-from expremigen.musicalmappings.playeddurations import PlayedDurations as PDur
 from expremigen.musicalmappings.nanonotation import NanoNotation
 from expremigen.musicalmappings.note2midi import Note2Midi
+from expremigen.musicalmappings.playeddurations import PlayedDurations as PDur
 from expremigen.patterns.pconst import Pconst
 from expremigen.patterns.pseq import Pseq
 from expremigen.patterns.ptween import Ptween

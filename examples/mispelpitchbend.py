@@ -1,5 +1,5 @@
-from expremigen.mispel.mispel import Mispel
 from expremigen.io.pat2midi import Pat2Midi
+from expremigen.mispel.mispel import Mispel
 
 outputfile = "output/mispelpitchbend.mid"
 

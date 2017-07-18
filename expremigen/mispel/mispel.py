@@ -3,17 +3,17 @@ from collections import defaultdict
 from textx.metamodel import metamodel_from_str
 from vectortween.NumberAnimation import NumberAnimation
 
-from expremigen.io.constants import PhraseProperty as PP
 from expremigen.io.constants import Defaults, NO_OF_CONTROLLERS
+from expremigen.io.constants import PhraseProperty as PP
 from expremigen.io.phrase import Phrase
 from expremigen.mispel.exception import ValidationException
 from expremigen.musicalmappings.dynamics import Dynamics as Dyn
 from expremigen.musicalmappings.playeddurations import PlayedDurations as PDur
 from expremigen.musicalmappings.tempo import Tempo
-from expremigen.patterns.pseq import Pseq
-from expremigen.patterns.ptween import Ptween
 from expremigen.patterns.pchord import Pchord
 from expremigen.patterns.pconst import Pconst
+from expremigen.patterns.pseq import Pseq
+from expremigen.patterns.ptween import Ptween
 from expremigen.patterns.utils import take
 
 
@@ -152,7 +152,7 @@ class Mispel:
         self.last_lag = ('num', 'static', Defaults.lag)
         self.last_pdur = ('num', 'static', Defaults.playeddur)
         self.last_tempo = ('num', 'static', Defaults.tempo)
-        self.last_cc = defaultdict(lambda:None)
+        self.last_cc = defaultdict(lambda: None)
 
     def parse(self, thestring):
         self.model = self.mm.model_from_str(thestring)
@@ -220,7 +220,7 @@ class Mispel:
         duration = notespec.invdur.value
         if notespec.invdur.dots:
             numdots = len(notespec.invdur.dots)
-            duration = 1/((1/duration) * (2 - 1/pow(2,numdots)))
+            duration = 1 / ((1 / duration) * (2 - 1 / pow(2, numdots)))
         self.last_duration = duration
         return self.last_duration
 
@@ -289,10 +289,11 @@ class Mispel:
         if driver != 'notedriven':
             raise ValidationException("Fatal Error! cc_properties_for_section only makes sense in notedriven track")
         cc_properties = defaultdict(list)
-        cc_count_since_previous_event = defaultdict(lambda:0)
+        cc_count_since_previous_event = defaultdict(lambda: 0)
         for event in self.events_for_section(section_id):
             if event.cs is not None:
-                raise ValidationException(f"Fatal Error! cc_properties_for_section extracts from note and chordspecs only {event}")
+                raise ValidationException(
+                    f"Fatal Error! cc_properties_for_section extracts from note and chordspecs only {event}")
             if event.ns is None and event.ks is None:
                 raise ValidationException(f"Fatal Error! Expected a NoteSpec/ChordSpec {event}")
             if event.ns:
@@ -304,7 +305,7 @@ class Mispel:
             for p in notespec.properties:
                 if p.acc is not None:
                     ccid = p.acc.id
-                    ccval= p.acc.value
+                    ccval = p.acc.value
                     prop = ('num', 'anim', ccval)
                     cc_properties[ccid].append((self.last_cc[ccid], prop, cc_count_since_previous_event[ccid]))
                     self.last_cc[ccid] = prop
@@ -325,7 +326,7 @@ class Mispel:
 
     def cc_properties_generators_for_section(self, section_id):
         cc_properties = self.cc_properties_for_section(section_id)
-        patterns = defaultdict(lambda : defaultdict(list))
+        patterns = defaultdict(lambda: defaultdict(list))
         for cc in cc_properties:
             delay = 0
             note_durations = self.duration_generator_for_section(section_id)
@@ -336,10 +337,10 @@ class Mispel:
                 valkey = PP.CtrlValKey(cc)
                 if segment[0] is None:
                     no_of_notes = int(segment[2])
-                    print ("first segment no_of_notes ", no_of_notes)
+                    print("first segment no_of_notes ", no_of_notes)
                     dur = sum(take(no_of_notes, note_durations))
-                    print ("first segment dur ", dur)
-                    patterns[cc][durkey].append(Pconst(dur,1))
+                    print("first segment dur ", dur)
+                    patterns[cc][durkey].append(Pconst(dur, 1))
                     patterns[cc][valkey].append(Pconst(None, 1))
                 else:
                     no_of_notes = int(segment[2])
@@ -348,8 +349,8 @@ class Mispel:
                     print("dur", dur)
                     if frm[1] == "anim":
                         n = NumberAnimation(frm=int(frm[2]), to=int(to[2]))
-                        patterns[cc][durkey].append(Pconst(0.1*dur/no_of_notes, int(no_of_notes/0.1)))
-                        patterns[cc][valkey].append(Ptween(n, 0, 0, int(no_of_notes/0.1), int(no_of_notes/0.1)))
+                        patterns[cc][durkey].append(Pconst(0.1 * dur / no_of_notes, int(no_of_notes / 0.1)))
+                        patterns[cc][valkey].append(Ptween(n, 0, 0, int(no_of_notes / 0.1), int(no_of_notes / 0.1)))
                     elif frm[1] == "static":
                         patterns[cc][durkey].append(Pconst(dur, 1))
                         patterns[cc][valkey].append(Pconst(int(frm[2]), 1))
@@ -447,7 +448,8 @@ class Mispel:
         properties.append((default_value, default_value, count_since_previous_event))
         return properties
 
-    def property_generator_for_section(self, section_id, symvalue_from_string_fn, property_from_notespec_fn, default_value):
+    def property_generator_for_section(self, section_id, symvalue_from_string_fn, property_from_notespec_fn,
+                                       default_value):
         dynamics = self.property_for_section(section_id, property_from_notespec_fn, default_value)
         patterns = []
         for d in dynamics:
@@ -478,7 +480,6 @@ class Mispel:
                 patterns.append(n)
         return Pseq(patterns, 1)
 
-
     def dynamics_for_section(self, section_id):
         """
         :param section_id:
@@ -488,7 +489,8 @@ class Mispel:
         return self.property_for_section(section_id, self.extract_dynamics, self.last_dynamic)
 
     def dynamics_generator_for_section(self, section_id):
-        return self.property_generator_for_section(section_id, Dyn.from_string, self.extract_dynamics, self.last_dynamic)
+        return self.property_generator_for_section(section_id, Dyn.from_string, self.extract_dynamics,
+                                                   self.last_dynamic)
 
     def lag_for_section(self, section_id):
         """
@@ -515,12 +517,12 @@ class Mispel:
 
     def phrase_properties_for_section(self, section_id):
         pp = {
-            PP.NOTE : self.note_generator_for_section(section_id),
-            PP.VOL : self.dynamics_generator_for_section(section_id),
-            PP.DUR : self.duration_generator_for_section(section_id),
-            PP.PLAYEDDUR : self.pdur_generator_for_section(section_id),
-            PP.LAG : self.lag_generator_for_section(section_id),
-            PP.TEMPO : self.tempo_generator_for_section(section_id)
+            PP.NOTE: self.note_generator_for_section(section_id),
+            PP.VOL: self.dynamics_generator_for_section(section_id),
+            PP.DUR: self.duration_generator_for_section(section_id),
+            PP.PLAYEDDUR: self.pdur_generator_for_section(section_id),
+            PP.LAG: self.lag_generator_for_section(section_id),
+            PP.TEMPO: self.tempo_generator_for_section(section_id)
         }
 
         ccs = self.cc_properties_generators_for_section(section_id)
