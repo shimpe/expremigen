@@ -1,8 +1,10 @@
+from collections import defaultdict
+
 from textx.metamodel import metamodel_from_str
 from vectortween.NumberAnimation import NumberAnimation
 
 from expremigen.io.constants import PhraseProperty as PP
-from expremigen.io.constants import Defaults
+from expremigen.io.constants import Defaults, NO_OF_CONTROLLERS
 from expremigen.io.phrase import Phrase
 from expremigen.mispel.exception import ValidationException
 from expremigen.musicalmappings.dynamics import Dynamics as Dyn
@@ -11,6 +13,8 @@ from expremigen.musicalmappings.tempo import Tempo
 from expremigen.patterns.pseq import Pseq
 from expremigen.patterns.ptween import Ptween
 from expremigen.patterns.pchord import Pchord
+from expremigen.patterns.pconst import Pconst
+from expremigen.patterns.utils import take
 
 
 class Mispel:
@@ -148,6 +152,7 @@ class Mispel:
         self.last_lag = ('num', 'static', Defaults.lag)
         self.last_pdur = ('num', 'static', Defaults.playeddur)
         self.last_tempo = ('num', 'static', Defaults.tempo)
+        self.last_cc = defaultdict(lambda:None)
 
     def parse(self, thestring):
         self.model = self.mm.model_from_str(thestring)
@@ -264,17 +269,93 @@ class Mispel:
                 raise ValidationException(
                     "Fatal Error! in note driven sections, control changes must be attached to notes")
             if event.ns is None and event.ks is None:
-                raise ValidationException("Fatal Error! Expected a NoteSpec.")
+                raise ValidationException(f"Fatal Error! Expected a NoteSpec/ChordSpec {event}")
+
             if event.ns:
-                duration = self.duration_for_notespec(event.ns)
-                durations.append(1/duration)
+                notespec = event.ns
             elif event.ks:
-                duration = self.duration_for_notespec(event.ks.notes[0])
-                durations.append(1/duration)
+                notespec = event.ks.notes[0]
+            duration = self.duration_for_notespec(notespec)
+            durations.append(1 / duration)
+
         return durations
 
     def duration_generator_for_section(self, section_id):
         return Pseq(self.durations_for_section(section_id), 1)
+
+    def cc_properties_for_section(self, section_id):
+        section = self.section(section_id)
+        driver = self.driver_for_section(section_id)
+        if driver != 'notedriven':
+            raise ValidationException("Fatal Error! cc_properties_for_section only makes sense in notedriven track")
+        cc_properties = defaultdict(list)
+        cc_count_since_previous_event = defaultdict(lambda:0)
+        for event in self.events_for_section(section_id):
+            if event.cs is not None:
+                raise ValidationException(f"Fatal Error! cc_properties_for_section extracts from note and chordspecs only {event}")
+            if event.ns is None and event.ks is None:
+                raise ValidationException(f"Fatal Error! Expected a NoteSpec/ChordSpec {event}")
+            if event.ns:
+                notespec = event.ns
+            elif event.ks:
+                notespec = event.ks.notes[0]
+            else:
+                continue
+            for p in notespec.properties:
+                if p.acc is not None:
+                    ccid = p.acc.id
+                    ccval= p.acc.value
+                    prop = ('num', 'anim', ccval)
+                    cc_properties[ccid].append((self.last_cc[ccid], prop, cc_count_since_previous_event[ccid]))
+                    self.last_cc[ccid] = prop
+                    cc_count_since_previous_event[ccid] = 0
+                elif p.scc is not None:
+                    ccid = p.scc.id
+                    ccval = p.scc.value
+                    prop = ('num', 'static', ccval)
+                    cc_properties[ccid].append((self.last_cc[ccid], prop, cc_count_since_previous_event[ccid]))
+                    self.last_cc[ccid] = prop
+                    cc_count_since_previous_event[ccid] = 0
+            for i in range(NO_OF_CONTROLLERS):
+                cc_count_since_previous_event[i] += 1
+        for key in cc_properties:
+            cc_properties[key].append((self.last_cc[key], self.last_cc[key], cc_count_since_previous_event[key]))
+
+        return cc_properties
+
+    def cc_properties_generators_for_section(self, section_id):
+        cc_properties = self.cc_properties_for_section(section_id)
+        patterns = defaultdict(lambda : defaultdict(list))
+        for cc in cc_properties:
+            delay = 0
+            note_durations = self.duration_generator_for_section(section_id)
+            for segment in cc_properties[cc]:
+                frm = segment[0]
+                to = segment[1]
+                durkey = PP.CtrlDurKey(cc)
+                valkey = PP.CtrlValKey(cc)
+                if segment[0] is None:
+                    no_of_notes = int(segment[2])
+                    print ("first segment no_of_notes ", no_of_notes)
+                    dur = sum(take(no_of_notes, note_durations))
+                    print ("first segment dur ", dur)
+                    patterns[cc][durkey].append(Pconst(dur,1))
+                    patterns[cc][valkey].append(Pconst(None, 1))
+                else:
+                    no_of_notes = int(segment[2])
+                    print("no_of_notes ", no_of_notes)
+                    dur = sum(take(no_of_notes, note_durations))
+                    print("dur", dur)
+                    if frm[1] == "anim":
+                        n = NumberAnimation(frm=int(frm[2]), to=int(to[2]))
+                        patterns[cc][durkey].append(Pconst(0.1*dur/no_of_notes, int(no_of_notes/0.1)))
+                        patterns[cc][valkey].append(Ptween(n, 0, 0, int(no_of_notes/0.1), int(no_of_notes/0.1)))
+                    elif frm[1] == "static":
+                        patterns[cc][durkey].append(Pconst(dur, 1))
+                        patterns[cc][valkey].append(Pconst(int(frm[2]), 1))
+                    else:
+                        raise ValidationException(f"Fatal Error. Unknown animation type {frm}")
+        return patterns
 
     def extract_dynamics(self, notespec):
         for p in notespec.properties:
@@ -352,20 +433,16 @@ class Mispel:
         count_since_previous_event = 0
         for event in self.events_for_section(section_id):
             if event.ns:
-                prop = property_from_notespec_fn(event.ns)
-                if prop is not None:
-                    properties.append((default_value, prop, count_since_previous_event))
-                    default_value = prop
-                    count_since_previous_event = 0
+                notespec = event.ns
             elif event.ks:
-                prop = property_from_notespec_fn(event.ks.notes[0])
-                if prop is not None:
-                    properties.append((default_value, prop, count_since_previous_event))
-                    default_value = prop
-                    count_since_previous_event = 0
+                notespec = event.ks.notes[0]
             else:
-                # TODO
-                pass
+                continue
+            prop = property_from_notespec_fn(notespec)
+            if prop is not None:
+                properties.append((default_value, prop, count_since_previous_event))
+                default_value = prop
+                count_since_previous_event = 0
             count_since_previous_event += 1
         properties.append((default_value, default_value, count_since_previous_event))
         return properties
@@ -445,6 +522,12 @@ class Mispel:
             PP.LAG : self.lag_generator_for_section(section_id),
             PP.TEMPO : self.tempo_generator_for_section(section_id)
         }
+
+        ccs = self.cc_properties_generators_for_section(section_id)
+        for key in ccs:
+            pp[PP.CtrlDurKey(key)] = Pseq(ccs[key][PP.CtrlDurKey(key)], 1)
+            pp[PP.CtrlValKey(key)] = Pseq(ccs[key][PP.CtrlValKey(key)], 1)
+
         return pp
 
     def phrase_for_section(self, section_id):

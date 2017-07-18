@@ -4,6 +4,7 @@ from textx.exceptions import TextXSyntaxError
 
 from expremigen.mispel.mispel import Mispel
 from expremigen.patterns.pchord import Pchord
+from expremigen.io.constants import PhraseProperty as PP
 
 
 class TestPat2Midi(unittest.TestCase):
@@ -43,7 +44,7 @@ class TestPat2Midi(unittest.TestCase):
             self.assertEqual(event.ns.name, 'a')
             self.assertEqual(event.ns.octave, '3')
             self.assertEqual(event.ns.invdur.value, 8)
-            self.assertListEqual(event.ns.invdur.dots,['.'])
+            self.assertListEqual(event.ns.invdur.dots, ['.'])
             self.assertEqual(event.ns.properties, [])
             event = section.events[1]
             self.assertEqual(event.ns.name, 'b-')
@@ -64,7 +65,7 @@ class TestPat2Midi(unittest.TestCase):
                     self.assertEqual(p.stempo.value, None)
 
         self.assertListEqual(m.notes_for_section(0), ["a3", "b-3", "c#3"])
-        self.assertListEqual(m.durations_for_section(0), [1/8+1/16, 1/16, 1/16.5])
+        self.assertListEqual(m.durations_for_section(0), [1 / 8 + 1 / 16, 1 / 16, 1 / 16.5])
 
     def test_sections(self):
         m = Mispel()
@@ -174,6 +175,7 @@ class TestPat2Midi(unittest.TestCase):
                                                       (('num', 'anim', 120), ('num', 'static', 40), 2),
                                                       (('num', 'static', 40), ('num', 'static', 40), 1)]
                              )
+
     def test_tempogeneratorforsection(self):
         m = Mispel()
         model = m.parse(r"""
@@ -187,14 +189,42 @@ class TestPat2Midi(unittest.TestCase):
     def test_dot(self):
         m = Mispel()
         m.parse("with channel 2 notedriven :\n a3_8. b-16")
-        durs = [ d for d in m.duration_generator_for_section(0)]
-        self.assertEqual(durs, [(1/8 + 1/16), (1/8 + 1/16)])
+        durs = [d for d in m.duration_generator_for_section(0)]
+        self.assertEqual(durs, [(1 / 8 + 1 / 16), (1 / 8 + 1 / 16)])
 
     def test_chord(self):
         m = Mispel()
-        m.parse("with track 0 : a3_4 <c e g> a")
+        m.parse("with track 0 : a3_4\\vol[20] <c e g> a\\vol[30]")
         notes = [n for n in m.note_generator_for_section(0)]
         self.assertListEqual(notes, ['a3', Pchord(['c3', 'e3', 'g3']), 'a3'])
+        vols = [v for v in m.dynamics_generator_for_section(0)]
+        self.assertListEqual(vols, [20.0, 20.0, 30.0])
+
+    def test_ccpropertiesforsection(self):
+        m = Mispel()
+        m.parse(r"""
+        with track 0 : a3\pdur[legato]\cc[15,100] b <c\cc{16,23} d4> e\cc[15,90] f a g\cc[16,40] b
+        """)
+        self.assertDictEqual(m.cc_properties_for_section(0),
+                             {15: [(None, ('num', 'static', 100), 0),
+                                   (('num', 'static', 100), ('num', 'static', 90), 3),
+                                   (('num', 'static', 90), ('num', 'static', 90), 5)],
+                              16: [(None, ('num', 'anim', 23), 2),
+                                   (('num', 'anim', 23), ('num', 'static', 40), 4),
+                                   (('num', 'static', 40), ('num', 'static', 40), 2)]})
+
+    def test_ccpropertiesgeneratorsforsection(self):
+        m = Mispel()
+        m.parse(r"""
+        with track 0: a3\pdur[legato]\cc[15,100] b <c\cc{16,23} d4> e\cc[15,90] f a g\cc[16,40] b
+        """)
+        p = m.cc_properties_generators_for_section(0)
+        for key in p:
+            print(p[key][PP.CtrlDurKey(key)])
+            print(p[key][PP.CtrlValKey(key)])
+            print('\n')
 
 if __name__ == '__main__':
     unittest.main()
+
+

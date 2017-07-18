@@ -73,6 +73,7 @@ class Pat2Midi:
                             duration=event[PP.DUR] * event[PP.PLAYEDDUR],
                             volume=int(event[PP.VOL]),
                             annotation=None)
+
                 else:
 
                     try:
@@ -90,27 +91,35 @@ class Pat2Midi:
                         duration=event[PP.DUR] * event[PP.PLAYEDDUR],
                         volume=int(event[PP.VOL]),
                         annotation=None)
+
+                self.handle_control_changes(channel, event, phrase, start_time, track)
+
             # handle controller events (only if they changed since last time)
             else:
-                for cc in range(NO_OF_OFFICIAL_CONTROLLERS):
-                    if PP.CtrlDurKey(cc) in event:
-                        time = start_time + phrase.generated_ctrl_duration(cc)
-                        value = event[PP.CtrlValKey(cc)]
-                        self.midiFile.addControllerEvent(track=track,
-                                                         channel=channel,
-                                                         time=time,
-                                                         controller_number=cc,
-                                                         parameter=value)
-                for cc in [MidiControlChanges.PitchWheel]:
-                    if PP.CtrlDurKey(cc) in event:
-                        time = start_time + phrase.generated_ctrl_duration(cc)
-                        pwvalue = event[PP.CtrlValKey(cc)]
-                        self.midiFile.addPitchWheelEvent(track=track,
-                                                         channel=channel,
-                                                         time=time,
-                                                         pitchWheelValue=pwvalue)
+                self.handle_control_changes(channel, event, phrase, start_time, track)
 
         return phrase.generated_duration()
+
+    def handle_control_changes(self, channel, event, phrase, start_time, track):
+        for cc in range(NO_OF_OFFICIAL_CONTROLLERS):
+            if PP.CtrlDurKey(cc) in event:
+                time = start_time + phrase.generated_ctrl_duration(cc)
+                value = event[PP.CtrlValKey(cc)]
+                if value is not None:
+                    self.midiFile.addControllerEvent(track=track,
+                                                     channel=channel,
+                                                     time=time,
+                                                     controller_number=cc,
+                                                     parameter=value)
+        for cc in [MidiControlChanges.PitchWheel]:
+            if PP.CtrlDurKey(cc) in event:
+                time = start_time + phrase.generated_ctrl_duration(cc)
+                pwvalue = event[PP.CtrlValKey(cc)]
+                if pwvalue is not None:
+                    self.midiFile.addPitchWheelEvent(track=track,
+                                                     channel=channel,
+                                                     time=time,
+                                                     pitchWheelValue=pwvalue)
 
     def add_phrases(self, list_of_phrase, track=0, channel=0, start_time=0):
         """

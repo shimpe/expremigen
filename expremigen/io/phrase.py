@@ -69,18 +69,20 @@ class Phrase:
         for cc in range(NO_OF_OFFICIAL_CONTROLLERS):
             if PP.CtrlDurKey(cc) in self.p and PP.CtrlValKey(cc) in self.p:
                 for value in zip(self.p[PP.CtrlDurKey(cc)], self.p[PP.CtrlValKey(cc)]):
-                    yield {
-                        PP.CtrlDurKey(cc): value[0] * 4,
-                        PP.CtrlValKey(cc): value[1]
-                    }
+                    if value[0] is not None and value[1] is not None:
+                        yield {
+                            PP.CtrlDurKey(cc): value[0] * 4,
+                            PP.CtrlValKey(cc): value[1]
+                        }
                     self.ctrl_time[cc] += value[0] * 4
         for cc in [MCC.PitchWheel]:
             if PP.CtrlDurKey(cc) in self.p and PP.CtrlValKey(cc) in self.p:
                 for value in zip(self.p[PP.CtrlDurKey(cc)], self.p[PP.CtrlValKey(cc)]):
-                    yield {
-                        PP.CtrlDurKey(cc): value[0] * 4,
-                        PP.CtrlValKey(cc): int(value[1])
-                    }
+                    if value[0] is not None and value[1] is not None:
+                        yield {
+                            PP.CtrlDurKey(cc): value[0] * 4,
+                            PP.CtrlValKey(cc): int(value[1])
+                        }
                     self.ctrl_time[cc] += value[0] * 4
 
     def generated_duration(self):
