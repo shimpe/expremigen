@@ -337,16 +337,12 @@ class Mispel:
                 valkey = PP.CtrlValKey(cc)
                 if segment[0] is None:
                     no_of_notes = int(segment[2])
-                    print("first segment no_of_notes ", no_of_notes)
                     dur = sum(take(no_of_notes, note_durations))
-                    print("first segment dur ", dur)
                     patterns[cc][durkey].append(Pconst(dur, 1))
                     patterns[cc][valkey].append(Pconst(None, 1))
                 else:
                     no_of_notes = int(segment[2])
-                    print("no_of_notes ", no_of_notes)
                     dur = sum(take(no_of_notes, note_durations))
-                    print("dur", dur)
                     if frm[1] == "anim":
                         n = NumberAnimation(frm=int(frm[2]), to=int(to[2]))
                         patterns[cc][durkey].append(Pconst(0.1 * dur / no_of_notes, int(no_of_notes / 0.1)))
