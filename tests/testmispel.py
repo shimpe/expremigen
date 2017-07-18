@@ -5,6 +5,7 @@ from textx.exceptions import TextXSyntaxError
 from expremigen.io.constants import PhraseProperty as PP
 from expremigen.mispel.mispel import Mispel
 from expremigen.patterns.pchord import Pchord
+from expremigen.patterns.pseq import Pseq
 
 
 class TestPat2Midi(unittest.TestCase):
@@ -219,10 +220,29 @@ class TestPat2Midi(unittest.TestCase):
         with track 0: a3\pdur[legato]\cc[15,100] b <c\cc{16,23} d4> e\cc[15,90] f a g\cc[16,40] b
         """)
         p = m.cc_properties_generators_for_section(0)
-        for key in p:
-            print(p[key][PP.CtrlDurKey(key)])
-            print(p[key][PP.CtrlValKey(key)])
-            print('\n')
+
+        key = 15
+        dur15 = [d for d in Pseq(p[15][PP.CtrlDurKey(15)], 1)]
+        val15 = [v for v in Pseq(p[15][PP.CtrlValKey(15)], 1)]
+
+        dur16 = [d for d in Pseq(p[16][PP.CtrlDurKey(16)], 1)]
+        val16 = [v for v in Pseq(p[16][PP.CtrlValKey(16)], 1)]
+
+        self.assertListEqual(dur15, [0, 0.75, 1.25])
+        self.assertListEqual(val15, [None, 100, 90])
+
+        self.assertListEqual(dur16,
+                             [0.5, 0.025, 0.025, 0.025, 0.025, 0.025, 0.025, 0.025, 0.025, 0.025, 0.025, 0.025, 0.025,
+                              0.025, 0.025, 0.025,
+                              0.025, 0.025, 0.025, 0.025, 0.025, 0.025, 0.025, 0.025, 0.025, 0.025, 0.025, 0.025, 0.025,
+                              0.025, 0.025, 0.025,
+                              0.025, 0.025, 0.025, 0.025, 0.025, 0.025, 0.025, 0.025, 0.025, 0.5])
+        self.assertListEqual(val16,
+                             [None, 23.0, 23.425, 23.85, 24.275, 24.7, 25.125, 25.55, 25.975, 26.4, 26.825, 27.25,
+                              27.675, 28.1, 28.525,
+                              28.95, 29.375, 29.8, 30.225, 30.65, 31.075, 31.5, 31.925, 32.35, 32.775, 33.2, 33.625,
+                              34.05, 34.475, 34.9,
+                              35.325, 35.75, 36.175, 36.6, 37.025, 37.45, 37.875, 38.3, 38.725, 39.15, 39.575, 40])
 
 
 if __name__ == '__main__':
