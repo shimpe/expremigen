@@ -15,13 +15,14 @@ phrase you can specify and/or animate:
  * lag (rubato), 
  * volume (pppp to fffff, crescendo, decrescendo)
  * tempo (rallentando, accelerando)
+ * midi control changes and pitchbend
  
 Specification of properties like note values or durations is done 
 using a library of patterns. Each pattern can generate numbers
 according to its specifications. Patterns internallly use python 
 generators to avoid memory and time explosion when you specify 
 patterns with very large repeat values. These patterns are modeled 
-after the more or less equivalent concept in supercollider.
+after the more or less equivalent concept in [supercollider](http://supercollider.github.io/). 
 
 Animations of properties are implemented by leveraging an extensive
 animation library (pyvectortween) which has ample possibilities for 
@@ -35,7 +36,7 @@ patterns.
 To get the most out of this library you will need to install MIDIUtil (pip), textX (pip) and pyvectortween (available on github only for now).
 
 # Getting started
-The easiest way to get started with expremigen is to use its domain specific **mi**di **spe**cification **l**anguage, mispel. A mispel based program could look as follows:
+Probably the easiest way to get started with expremigen is to use its domain specific **mi**di **spe**cification **l**anguage, mispel. Mispel syntax reuses ideas from [lilypond](http://lilypond.org/), [abc notation](http://abcnotation.com/) and [music21](http://web.mit.edu/music21/)'s [tinynotation](http://web.mit.edu/music21/doc/moduleReference/moduleTinyNotation.html). A mispel based program could look as follows:
  
  ```python
 from expremigen.io.pat2midi import Pat2Midi
@@ -60,17 +61,21 @@ if __name__ == "__main__":
     make_midi()
 ```
 
-### Specifying notes and rhythms
-As you can see you specify events in the form of notenames with octave numbers, e.g. a4 is a "la" in octave 4 (typically 440Hz). Acceptable note names incldude a, b, c, d, e, f, g
+## Specifying notes and rhythms
+* As you can see you specify events in the form of notenames with octave numbers, e.g. a4 is a "la" in octave 4 (typically 440Hz). Acceptable note names are a, b, c, d, e, f, g, and r for a rest.
  
-Sharps are indicated with #, double sharps with x, flats with - and double flats with --.
+* Sharps are indicated with #, e.g. ```a#```, double sharps with x, e.g. ```cx```, flats with -, e.g. ```e-``` and double flats with --, e.g. ```g--```.
 
-Rhythm is indicated by using underscore and an (inverse) duration in beats, e.g. _16 means a sixteenth note. You can add a dot to indicate a dotted rhythm, e.g. d#3_8. is a "d sharp" in octave 3 with a length of one eighth plus one sixteenth. 
+* To make chords, you put notes in angular brackets: ```<a4_8 c# e>```. The properties of the first note in the chord are used for the whole chord. Properties other than note name and octave attached to the second and later notes are discarded.
+
+* Rhythm is indicated by using underscore and an (inverse) duration in beats, e.g. _16 means a sixteenth note. You can add one or more dots to indicate a dotted rhythm, e.g. ```d#3_8.``` is a "d sharp" in octave 3 with a length of one eighth plus one sixteenth. 
  
- ### Adding expressivity
- To the notes you can add properties. Properties in *curly braces* ```\property{}``` are *animated* from this occurrence of the property to the next. In track 0 in the example above, the volume will be animated from p to ff (*crescendo*). 
+ ## Adding expressivity
+ * To the notes you can add properties. The main difference between mispel and other midi domain specific languages (like [skini](https://ccrma.stanford.edu/software/stk/skini.html), [alda](https://github.com/alda-lang/alda), [semitone](https://github.com/benwbooth/semitone), [micromidi](https://github.com/arirusso/micromidi)) is the combination of a fairly readable syntax and the easy to use built-in property animation system. 
  
- Properties in *square braces* ```\property[]``` remain *constant* until the next property of the same kind is encountered. The properties you can specify are:
+ * Properties in *curly braces* ```\property{}``` are *animated* from this occurrence of the property to the next. In track 0 in the example above, the volume will be animated from p to ff (*crescendo*). 
+ 
+ * Properties in *square braces* ```\property[]``` remain *constant* until the next property of the same kind is encountered. The properties you can specify are:
    * **vol** for volume - can be ppppp to ffff or an integer between 0-127
    * **pdur** for played duration - can be staccatissimo, staccato, normal, legato or legatissimo, or a number. The number is interpreted as a multiplier with which to multiply the specified duration. E.g. number 0.1 would specify staccatissimo and number 1 would specify legato.
    * **lag** for lag. Lag is a numeric value (where 1 stands for a full beat). By animating lag you can create a convincing rubato.
@@ -78,7 +83,7 @@ Rhythm is indicated by using underscore and an (inverse) duration in beats, e.g.
    * **cc** midi control changes. These are specified using two parameters, e.g. \cc{15, 100} specifies that midi control change for controller 15 should be set to 100 and this value will be animated until the next midi control change for controller 15 is encountered. Midi control changes are animated with a higher time resolution than individual notes meaning you can perfectly animate control message values between one long note and the next note.
      * *NOTE:* **pitchbend** in midi is not specified using a control change message, but in mispel it is. Just use controller value 128.
 
-### Avoiding duplication
+## Reducing duplication
 If two successive notes share the same octave you can leave out the octave in the second note. If two successive notes share the same duration, you can leave out the duration in the second notes. The following fragments are equivalent:
 ```python
 'a4_4 b4_4 c#4_4 d#4_4 e4_1'
@@ -120,7 +125,8 @@ def create_phrase():
     notes = "c4 e4 g4 c5 b4 g4 f4 d4 c4".split(" ")
     # specify a (volume) animation that increases linearly from mp to f
     crescendo = NumberAnimation(frm=Dyn.mp, to=Dyn.f, tween=['linear'])
-    # specify a (volume) animation that decreases linearly from f to ppp
+    # specify a (volume) animation that decreases using an easOutQuad
+    # tween function from f to ppp
     decrescendo = NumberAnimation(frm=Dyn.f, to=Dyn.ppp, 
                                   tween=['easeOutQuad'])                                
     # Combine both animations into one swell_dim animation.
