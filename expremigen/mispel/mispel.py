@@ -530,3 +530,15 @@ class Mispel:
 
     def phrase_for_section(self, section_id):
         return Phrase(self.phrase_properties_for_section(section_id))
+
+    def get_of_tracks(self):
+        no_of_sections = self.get_no_of_sections()
+        tracks = set([])
+        for section_id in range(no_of_sections):
+            tracks.add(self.track_for_section(section_id))
+        return len(tracks)
+
+    def add_to_pattern2midi(self, pattern2midi):
+        for s in range(self.get_no_of_sections()):
+            pattern2midi.add_phrase(self.phrase_for_section(s), self.track_for_section(s), self.channel_for_section(s),
+                                    self.time_for_section(s))
