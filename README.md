@@ -25,7 +25,7 @@ patterns with very large repeat values. These patterns are modeled
 after the more or less equivalent concept in [supercollider](http://supercollider.github.io/). 
 
 Animations of properties are implemented by leveraging an extensive
-animation library (pyvectortween) which has ample possibilities for 
+animation library [pyvectortween](https://github.com/shimpe/pyvectortween) which has ample possibilities for 
 specifying and combining advanced animations, and enrich them with 
 all kinds of tweening and noise functions for maximum expressive 
 results. A special pattern called Ptween applies the animations 
