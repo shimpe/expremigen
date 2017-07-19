@@ -78,6 +78,16 @@ Rhythm is indicated by using underscore and an (inverse) duration in beats, e.g.
    * **cc** midi control changes. These are specified using two parameters, e.g. \cc{15, 100} specifies that midi control change for controller 15 should be set to 100 and this value will be animated until the next midi control change for controller 15 is encountered. Midi control changes are animated with a higher time resolution than individual notes meaning you can perfectly animate control message values between one long note and the next note.
      * *NOTE:* **pitchbend** in midi is not specified using a control change message, but in mispel it is. Just use controller value 128.
 
+### Avoiding duplication
+If two successive notes share the same octave you can leave out the octave in the second note. If two successive notes share the same duration, you can leave out the duration in the second notes. The following fragments are equivalent:
+```python
+'a4_4 b4_4 c#4_4 d#4_4 e4_1'
+```
+and
+```python
+'a4_4 b c# d# e_1'
+```
+
 # Going deeper
 If you don't like mispel, or you need more power than mispel exposes, you can of course tap into the raw power of patterns. Although a typical pattern-based expremigen program may look a bit daunting at first, it's actually quite simple. In a typical use case, you will concatenate phrases into a piece. Phrases are dictionaries containing patterns that specify the notes, the volumes, the durations, the played durations, the lag and the tempo.
 
