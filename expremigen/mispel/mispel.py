@@ -512,7 +512,8 @@ class Mispel:
                     to_value = to_dyn[2]
                 animation_type = frm_dyn[1]
                 if animation_type == 'anim':
-                    n = Ptween(NumberAnimation(frm=from_value, to=to_value, tween=tweenoptions), 0, 0, distance, distance,
+                    n = Ptween(NumberAnimation(frm=from_value, to=to_value, tween=tweenoptions), 0, 0, distance,
+                               distance,
                                None)
                 elif animation_type == 'static':
                     n = Ptween(NumberAnimation(frm=from_value, to=from_value, tween=['linear']), 0, 0, distance,
