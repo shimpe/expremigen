@@ -244,6 +244,29 @@ class TestPat2Midi(unittest.TestCase):
                               34.05, 34.475, 34.9,
                               35.325, 35.75, 36.175, 36.6, 37.025, 37.45, 37.875, 38.3, 38.725, 39.15, 39.575, 40])
 
+    def test_animationtypes(self):
+        m = Mispel()
+        m.parse(r"""
+        with track 0:
+            a4_4\vol{mp, easeOutQuad} b c d\vol{f, easeOutElastic, 2, 0.01}
+        """)
+        vols = [v for v in m.dynamics_for_section(0)]
+        self.assertListEqual(vols,
+                             [(('num', 'static', 70), ('sym', 'anim', 'mp', ['easeOutQuad']), 0),
+                              (('sym', 'anim', 'mp', ['easeOutQuad']),
+                               ('sym', 'anim', 'f', ['easeOutElastic', 2.0, 0.01]), 3),
+                              (('sym', 'anim', 'f', ['easeOutElastic', 2.0, 0.01]),
+                               ('sym', 'anim', 'f', ['easeOutElastic', 2.0, 0.01]), 1)])
+
+    def test_animationtypes_generator(self):
+        m = Mispel()
+        m.parse(r"""
+        with track 0:
+            a4_4\vol{mp, easeOutQuad} b c d\vol{f, easeOutElastic, 50, 0.1} e f g a b c d e f g a b c d e f g a b c d e f g\vol[mp]
+        """)
+        vols2 = [v for v in m.dynamics_generator_for_section(0)]
+        self.assertListEqual(vols2,[80.0, 91.11111111111111, 97.77777777777777, 100.0, 80, 100, 80, 100, 80, 80, 100, 80, 100, 80, 100, 80.62500000000003, 80, 95.3611067738703, 80, 88.42426702280262, 80, 80, 82.14053136466876, 80, 82.32220556599769, 80, 80.629068677026, 80.0])
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -86,13 +86,13 @@ class Mispel:
             '\cc' '[' id=INT ',' value=INT ']'
         ;                                
         AnimatedControlChange:
-            '\cc' '{' id=INT ',' value=INT '}'
+            '\cc' '{' id=INT ',' value=INT (tweenoptions=TweenOptions)? '}'
         ;
         StaticTempo:
             '\tempo' '[' (symval=SymTempo|value=NumTempo) ']'
         ;
         AnimatedTempo:
-            '\tempo' '{' (symval=SymTempo|value=NumTempo) '}' 
+            '\tempo' '{' (symval=SymTempo|value=NumTempo) (tweenoptions=TweenOptions)? '}' 
         ;
         NumTempo:
             value=INT
@@ -107,7 +107,7 @@ class Mispel:
             '\lag' '[' value=NumLag ']'
         ;
         AnimatedLag:
-            '\lag' '{' value=NumLag '}'
+            '\lag' '{' value=NumLag (tweenoptions=TweenOptions)? '}'
         ;
         NumLag:
             value=FLOAT
@@ -116,7 +116,7 @@ class Mispel:
             '\pdur' '[' (symval=SymPDur | value=NumPDur) ']'
         ;
         AnimatedPDur:
-            '\pdur' '{' (symval=SymPDur | value=NumPDur) '}'
+            '\pdur' '{' (symval=SymPDur | value=NumPDur) (tweenoptions=TweenOptions)? '}'
         ;
         NumPDur:
             value=FLOAT
@@ -128,8 +128,18 @@ class Mispel:
             '\vol' '[' (symval=SymVol|value=NumVol) ']'
         ;                                        
         AnimatedVol:
-            '\vol' '{' (symval=SymVol|value=NumVol) '}'
-        ;                                        
+            '\vol' '{' (symval=SymVol|value=NumVol) (tweenoptions=TweenOptions)? '}'
+        ;       
+        TweenOptions:
+            ',' (tweentype=TweenType) ','? extra_options*=MyFloat[',']
+        ;
+        TweenType:
+            'linear' | 'easeInQuad' | 'easeOutQuad'| 'easeInOutQuad'| 'easeInCubic'| 'easeOutCubic'| 'easeInOutCubic'|
+            'easeInQuart'| 'easeOutQuart'| 'easeInOutQuart'| 'easeInQuint'| 'easeOutQuint'| 'easeInOutQuint'|
+            'easeInSine'| 'easeOutSine'| 'easeInOutSine'| 'easeInExpo'| 'easeOutExpo'| 'easeInOutExpo'|
+            'easeInCirc'| 'easeOutCirc'| 'easeInOutCirc'| 'easeInBounce'| 'easeOutBounce'| 'easeInOutBounce'|
+            'easeInElastic'| 'easeOutElastic'| 'easeInOutElastic'| 'easeInBack'| 'easeOutBack'| 'easeInOutBack'
+        ;
         NumVol:
             value=INT
         ;
@@ -354,13 +364,28 @@ class Mispel:
                         raise ValidationException(f"Fatal Error. Unknown animation type {frm}")
         return patterns
 
+    def extract_extra_tween_options(self, animatedproperty):
+        if animatedproperty.tweenoptions is not None:
+            tweentype = [animatedproperty.tweenoptions.tweentype]
+            if animatedproperty.tweenoptions.extra_options:
+                tweentype.extend(animatedproperty.tweenoptions.extra_options)
+            return tweentype
+        return None
+
     def extract_dynamics(self, notespec):
         for p in notespec.properties:
             if p.avol is not None:
+                tweenoptions = self.extract_extra_tween_options(p.avol)
                 if p.avol.symval is not None:
-                    return "sym", "anim", p.avol.symval.symval
+                    if tweenoptions is not None:
+                        return "sym", "anim", p.avol.symval.symval, tweenoptions
+                    else:
+                        return "sym", "anim", p.avol.symval.symval
                 elif p.avol.value is not None:
-                    return "num", "anim", p.avol.value.value
+                    if tweenoptions is not None:
+                        return "num", "anim", p.avol.value.value, tweenoptions
+                    else:
+                        return "num", "anim", p.avol.value.value
                 else:
                     raise ValidationException(f"Fatal! Couldn't understand animated dynamics specification {p.avol}")
             elif p.svol is not None:
@@ -375,10 +400,17 @@ class Mispel:
     def extract_pdur(self, notespec):
         for p in notespec.properties:
             if p.apdur is not None:
+                tweenoptions = self.extract_extra_tween_options(p.apdur)
                 if p.apdur.symval is not None:
-                    return "sym", "anim", p.apdur.symval.symval
+                    if tweenoptions is not None:
+                        return "sym", "anim", p.apdur.symval.symval, tweenoptions
+                    else:
+                        return "sym", "anim", p.apdur.symval.symval
                 elif p.apdur.value is not None:
-                    return "num", "anim", p.apdur.value.value
+                    if tweenoptions is not None:
+                        return "num", "anim", p.apdur.value.value, tweenoptions
+                    else:
+                        return "num", "anim", p.apdur.value.value
                 else:
                     raise ValidationException(f"Fatal! Couldn't understand animated pdur specification {p.apdur}")
             elif p.spdur is not None:
@@ -393,10 +425,17 @@ class Mispel:
     def extract_tempo(self, notespec):
         for p in notespec.properties:
             if p.atempo is not None:
+                tweenoptions = self.extract_extra_tween_options(p.atempo)
                 if p.atempo.symval is not None:
-                    return "sym", "anim", p.atempo.symval.symval
+                    if tweenoptions is not None:
+                        return "sym", "anim", p.atempo.symval.symval, tweenoptions
+                    else:
+                        return "sym", "anim", p.atempo.symval.symval
                 elif p.atempo.value is not None:
-                    return "num", "anim", p.atempo.value.value
+                    if tweenoptions is not None:
+                        return "num", "anim", p.atempo.value.value, tweenoptions
+                    else:
+                        return "num", "anim", p.atempo.value.value
                 else:
                     raise ValidationException(f"Fatal! Couldn't understand animated pdur specification {p.atempo}")
             elif p.stempo is not None:
@@ -411,8 +450,12 @@ class Mispel:
     def extract_lag(self, notespec):
         for p in notespec.properties:
             if p.alag is not None:
+                tweenoptions = self.extract_extra_tween_options(p.alag)
                 if p.alag.value is not None:
-                    return "num", "anim", p.alag.value.value
+                    if tweenoptions is not None:
+                        return "num", "anim", p.alag.value.value, tweenoptions
+                    else:
+                        return "num", "anim", p.alag.value.value
             elif p.slag is not None:
                 if p.slag.value is not None:
                     return "num", "static", p.slag.value.value
@@ -452,6 +495,10 @@ class Mispel:
             frm_dyn = d[0]
             to_dyn = d[1]
             distance = d[2]
+            try:
+                tweenoptions = d[0][3]
+            except IndexError:
+                tweenoptions = ['linear']
             if distance:
                 from_value_type = frm_dyn[0]
                 if from_value_type == 'sym':
@@ -465,7 +512,7 @@ class Mispel:
                     to_value = to_dyn[2]
                 animation_type = frm_dyn[1]
                 if animation_type == 'anim':
-                    n = Ptween(NumberAnimation(frm=from_value, to=to_value, tween=['linear']), 0, 0, distance, distance,
+                    n = Ptween(NumberAnimation(frm=from_value, to=to_value, tween=tweenoptions), 0, 0, distance, distance,
                                None)
                 elif animation_type == 'static':
                     n = Ptween(NumberAnimation(frm=from_value, to=from_value, tween=['linear']), 0, 0, distance,
