@@ -86,7 +86,23 @@ This program generates a midi file containing two tracks on two different midi c
    * **tempo** by animating tempo you can speed up or slow down (accelerando and ritardando)
    * **cc** midi control changes. These are specified using two parameters, e.g. \cc{15, 100} specifies that midi control change for controller 15 should be set to 100 and this value will be animated until the next midi control change for controller 15 is encountered. Midi control changes are animated with a higher time resolution than individual notes meaning you can perfectly animate control message values between one long note and the next note.
      * *NOTE:* **pitchbend** in midi is not specified using a control change message, but in mispel it is. Just use controller value 128.
-
+ * Vectortween also allows to specifying tweening options and noise function options. Only the tweening options are exposed in mispel, so if you wanted to get fancy you could write an animation like 
+ ```python
+ with track 0 channel 0:
+        c4_16\vol{p, easeOutElastic, 30, 0.1} e g c5 b4 g f d c_4 r\vol{ff}
+  ```
+ * The supported tweening options are (see [this picture](http://easings.net/nl)) for a graphical display of what these mean:
+   * linear, 
+   * easeInQuad, easeOutQuad,easeInOutQuad,
+   * easeInCubic,easeOutCubic,easeInOutCubic,
+   * easeInQuart,easeOutQuart,easeInOutQuart,
+   * easeInQuint,easeOutQuint,easeInOutQuint,
+   * easeInSine,easeOutSine,easeInOutSine,
+   * easeInExpo,easeOutExpo,easeInOutExpo,
+   * easeInCirc,easeOutCirc,easeInOutCirc,
+   * easeInBounce,easeOutBounce,easeInOutBounce,
+   * easeInElastic,easeOutElastic,easeInOutElastic (these require two extra float parameters: amplitude and damping)
+   * easeInBack,easeOutBack,easeInOutBack (these require one extra float parameter: damping)
 ## Reducing duplication
 If two successive notes share the same octave you can leave out the octave in the second note. If two successive notes share the same duration, you can leave out the duration in the second notes. The following fragments are equivalent:
 ```python
