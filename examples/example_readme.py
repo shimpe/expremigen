@@ -8,10 +8,10 @@ def make_midi():
     m = Mispel()
     m.parse(r"""
     with track 0 channel 0:
-        c4_16\vol{p} e g c5 b4 g f d c_4\vol{ff}
+        c4_16\vol{p}\tempo{120} e g c5 b4 g f d c_4 r\vol{ff}\tempo{60}
 
     with track 1 channel 1:
-        <c3_4\vol{mf} e3 g3> <b2 d3 g3> <c3 e3 g3 c4>
+        <c3_4\vol[mp] e3 g> <b2\vol[f] d3 g> <c3_2\vol[mf] e g c4>
     """)
     p2m = Pat2Midi(m.get_of_tracks())
     m.add_to_pattern2midi(p2m)
