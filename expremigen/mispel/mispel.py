@@ -76,7 +76,7 @@ class Mispel:
             name=Note (octave=OneOrTwoDigits)? (invdur=UnderScoreInt)? properties*=NoteProperties  
         ;
         UnderScoreInt:
-            '_' value=MyFloat dots*='.' ('*' num=INT '/' den=INT)?
+            '_' value=MyFloat dots*='.' ('*' num=INT ('/' den=INT)?)?
         ;
         NoteProperties:
             (avol=AnimatedVol|svol=StaticVol|apdur=AnimatedPDur|spdur=StaticPDur|alag=AnimatedLag|slag=StaticLag|
@@ -234,6 +234,8 @@ class Mispel:
         multiplier = 1
         if notespec.invdur.num and notespec.invdur.den:
             multiplier = notespec.invdur.den / notespec.invdur.num # inverted to make more intuitive!
+        elif notespec.invdur.num:
+            multiplier = 1/notespec.invdur.num
         self.last_duration = duration * multiplier
         return self.last_duration
 
