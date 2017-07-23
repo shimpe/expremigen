@@ -233,7 +233,7 @@ class Mispel:
             duration = 1 / ((1 / duration) * (2 - 1 / pow(2, numdots)))
         multiplier = 1
         if notespec.invdur.num and notespec.invdur.den:
-            multiplier = notespec.invdur.num / notespec.invdur.den
+            multiplier = notespec.invdur.den / notespec.invdur.num # inverted to make more intuitive!
         self.last_duration = duration * multiplier
         return self.last_duration
 
@@ -582,7 +582,7 @@ class Mispel:
     def phrase_for_section(self, section_id):
         return Phrase(self.phrase_properties_for_section(section_id))
 
-    def get_of_tracks(self):
+    def get_no_of_tracks(self):
         no_of_sections = self.get_no_of_sections()
         tracks = set([])
         for section_id in range(no_of_sections):
