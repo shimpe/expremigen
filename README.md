@@ -53,7 +53,7 @@ def make_midi():
     with track 1 channel 1:
         <c3_4\vol[mp] e3 g> <b2\vol[f] d3 g> <c3_2\vol[mf] e g c4>
     """)
-    p2m = Pat2Midi(m.get_of_tracks())
+    p2m = Pat2Midi(m.get_no_of_tracks())
     m.add_to_pattern2midi(p2m)
     p2m.write(outputfile)
 

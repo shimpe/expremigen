@@ -71,10 +71,10 @@ class TestPat2Midi(unittest.TestCase):
     def test_durationmultiplier(self):
         m = Mispel()
         model = m.parse(r"""
-        with track 0 channel 0: cx4_4*2/3 d3 e-_4 g--_4.*2/3
+        with track 0 channel 0: cx4_4*2/3 d3 e-_4 g--_4.*2/3 r_1*10/1
         """)
         durs = [d for d in m.durations_for_section(0)]
-        self.assertListEqual(durs, [0.375, 0.375, 0.25, 0.5625])
+        self.assertListEqual(durs, [0.16666666666666666, 0.16666666666666666, 0.25, 0.25, 10.0])
 
     def test_sections(self):
         m = Mispel()
