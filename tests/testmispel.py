@@ -68,6 +68,14 @@ class TestPat2Midi(unittest.TestCase):
         self.assertListEqual(m.notes_for_section(0), ["a3", "b-3", "c#3"])
         self.assertListEqual(m.durations_for_section(0), [1 / 8 + 1 / 16, 1 / 16, 1 / 16.5])
 
+    def test_durationmultiplier(self):
+        m = Mispel()
+        model = m.parse(r"""
+        with track 0 channel 0: cx4_4*2/3 d3 e-_4 g--_4.*2/3
+        """)
+        durs = [d for d in m.durations_for_section(0)]
+        self.assertListEqual(durs, [0.375, 0.375, 0.25, 0.5625])
+
     def test_sections(self):
         m = Mispel()
         model = m.parse(r"""

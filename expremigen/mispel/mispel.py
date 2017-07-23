@@ -76,7 +76,7 @@ class Mispel:
             name=Note (octave=OneOrTwoDigits)? (invdur=UnderScoreInt)? properties*=NoteProperties  
         ;
         UnderScoreInt:
-            '_' value=MyFloat dots*='.'
+            '_' value=MyFloat dots*='.' ('*' num=INT '/' den=INT)?
         ;
         NoteProperties:
             (avol=AnimatedVol|svol=StaticVol|apdur=AnimatedPDur|spdur=StaticPDur|alag=AnimatedLag|slag=StaticLag|
@@ -231,7 +231,10 @@ class Mispel:
         if notespec.invdur.dots:
             numdots = len(notespec.invdur.dots)
             duration = 1 / ((1 / duration) * (2 - 1 / pow(2, numdots)))
-        self.last_duration = duration
+        multiplier = 1
+        if notespec.invdur.num and notespec.invdur.den:
+            multiplier = notespec.invdur.num / notespec.invdur.den
+        self.last_duration = duration * multiplier
         return self.last_duration
 
     def notes_for_section(self, section_id):
