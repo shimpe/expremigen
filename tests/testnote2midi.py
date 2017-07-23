@@ -10,7 +10,7 @@ class TestNote2Midi(unittest.TestCase):
         n = Note2Midi()
         self.assertEqual(n.lookup("a4"), 69)
         self.assertEqual(n.lookup("c4"), 60)
-        self.assertEqual(n.lookup("bx4"), 61)
+        self.assertEqual(n.lookup("bx3"), 61)
         self.assertEqual(n.lookup("c#4"), 61)
         self.assertEqual(n.lookup("db4"), 61)
         self.assertEqual(n.lookup("dbb3"), 48)

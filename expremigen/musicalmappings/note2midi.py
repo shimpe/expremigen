@@ -28,6 +28,9 @@ class Note2Midi:
                        ['a#', 'bb', 'b-', 'cbb', 'c--'],
                        ['b', 'ax', 'cb', 'c-']]
 
+    corner_case_octave_lower = set(["b#", "bx"])
+    corner_case_octave_higher= set(["cb", "c-", "cbb", "c--"])
+
     def __init__(self):
         # '#' denotes a sharp, 'b' denotes a flat, x denotes a double sharp, bb denotes a double flat
         self.note_to_midi = {}
@@ -36,7 +39,13 @@ class Note2Midi:
             for note_synonyms in self.chromatic_scale:
                 if notenum <= 127:
                     for note in note_synonyms:
-                        self.note_to_midi["{0}{1}".format(note, octave - 1)] = notenum
+
+                        o = octave - 1
+                        if note in self.corner_case_octave_lower:
+                            o = o - 1
+                        elif note in self.corner_case_octave_higher:
+                            o = o + 1
+                        self.note_to_midi["{0}{1}".format(note, o)] = notenum
                     notenum += 1
 
     def lookup(self, note):
