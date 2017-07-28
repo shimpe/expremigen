@@ -31,6 +31,60 @@ class Note2Midi:
     corner_case_octave_lower = set(["b#", "bx"])
     corner_case_octave_higher= set(["cb", "c-", "cbb", "c--"])
 
+    drummap = {
+        ('acousticbassdrum', 'abd') : 35,
+        ('bassdrum', 'bad') : 36,
+        ('sidestick', 'sis') : 37,
+        ('acousticsnare', 'acs') : 38,
+        ('brushtap', 'brt') : 38, # brush kit instead of drum kit
+        ('handclap', 'hac') : 39,
+        ('brushslap', 'brs') : 39,# brush kit instead of drum kit
+        ('electricsnare', 'els') : 40,
+        ('brushswirl', 'brw'): 40,# brush kit instead of drum kit
+        ('lowfloortom', 'lft') : 41,
+        ('closedhihat', 'chh') : 42,
+        ('highfloortom', 'hft') : 43,
+        ('pedalhihat', 'phh') : 44,
+        ('lowtom', 'lot') : 45,
+        ('openhihat', 'ohh') : 46,
+        ('lowmidtom', 'lmt') : 47,
+        ('highmidtom', 'hmt') : 48,
+        ('crashsymbal1', 'cs1') : 49,
+        ('hightom', 'hit') : 50,
+        ('ridecymbal1', 'rc1') : 51,
+        ('chinesecymbal', 'chc') : 52,
+        ('ridebell', 'rib') : 53,
+        ('tambourine', 'tam') : 54,
+        ('splashcymbal', 'spc') : 55,
+        ('cowbell', 'cob') : 56,
+        ('crashsymbal2', 'cc2') : 57,
+        ('vibraslap', 'vis') : 58,
+        ('ridecymbal2', 'rc2') : 59,
+        ('highbongo', 'hib') : 60,
+        ('lowbongo', 'lob') : 61,
+        ('mutehiconga', 'mhc') : 62,
+        ('openhiconga', 'ohc') : 63,
+        ('lowconga', 'loc') : 64,
+        ('hightimbale', 'him') : 65,
+        ('lowtimbale', 'lom') : 66,
+        ('highagogo', 'hag') : 67,
+        ('lowagogo', 'lag') : 68,
+        ('cabasa', 'cab') : 69,
+        ('maracas', 'mar') : 70,
+        ('shortwhistle', 'swh') : 71,
+        ('longwhistle', 'lwh') : 72,
+        ('shortguiro', 'shg') : 73,
+        ('longguiro', 'log') : 74,
+        ('claves', 'cla') : 75,
+        ('hiwoodblock', 'hwb') : 76,
+        ('lowoodblock', 'lwb') : 77,
+        ('mutecuica', 'muc') : 78,
+        ('opencuica', 'opc') : 79,
+        ('mutetriangle', 'mut') : 80,
+        ('opentriangle', 'opt') : 81,
+        ('shaker', 'shk') : 82
+    }
+
     def __init__(self):
         # '#' denotes a sharp, 'b' denotes a flat, x denotes a double sharp, bb denotes a double flat
         self.note_to_midi = {}
@@ -47,6 +101,16 @@ class Note2Midi:
                             o = o + 1
                         self.note_to_midi["{0}{1}".format(note, o)] = notenum
                     notenum += 1
+
+        self.all_drum_notes = set([])
+        for d in self.drummap:
+            self.note_to_midi["{0}".format(d[0])] = self.drummap[d]
+            self.note_to_midi["{0}".format(d[1])] = self.drummap[d]
+            # check that we didn't use the same acronym twice...
+            assert d[0] not in self.all_drum_notes
+            assert d[1] not in self.all_drum_notes
+            self.all_drum_notes.add(d[0])
+            self.all_drum_notes.add(d[1])
 
     def lookup(self, note):
         """

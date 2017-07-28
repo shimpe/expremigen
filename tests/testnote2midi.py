@@ -33,6 +33,12 @@ class TestNote2Midi(unittest.TestCase):
         q2 = [i for i in q]
         self.assertEqual(q2, expected)
 
+    def test_drum(self):
+        n = Note2Midi();
+        m = n.convert(["openhihat", "ohh"])
+        m2 = [i for i in m]
+        expected = [46, 46]
+        self.assertEqual(m2, expected)
 
 if __name__ == '__main__':
     unittest.main()

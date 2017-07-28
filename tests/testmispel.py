@@ -278,6 +278,17 @@ class TestPat2Midi(unittest.TestCase):
                               80, 100, 80.62500000000003, 80, 95.3611067738703, 80, 88.42426702280262, 80, 80,
                               82.14053136466876, 80, 82.32220556599769, 80, 80.629068677026, 80.0])
 
+    def test_drumnotes(self):
+        m = Mispel()
+        m.parse(r"""
+        with track 0 channel 11:
+            bassdrum_4 openhihat_8*2/3 openhihat ohh  
+        """)
+        notes = m.notes_for_section(0)
+        self.assertListEqual(notes, ['bassdrum', 'openhihat', 'openhihat', 'ohh'])
+        durs = m.durations_for_section(0)
+        self.assertListEqual(durs, [0.25, 0.08333333333333333, 0.08333333333333333, 0.08333333333333333])
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -10,6 +10,7 @@ from expremigen.mispel.exception import ValidationException
 from expremigen.musicalmappings.dynamics import Dynamics as Dyn
 from expremigen.musicalmappings.playeddurations import PlayedDurations as PDur
 from expremigen.musicalmappings.tempo import Tempo
+from expremigen.musicalmappings.note2midi import Note2Midi
 from expremigen.patterns.pchord import Pchord
 from expremigen.patterns.pconst import Pconst
 from expremigen.patterns.pseq import Pseq
@@ -23,6 +24,7 @@ class Mispel:
     """
 
     def __init__(self):
+        self.note2midi = Note2Midi()
         self.grammar = r"""
         SectionModel:
             sections+=Section
@@ -60,6 +62,9 @@ class Mispel:
         Note:
             NoteName NoteModifier?
         ;
+        DrumNote:
+            'abd' | 'acousticbassdrum'| 'acousticsnare'| 'acs'| 'bad'| 'bassdrum'| 'brs'| 'brt'| 'brushslap'| 'brushswirl'| 'brushtap'| 'brw'| 'cab'| 'cabasa'| 'cc2'| 'chc'| 'chh'| 'chinesecymbal'| 'cla'| 'claves'| 'closedhihat'| 'cob'| 'cowbell'| 'crashsymbal1'| 'crashsymbal2'| 'cs1'| 'electricsnare'| 'els'| 'hac'| 'hag'| 'handclap'| 'hft'| 'hib'| 'highagogo'| 'highbongo'| 'highfloortom'| 'highmidtom'| 'hightimbale'| 'hightom'| 'him'| 'hit'| 'hiwoodblock'| 'hmt'| 'hwb'| 'lag'| 'lft'| 'lmt'| 'lob'| 'loc'| 'log'| 'lom'| 'longguiro'| 'longwhistle'| 'lot'| 'lowagogo'| 'lowbongo'| 'lowconga'| 'lowfloortom'| 'lowmidtom'| 'lowoodblock'| 'lowtimbale'| 'lowtom'| 'lwb'| 'lwh'| 'mar'| 'maracas'| 'mhc'| 'muc'| 'mut'| 'mutecuica'| 'mutehiconga'| 'mutetriangle'| 'ohc'| 'ohh'| 'opc'| 'opencuica'| 'openhiconga'| 'openhihat'| 'opentriangle'| 'opt'| 'pedalhihat'| 'phh'| 'rc1'| 'rc2'| 'rib'| 'ridebell'| 'ridecymbal1'| 'ridecymbal2'| 'shaker'| 'shg'| 'shk'| 'shortguiro'| 'shortwhistle'| 'sidestick'| 'sis'| 'spc'| 'splashcymbal'| 'swh'| 'tam'| 'tambourine'| 'vibraslap'| 'vis'
+        ;
         NoteName:
             'a' | 'b' | 'c' | 'd' | 'e' | 'f' | 'g' | 'r'
         ;
@@ -73,7 +78,7 @@ class Mispel:
             '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9'
         ;
         NoteSpec:
-            name=Note (octave=OneOrTwoDigits)? (invdur=UnderScoreInt)? properties*=NoteProperties  
+            ((name=DrumNote) | (name=Note (octave=OneOrTwoDigits)?)) (invdur=UnderScoreInt)? properties*=NoteProperties  
         ;
         UnderScoreInt:
             '_' value=MyFloat dots*='.' ('*' num=INT ('/' den=INT)?)?
@@ -254,7 +259,7 @@ class Mispel:
             if event.ns:
                 name = self.name_for_notespec(event.ns)
                 octave = self.octave_for_notespec(event.ns)
-                if name == "r":
+                if name == "r" or name in self.note2midi.all_drum_notes:
                     notes.append(f"{name}")
                 else:
                     notes.append(f"{name}{octave}")
