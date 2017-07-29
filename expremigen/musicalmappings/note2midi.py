@@ -112,6 +112,22 @@ class Note2Midi:
             self.all_drum_notes.add(d[0])
             self.all_drum_notes.add(d[1])
 
+    def get_drumnotes_for_grammar(self):
+        from functools import cmp_to_key
+        def mycmp(s1, s2):
+            if len(s1) < len(s2):
+                return 1
+            if len(s1) > len(s2):
+                return -1
+            if s1 < s2:
+                return 1
+            if s1 > s2:
+                return -1
+            return 0
+
+        strng = "|".join(sorted(["'" + d.strip() + "'" for d in self.all_drum_notes], key=cmp_to_key(mycmp)))
+        return strng
+
     def lookup(self, note):
         """
 

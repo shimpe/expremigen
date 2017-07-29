@@ -63,7 +63,7 @@ class Mispel:
             NoteName NoteModifier?
         ;
         DrumNote:
-            'abd' | 'acousticbassdrum'| 'acousticsnare'| 'acs'| 'bad'| 'bassdrum'| 'brs'| 'brt'| 'brushslap'| 'brushswirl'| 'brushtap'| 'brw'| 'cab'| 'cabasa'| 'cc2'| 'chc'| 'chh'| 'chinesecymbal'| 'cla'| 'claves'| 'closedhihat'| 'cob'| 'cowbell'| 'crashsymbal1'| 'crashsymbal2'| 'cs1'| 'electricsnare'| 'els'| 'hac'| 'hag'| 'handclap'| 'hft'| 'hib'| 'highagogo'| 'highbongo'| 'highfloortom'| 'highmidtom'| 'hightimbale'| 'hightom'| 'him'| 'hit'| 'hiwoodblock'| 'hmt'| 'hwb'| 'lag'| 'lft'| 'lmt'| 'lob'| 'loc'| 'log'| 'lom'| 'longguiro'| 'longwhistle'| 'lot'| 'lowagogo'| 'lowbongo'| 'lowconga'| 'lowfloortom'| 'lowmidtom'| 'lowoodblock'| 'lowtimbale'| 'lowtom'| 'lwb'| 'lwh'| 'mar'| 'maracas'| 'mhc'| 'muc'| 'mut'| 'mutecuica'| 'mutehiconga'| 'mutetriangle'| 'ohc'| 'ohh'| 'opc'| 'opencuica'| 'openhiconga'| 'openhihat'| 'opentriangle'| 'opt'| 'pedalhihat'| 'phh'| 'rc1'| 'rc2'| 'rib'| 'ridebell'| 'ridecymbal1'| 'ridecymbal2'| 'shaker'| 'shg'| 'shk'| 'shortguiro'| 'shortwhistle'| 'sidestick'| 'sis'| 'spc'| 'splashcymbal'| 'swh'| 'tam'| 'tambourine'| 'vibraslap'| 'vis'
+            {0}
         ;
         NoteName:
             'a' | 'b' | 'c' | 'd' | 'e' | 'f' | 'g' | 'r'
@@ -159,7 +159,7 @@ class Mispel:
             /\/\/.*$/ |
             /\/\*(.|\n)*?\*\//
         ;
-        """
+        """.replace("{0}", self.note2midi.get_drumnotes_for_grammar())
         self.mm = metamodel_from_str(self.grammar, match_filters={'MyFloat': lambda x: float(x)}, ws="' '\n\t'|'")
         self.last_octave = Defaults.octave
         self.last_duration = 1 / Defaults.dur

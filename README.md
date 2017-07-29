@@ -71,6 +71,38 @@ This program generates a midi file containing two tracks on two different midi c
 * To make chords, put notes in angular brackets: ```<a4_8 c# e>```. The properties of the first note in the chord are used for the whole chord. Properties other than note name and octave attached to the second and later notes are discarded.
 
 * Rhythm is indicated by using underscore and an (inverse) duration in beats, e.g. _16 means a sixteenth note. You can add one or more dots to indicate a dotted rhythm, e.g. ```d#3_8.``` is a "d sharp" in octave 3 with a length of one eighth plus one sixteenth. 
+
+* To simplify specifying drum tracks (by convention these are always specified on channel 10) you can also use drum notes. Each drum note has a long form and a short form: 
+
+| long             | short | long          | short |
+|------------------|:-----:|---------------|:-----:|
+| acousticbassdrum |  abd  | bassdrum      |  bad  |
+| sidestick        |  sis  | acousticsnare |  acs  |
+| brushtap         |  brt  | handclap      |  hac  |
+| brushslap        |  brs  | electricsnare |  els  |
+| brushswirl       |  brw  | lowfloortom   |  lft  |
+| closedhihat      |  chh  | highfloortom  |  hft  |
+| pedalhihat       |  phh  | lowtom        |  lot  |
+| openhihat        |  ohh  | lowmidtom     |  lmt  |
+| highmidtom       |  hmt  | crashsymbal1  |  cs1  |
+| hightom          |  hit  | ridecymbal1   |  rc1  |
+| chinesecymbal    |  chc  | ridebell      |  rib  |
+| tambourine       |  tam  | splashcymbal  |  spc  |
+| cowbell          |  cob  | crashsymbal2  |  cc2  |
+| vibraslap        |  vis  | ridecymbal2   |  rc2  |
+| highbongo        |  hib  | lowbongo      |  lob  |
+| mutehiconga      |  mhc  | openhiconga   |  ohc  |
+| lowconga         |  loc  | hightimbale   |  him  |
+| lowtimbale       |  lom  | highagogo     |  hag  |
+| lowagogo         |  lag  | cabasa        |  cab  |
+| maracas          |  mar  | shortwhistle  |  swh  |
+| longwhistle      |  lwh  | shortguiro    |  shg  |
+| longguiro        |  log  | claves        |  cla  |
+| hiwoodblock      |  hwb  | lowoodblock   |  lwb  |
+| mutecuica        |  muc  | opencuica     |  opc  |
+| mutetriangle     |  mut  | opentriangle  |  opt  |
+| shaker           |  shk  |               |       |
+
  
  ## Adding expressivity
  * To the notes you can add properties. The main difference between mispel and other midi domain specific languages (like [skini](https://ccrma.stanford.edu/software/stk/skini.html), [alda](https://github.com/alda-lang/alda), [semitone](https://github.com/benwbooth/semitone), [micromidi](https://github.com/arirusso/micromidi)) is the combination of a fairly concise syntax with an easy to use built-in property animation system. 
