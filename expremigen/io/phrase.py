@@ -67,21 +67,21 @@ class Phrase:
         # control change events can have their own timeline (e.g. this allows for pitchbend or modwheel variations
         # while notes are playing)
         for cc in range(NO_OF_OFFICIAL_CONTROLLERS):
-            if PP.CtrlDurKey(cc) in self.p and PP.CtrlValKey(cc) in self.p:
-                for value in zip(self.p[PP.CtrlDurKey(cc)], self.p[PP.CtrlValKey(cc)]):
+            if PP.ctrl_dur_key(cc) in self.p and PP.ctrl_val_key(cc) in self.p:
+                for value in zip(self.p[PP.ctrl_dur_key(cc)], self.p[PP.ctrl_val_key(cc)]):
                     if value[0] is not None and value[1] is not None:
                         yield {
-                            PP.CtrlDurKey(cc): value[0] * 4,
-                            PP.CtrlValKey(cc): value[1]
+                            PP.ctrl_dur_key(cc): value[0] * 4,
+                            PP.ctrl_val_key(cc): value[1]
                         }
                     self.ctrl_time[cc] += value[0] * 4
         for cc in [MCC.PitchWheel]:
-            if PP.CtrlDurKey(cc) in self.p and PP.CtrlValKey(cc) in self.p:
-                for value in zip(self.p[PP.CtrlDurKey(cc)], self.p[PP.CtrlValKey(cc)]):
+            if PP.ctrl_dur_key(cc) in self.p and PP.ctrl_val_key(cc) in self.p:
+                for value in zip(self.p[PP.ctrl_dur_key(cc)], self.p[PP.ctrl_val_key(cc)]):
                     if value[0] is not None and value[1] is not None:
                         yield {
-                            PP.CtrlDurKey(cc): value[0] * 4,
-                            PP.CtrlValKey(cc): int(value[1])
+                            PP.ctrl_dur_key(cc): value[0] * 4,
+                            PP.ctrl_val_key(cc): int(value[1])
                         }
                     self.ctrl_time[cc] += value[0] * 4
 
@@ -90,5 +90,5 @@ class Phrase:
         # timeline of control change events is taken into account as well (time will tell if this makes sense?)
         return self.note_time
 
-    def generated_ctrl_duration(self, CCValue):
-        return self.ctrl_time[CCValue]
+    def generated_ctrl_duration(self, cc_value):
+        return self.ctrl_time[cc_value]

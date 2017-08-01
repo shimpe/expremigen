@@ -3,6 +3,7 @@ from expremigen.io.pat2midi import Pat2Midi
 
 outputfile = "output/tuplets.mid"
 
+
 def make_midi():
     m = Mispel()
     m.parse(r"""
@@ -28,5 +29,6 @@ def make_midi():
     m.add_to_pattern2midi(p2m)
     p2m.write(outputfile)
 
-if __name__=="__main__":
+
+if __name__ == "__main__":
     make_midi()

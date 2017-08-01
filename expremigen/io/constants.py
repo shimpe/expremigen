@@ -28,9 +28,9 @@ class PhraseProperty:
     TEMPO = "5"
 
     @classmethod
-    def CtrlDurKey(cls, CCNumber):
-        return f"D{CCNumber}"
+    def ctrl_dur_key(cls, cc_number):
+        return f"D{cc_number}"
 
     @classmethod
-    def CtrlValKey(cls, CCNumber):
-        return f"V{CCNumber}"
+    def ctrl_val_key(cls, cc_number):
+        return f"V{cc_number}"

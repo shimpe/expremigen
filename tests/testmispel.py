@@ -30,9 +30,9 @@ class TestPat2Midi(unittest.TestCase):
     def test_headerbad(self):
         m = Mispel()
         try:
-            model = m.parse("with chanel 2 buzzdriven :\n a3")
+            m.parse("with chanel 2 buzzdriven :\n a3")
             self.assertTrue(False)  # will fail unless the above throws an exception
-        except TextXSyntaxError as e:
+        except TextXSyntaxError:
             self.assertTrue(True)
 
     def test_events1(self):
@@ -70,7 +70,7 @@ class TestPat2Midi(unittest.TestCase):
 
     def test_durationmultiplier(self):
         m = Mispel()
-        model = m.parse(r"""
+        m.parse(r"""
         with track 0 channel 0: cx4_4*2/3 d3 e-_4 g--_4.*2/3 r_1*10/1 a#2_1*5
         """)
         durs = [d for d in m.durations_for_section(0)]
@@ -78,7 +78,7 @@ class TestPat2Midi(unittest.TestCase):
 
     def test_sections(self):
         m = Mispel()
-        model = m.parse(r"""
+        m.parse(r"""
         with track 0:
             c4_8\vol{p}\pdur[legato] e g c5 b4 g f d c_2\vol{f}\pdur[staccato]
             
@@ -89,7 +89,7 @@ class TestPat2Midi(unittest.TestCase):
 
     def test_dynamicsforsection(self):
         m = Mispel()
-        model = m.parse(r"""
+        m.parse(r"""
         with track 0:
             a3_8\vol[mf] b c4_4 d\vol{ff} e f\vol{30} e f-- r ax d\vol[20] c 
         """)
@@ -104,7 +104,7 @@ class TestPat2Midi(unittest.TestCase):
 
     def test_dynamicsgeneratorforsection1(self):
         m = Mispel()
-        model = m.parse(r"""
+        m.parse(r"""
         with track 0:
             a3_8\vol[mf] b c4_4 d\vol{10} e f\vol[30] e f-- r ax d\vol{90} c 
         """)
@@ -113,7 +113,7 @@ class TestPat2Midi(unittest.TestCase):
 
     def test_dynamicsgeneratorforsection_lastvolume_at_end(self):
         m = Mispel()
-        model = m.parse(r"""
+        m.parse(r"""
         
         with track 0:
             a3_8\vol[mf] b c4_4 d\vol{10} e f\vol[30] e f-- r ax d\vol{90} 
@@ -124,7 +124,7 @@ class TestPat2Midi(unittest.TestCase):
 
     def test_lagforsection(self):
         m = Mispel()
-        model = m.parse(r"""
+        m.parse(r"""
         with track 0:
             a2_4 a3 a4_16\lag[0.9] b c5 d e f g a b a g f\lag{1} e d c b\lag{0.3}
         """)
@@ -139,7 +139,7 @@ class TestPat2Midi(unittest.TestCase):
 
     def test_laggeneratorforsection(self):
         m = Mispel()
-        model = m.parse(r"""
+        m.parse(r"""
         with track 0:
             a2_4 a3 a4_16\lag[0.9] b c5 d e f g a b a g f\lag{1} e d c b\lag{0.5}
         """)
@@ -150,7 +150,7 @@ class TestPat2Midi(unittest.TestCase):
 
     def test_pdurforsection(self):
         m = Mispel()
-        model = m.parse(r"""
+        m.parse(r"""
         with track 1 channel 1 time 0:
             c4_4\pdur{staccato} d e f g a b c5\pdur[legato] d e d c_1\pdur[staccato]             
         """)
@@ -163,7 +163,7 @@ class TestPat2Midi(unittest.TestCase):
 
     def test_pdurgeneratorforsection(self):
         m = Mispel()
-        model = m.parse(r"""
+        m.parse(r"""
         with track 1 channel 1 time 0:
             c4_4\pdur{staccato} d e f g a b c5\pdur[legato] d e d c_1\pdur[staccato]
         """)
@@ -175,7 +175,7 @@ class TestPat2Midi(unittest.TestCase):
 
     def test_tempoforsection(self):
         m = Mispel()
-        model = m.parse(r"""
+        m.parse(r"""
         with track 1 channel 1 time 0:
             c4_4\pdur{staccato}\tempo[allegretto] d e f g a b c5\pdur[legato] d e\tempo{120} d c_1\tempo[40]\pdur[staccato]             
         """)
@@ -187,7 +187,7 @@ class TestPat2Midi(unittest.TestCase):
 
     def test_tempogeneratorforsection(self):
         m = Mispel()
-        model = m.parse(r"""
+        m.parse(r"""
         with track 1 channel 1 time 0:
             c4_4\pdur{staccato}\tempo[allegretto] d e f g a b c5\pdur[legato] d e\tempo{120} d c_1\tempo[40]\pdur[staccato]             
         """)
@@ -229,12 +229,11 @@ class TestPat2Midi(unittest.TestCase):
         """)
         p = m.cc_properties_generators_for_section(0)
 
-        key = 15
-        dur15 = [d for d in Pseq(p[15][PP.CtrlDurKey(15)], 1)]
-        val15 = [v for v in Pseq(p[15][PP.CtrlValKey(15)], 1)]
+        dur15 = [d for d in Pseq(p[15][PP.ctrl_dur_key(15)], 1)]
+        val15 = [v for v in Pseq(p[15][PP.ctrl_val_key(15)], 1)]
 
-        dur16 = [d for d in Pseq(p[16][PP.CtrlDurKey(16)], 1)]
-        val16 = [v for v in Pseq(p[16][PP.CtrlValKey(16)], 1)]
+        dur16 = [d for d in Pseq(p[16][PP.ctrl_dur_key(16)], 1)]
+        val16 = [v for v in Pseq(p[16][PP.ctrl_val_key(16)], 1)]
 
         self.assertListEqual(dur15, [0, 0.75, 1.25])
         self.assertListEqual(val15, [None, 100, 90])

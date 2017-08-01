@@ -18,7 +18,7 @@ outputfile = "output/example_nanonotation.mid"
 
 
 def pairwise(iterable):
-    "s -> (s0,s1), (s1,s2), (s2, s3), ..."
+    """s -> (s0,s1), (s1,s2), (s2, s3), ..."""
     a, b = tee(iterable)
     next(b, None)
     return zip(a, b)
@@ -30,7 +30,7 @@ class PhraseFactory:
         self.nano = NanoNotation()
 
     def __call__(self,
-                 type=None,
+                 kind=None,
                  nanonotation=None,
                  volumes=None,
                  last_note_is_final=False):
@@ -39,25 +39,25 @@ class PhraseFactory:
         return Phrase({
             PP.NOTE: self.note(notes),
             PP.VOL: self.volume(notes, volumes, None, None),
-            PP.PLAYEDDUR: self.playeddur(notes, type),
+            PP.PLAYEDDUR: self.playeddur(notes, kind),
             PP.DUR: self.dur(durations),
             PP.LAG: self.lag(notes, last_note_is_final)
         })
 
     @classmethod
-    def playeddur(cls, notes, type="l2s"):
+    def playeddur(cls, notes, kind="l2s"):
         """
         :param notes: list of notes that make up the phrase
-        :param type: one of "l2s" (legato-to-staccato) or "s2l" (staccato-to-legato)
+        :param kind: one of "l2s" (legato-to-staccato) or "s2l" (staccato-to-legato)
         :return: pattern that generates the desired playeddur values
         """
-        if type == "l2s":
+        if kind == "l2s":
             anim = Pseq([Pconst(PDur.legato, len(notes) - 1), Pconst(PDur.staccato, 1)], 1)
-        elif type == "s2l":
+        elif kind == "s2l":
             anim = Pseq([Pconst(PDur.staccato, len(notes) - 1), Pconst(PDur.legato, 1)], 1)
-        elif type == "s2s":
+        elif kind == "s2s":
             anim = Pconst(PDur.staccato, len(notes))
-        elif type == "l2l":
+        elif kind == "l2l":
             anim = Pconst(PDur.legato, len(notes))
         else:
             anim = None
@@ -69,7 +69,8 @@ class PhraseFactory:
         """
         :param notes: list of notes that make up the phrase
         :param volumes: a list of volumes to evolve to over the course of the phrase, e.g. [Dyn.mp, Dyn.mf, Dyn.ppp]
-        :param tween: optional tweening spec
+        :param individual_tween: per segment tween
+        :param overall_tween: tween over all segments
         :return: pattern that tweens between the successive volumes
         """
         if volumes is None:
@@ -96,6 +97,7 @@ class PhraseFactory:
     @classmethod
     def lag(cls, notes, last_note_is_endnote=False):
         """
+        :param last_note_is_endnote:
         :param notes: list of notes that make up the phrase
         :return: pattern that generates the desired lag
         """

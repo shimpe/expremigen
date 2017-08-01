@@ -161,6 +161,7 @@ class Mispel:
         ;
         """.replace("{0}", self.note2midi.get_drumnotes_for_grammar())
         self.mm = metamodel_from_str(self.grammar, match_filters={'MyFloat': lambda x: float(x)}, ws="' '\n\t'|'")
+        self.model = None
         self.last_octave = Defaults.octave
         self.last_duration = 1 / Defaults.dur
         self.last_dynamic = ('num', 'static', Defaults.vol)
@@ -181,7 +182,7 @@ class Mispel:
     def section(self, section_id):
         if self.model.sections is None:
             raise ValidationException("Fatal Error! Expected sections to be defined.")
-        if (len(self.model.sections) <= section_id):
+        if len(self.model.sections) <= section_id:
             raise ValidationException(f"Fatal Error! Trying to access non-existing section {section_id}")
         return self.model.sections[section_id]
 
@@ -238,14 +239,13 @@ class Mispel:
             duration = 1 / ((1 / duration) * (2 - 1 / pow(2, numdots)))
         multiplier = 1
         if notespec.invdur.num and notespec.invdur.den:
-            multiplier = notespec.invdur.den / notespec.invdur.num # inverted to make more intuitive!
+            multiplier = notespec.invdur.den / notespec.invdur.num  # inverted to make more intuitive!
         elif notespec.invdur.num:
-            multiplier = 1/notespec.invdur.num
+            multiplier = 1 / notespec.invdur.num
         self.last_duration = duration * multiplier
         return self.last_duration
 
     def notes_for_section(self, section_id):
-        section = self.section(section_id)
         driver = self.driver_for_section(section_id)
         if driver != 'notedriven':
             raise ValidationException("Fatal Error! notes can only be specified in notedriven track")
@@ -279,7 +279,6 @@ class Mispel:
         return Pseq(self.notes_for_section(section_id), 1)
 
     def durations_for_section(self, section_id):
-        section = self.section(section_id)
         driver = self.driver_for_section(section_id)
         if driver != 'notedriven':
             raise ValidationException("Fatal Error! durations can only be specified in notedriven track")
@@ -291,6 +290,7 @@ class Mispel:
             if event.ns is None and event.ks is None:
                 raise ValidationException(f"Fatal Error! Expected a NoteSpec/ChordSpec {event}")
 
+            notespec = None
             if event.ns:
                 notespec = event.ns
             elif event.ks:
@@ -304,7 +304,6 @@ class Mispel:
         return Pseq(self.durations_for_section(section_id), 1)
 
     def cc_properties_for_section(self, section_id):
-        section = self.section(section_id)
         driver = self.driver_for_section(section_id)
         if driver != 'notedriven':
             raise ValidationException("Fatal Error! cc_properties_for_section only makes sense in notedriven track")
@@ -348,13 +347,12 @@ class Mispel:
         cc_properties = self.cc_properties_for_section(section_id)
         patterns = defaultdict(lambda: defaultdict(list))
         for cc in cc_properties:
-            delay = 0
             note_durations = self.duration_generator_for_section(section_id)
             for segment in cc_properties[cc]:
                 frm = segment[0]
                 to = segment[1]
-                durkey = PP.CtrlDurKey(cc)
-                valkey = PP.CtrlValKey(cc)
+                durkey = PP.ctrl_dur_key(cc)
+                valkey = PP.ctrl_val_key(cc)
                 if segment[0] is None:
                     no_of_notes = int(segment[2])
                     dur = sum(take(no_of_notes, note_durations))
@@ -473,12 +471,13 @@ class Mispel:
 
     def property_for_section(self, section_id, property_from_notespec_fn, default_value):
         """
-        :param section_id:
+        :param section_id: id of the section (integer)
+        :param property_from_notespec_fn: function that extracts some property from a notespec
+        :param default_value: value to use of the property is not specified - this value can be updated as defaults
+                              change (e.g. last used octave is remembered as a new default octave)
         :return: list of (from_property, to_property, distance)
                     where from_property and to_property correspond to ('num' or 'sym', 'anim' or 'static', distance)
         """
-        section = self.section(section_id)
-        driver = self.driver_for_section(section_id)
         properties = []
         count_since_previous_event = 0
         for event in self.events_for_section(section_id):
@@ -581,8 +580,8 @@ class Mispel:
 
         ccs = self.cc_properties_generators_for_section(section_id)
         for key in ccs:
-            pp[PP.CtrlDurKey(key)] = Pseq(ccs[key][PP.CtrlDurKey(key)], 1)
-            pp[PP.CtrlValKey(key)] = Pseq(ccs[key][PP.CtrlValKey(key)], 1)
+            pp[PP.ctrl_dur_key(key)] = Pseq(ccs[key][PP.ctrl_dur_key(key)], 1)
+            pp[PP.ctrl_val_key(key)] = Pseq(ccs[key][PP.ctrl_val_key(key)], 1)
 
         return pp
 

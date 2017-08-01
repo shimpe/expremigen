@@ -44,6 +44,7 @@ from expremigen.mispel.mispel import Mispel
 
 outputfile = "output/example_readme.mid"
 
+
 def make_midi():
     m = Mispel()
     m.parse(r"""

@@ -24,9 +24,9 @@ def create_phrase():
         PP.NOTE: n.convert2(Pconst("a4", 1)),
         PP.DUR: Pconst(Dur.whole * 16, 1),  # single note for 16 beats
         PP.PLAYEDDUR: Pconst(1),
-        PP.CtrlDurKey(MCC.PitchWheel): Pconst(0.03125,
+        PP.ctrl_dur_key(MCC.PitchWheel): Pconst(0.03125,
                                               int((1 / 0.03125) * Dur.whole * 16)),
-        PP.CtrlValKey(MCC.PitchWheel): Ptween(s,
+        PP.ctrl_val_key(MCC.PitchWheel): Ptween(s,
                                               0,
                                               0,
                                               int((1 / 0.03125) * Dur.whole * 16) - 1,

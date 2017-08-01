@@ -34,7 +34,7 @@ class TestNote2Midi(unittest.TestCase):
         self.assertEqual(q2, expected)
 
     def test_drum(self):
-        n = Note2Midi();
+        n = Note2Midi()
         m = n.convert(["openhihat", "ohh"])
         m2 = [i for i in m]
         expected = [46, 46]

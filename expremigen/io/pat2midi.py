@@ -19,7 +19,8 @@ class Pat2Midi:
         """
 
         :param num_tracks: number of tracks (default: 1)
-        :param remove_duplicates: remove notes if they start at the same time on the same channel if they have the same pitch  (default: True)
+        :param remove_duplicates: remove notes if they start at the same time on the same channel if they have
+               the same pitch  (default: True)
         :param deinterleave: clean up two note-ons with no note-off in between (default: True)
         :param file_format: 1 or 2 (default: 1)
         """
@@ -103,9 +104,9 @@ class Pat2Midi:
 
     def handle_control_changes(self, channel, event, phrase, start_time, track):
         for cc in range(NO_OF_OFFICIAL_CONTROLLERS):
-            if PP.CtrlDurKey(cc) in event:
+            if PP.ctrl_dur_key(cc) in event:
                 time = start_time + phrase.generated_ctrl_duration(cc)
-                value = event[PP.CtrlValKey(cc)]
+                value = event[PP.ctrl_val_key(cc)]
                 if value is not None:
                     self.midiFile.addControllerEvent(track=track,
                                                      channel=channel,
@@ -113,9 +114,9 @@ class Pat2Midi:
                                                      controller_number=cc,
                                                      parameter=value)
         for cc in [MidiControlChanges.PitchWheel]:
-            if PP.CtrlDurKey(cc) in event:
+            if PP.ctrl_dur_key(cc) in event:
                 time = start_time + phrase.generated_ctrl_duration(cc)
-                pwvalue = event[PP.CtrlValKey(cc)]
+                pwvalue = event[PP.ctrl_val_key(cc)]
                 if pwvalue is not None:
                     self.midiFile.addPitchWheelEvent(track=track,
                                                      channel=channel,
