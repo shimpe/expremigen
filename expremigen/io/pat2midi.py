@@ -103,6 +103,15 @@ class Pat2Midi:
         return phrase.generated_duration()
 
     def handle_control_changes(self, channel, event, phrase, start_time, track):
+        """
+        iterate over all control changes in the phrase and add them to the midi file
+        :param channel: midi channel
+        :param event: python dict containing phrase properties
+        :param phrase:
+        :param start_time: time offset
+        :param track: midi track id
+        :return:
+        """
         for cc in range(NO_OF_OFFICIAL_CONTROLLERS):
             if PP.ctrl_dur_key(cc) in event:
                 time = start_time + phrase.generated_ctrl_duration(cc)

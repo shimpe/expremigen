@@ -1,4 +1,7 @@
 class PlayedDurations:
+    """
+    convenience class defining some common played durations
+    """
     staccatissimo = 0.1
     staccato = 0.25
     normal = 0.9
@@ -7,6 +10,11 @@ class PlayedDurations:
 
     @classmethod
     def from_string(cls, thestring):
+        """
+
+        :param thestring: symbolic indication of playedduration
+        :return: the symbolic indication mapped to number; real duration is multiplied with playedduration
+        """
         lut = {
             'staccatissimo': 0.1,
             'staccato': 0.25,

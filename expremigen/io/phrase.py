@@ -86,9 +86,17 @@ class Phrase:
                     self.ctrl_time[cc] += value[0] * 4
 
     def generated_duration(self):
+        """
+
+        :return: total duration of this note phrase
+        """
         # only works as expected after you iterated over the phrase already
-        # timeline of control change events is taken into account as well (time will tell if this makes sense?)
         return self.note_time
 
     def generated_ctrl_duration(self, cc_value):
+        """
+        :param cc_value: midi control change id
+        :return: total duration taken by control changes for controller cc_value
+        """
+        # only works as expected after you iterated over the phrase already
         return self.ctrl_time[cc_value]

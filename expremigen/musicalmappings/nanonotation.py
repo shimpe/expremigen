@@ -70,7 +70,7 @@ class NanoNotation:
     def dur(self, a_phrase):
         """
         :param a_phrase:
-        :return:
+        :return: list of durations
         """
         note_durs = a_phrase.split(" ")
         durs = []

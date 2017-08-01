@@ -1,4 +1,7 @@
 class MidiControlChanges:
+    """
+    list of midi control change messages
+    """
     BankSelect = 0  # Bank Select Allows user to switch bank for patch selection.Program change used with
     # Bank Select. MIDI can access 16384 patches per MIDI channel.
 

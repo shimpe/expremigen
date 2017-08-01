@@ -113,6 +113,10 @@ class Note2Midi:
             self.all_drum_notes.add(d[1])
 
     def get_drumnotes_for_grammar(self):
+        """
+        internal helper function
+        :return: list of drumnotes for inclusion in the textX grammar
+        """
         from functools import cmp_to_key
         def mycmp(s1, s2):
             if len(s1) < len(s2):

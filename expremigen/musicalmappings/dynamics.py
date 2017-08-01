@@ -16,6 +16,11 @@ class Dynamics:
 
     @classmethod
     def from_string(cls, thestring):
+        """
+
+        :param thestring: a string containing a symbolic volume indication
+        :return: the string mapped to a number
+        """
         lut = {
             'ppppp': Dynamics.ppppp,
             'pppp': Dynamics.pppp,

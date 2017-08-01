@@ -26,6 +26,11 @@ class Tempo:
 
     @classmethod
     def from_string(cls, thestring):
+        """
+
+        :param thestring: symbolic tempo indication
+        :return: number corresponding to symbolic tempo
+        """
         lut = {
             'larghissimo': 20,
             'grave': 40,

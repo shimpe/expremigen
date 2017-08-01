@@ -171,15 +171,29 @@ class Mispel:
         self.last_cc = defaultdict(lambda: None)
 
     def parse(self, thestring):
+        """
+        parses a mispel string into an internal model
+        :param thestring: string in mispel syntax
+        :return: parsed model
+        """
         self.model = self.mm.model_from_str(thestring)
         return self.model
 
     def get_no_of_sections(self):
+        """
+
+        :return: returns the number of sections in the parsed mispel string
+        """
         if self.model.sections:
             return len(self.model.sections)
         return 0
 
     def section(self, section_id):
+        """
+
+        :param section_id: integer
+        :return: parsed section
+        """
         if self.model.sections is None:
             raise ValidationException("Fatal Error! Expected sections to be defined.")
         if len(self.model.sections) <= section_id:
@@ -187,34 +201,64 @@ class Mispel:
         return self.model.sections[section_id]
 
     def track_for_section(self, section_id):
+        """
+
+        :param section_id: integer
+        :return: the midi track number that was specified for this section
+        """
         section = self.section(section_id)
         if section.headerspecs.track is None:
             return 0
         return int(section.headerspecs.track.id)
 
     def channel_for_section(self, section_id):
+        """
+
+        :param section_id: integer
+        :return: the midi channel id that was specified for this section
+        """
         section = self.section(section_id)
         if section.headerspecs.channel is None:
             return 0
         return int(section.headerspecs.channel.id)
 
     def time_for_section(self, section_id):
+        """
+
+        :param section_id: integer
+        :return: the time offset specified for this section
+        """
         section = self.section(section_id)
         if section.headerspecs.time is None:
             return 0
         return section.headerspecs.time.value
 
     def driver_for_section(self, section_id):
+        """
+
+        :param section_id: integer
+        :return: the driver ("notedriven" or "timedriven") specified for this section
+        """
         section = self.section(section_id)
         if not section.headerspecs.driver:
             return 'notedriven'
         return section.headerspecs.driver
 
     def events_for_section(self, section_id):
+        """
+
+        :param section_id: integer
+        :return: list of parsed events (= notes with associated properties)
+        """
         section = self.section(section_id)
         return section.events
 
     def name_for_notespec(self, notespec):
+        """
+
+        :param notespec: parsed notespec (see grammar)
+        :return: name of the note
+        """
         if notespec is None:
             raise ValidationException("Fatal Error! Asking name only makes sense for note events.")
         if notespec.name is None:
@@ -222,6 +266,11 @@ class Mispel:
         return notespec.name
 
     def octave_for_notespec(self, notespec):
+        """
+
+        :param notespec: parsed notespec (see grammar)
+        :return: the octave associated to this notespec
+        """
         if notespec.octave is None:
             return self.last_octave
         if notespec.name != "r":
@@ -229,6 +278,11 @@ class Mispel:
         return self.last_octave
 
     def duration_for_notespec(self, notespec):
+        """
+
+        :param notespec: parsed notespec (see grammar)
+        :return: the duration associated to this notespec
+        """
         if notespec.invdur is None:
             return self.last_duration
         if notespec.invdur.value is None:
@@ -246,6 +300,11 @@ class Mispel:
         return self.last_duration
 
     def notes_for_section(self, section_id):
+        """
+
+        :param section_id: integer
+        :return: list of all notes (ready for note2midi conversion) in this section
+        """
         driver = self.driver_for_section(section_id)
         if driver != 'notedriven':
             raise ValidationException("Fatal Error! notes can only be specified in notedriven track")
@@ -276,9 +335,19 @@ class Mispel:
         return notes
 
     def note_generator_for_section(self, section_id):
+        """
+
+        :param section_id: integer
+        :return: expremigen pattern generating all notes in this section
+        """
         return Pseq(self.notes_for_section(section_id), 1)
 
     def durations_for_section(self, section_id):
+        """
+
+        :param section_id: 0
+        :return: a list of all durations used in this section
+        """
         driver = self.driver_for_section(section_id)
         if driver != 'notedriven':
             raise ValidationException("Fatal Error! durations can only be specified in notedriven track")
@@ -301,9 +370,20 @@ class Mispel:
         return durations
 
     def duration_generator_for_section(self, section_id):
+        """
+
+        :param section_id: integer
+        :return: an expremigen pattern generating all durations in this section
+        """
         return Pseq(self.durations_for_section(section_id), 1)
 
     def cc_properties_for_section(self, section_id):
+        """
+
+        :param section_id: integer
+        :return: a dictionary: for each control change id encountered, returns a list of control
+                 change properties in this section
+        """
         driver = self.driver_for_section(section_id)
         if driver != 'notedriven':
             raise ValidationException("Fatal Error! cc_properties_for_section only makes sense in notedriven track")
@@ -344,6 +424,12 @@ class Mispel:
         return cc_properties
 
     def cc_properties_generators_for_section(self, section_id):
+        """
+
+        :param section_id: integer
+        :return: a python dictionary: for every control change id encountered, returns a generator generating all
+                 control changes in this section
+        """
         cc_properties = self.cc_properties_for_section(section_id)
         patterns = defaultdict(lambda: defaultdict(list))
         for cc in cc_properties:
@@ -373,6 +459,11 @@ class Mispel:
         return patterns
 
     def extract_extra_tween_options(self, animatedproperty):
+        """
+
+        :param animatedproperty: parsed animated property
+        :return: extra tween options as found in the animated property, in a form usable for pyvectortween
+        """
         if animatedproperty.tweenoptions is not None:
             tweentype = [animatedproperty.tweenoptions.tweentype]
             if animatedproperty.tweenoptions.extra_options:
@@ -381,6 +472,11 @@ class Mispel:
         return None
 
     def extract_dynamics(self, notespec):
+        """
+
+        :param notespec: a parsed notespec (see grammar)
+        :return: associated dynamics for this notespec
+        """
         for p in notespec.properties:
             if p.avol is not None:
                 tweenoptions = self.extract_extra_tween_options(p.avol)
@@ -406,6 +502,11 @@ class Mispel:
         return None
 
     def extract_pdur(self, notespec):
+        """
+
+        :param notespec: a parsed notespec
+        :return: associated playedduration for this notespec
+        """
         for p in notespec.properties:
             if p.apdur is not None:
                 tweenoptions = self.extract_extra_tween_options(p.apdur)
@@ -431,6 +532,11 @@ class Mispel:
         return None
 
     def extract_tempo(self, notespec):
+        """
+
+        :param notespec: parsed notespec
+        :return: tempo associated to this notespec
+        """
         for p in notespec.properties:
             if p.atempo is not None:
                 tweenoptions = self.extract_extra_tween_options(p.atempo)
@@ -456,6 +562,11 @@ class Mispel:
         return None
 
     def extract_lag(self, notespec):
+        """
+
+        :param notespec: parsed notespec
+        :return: lag associated to this notespec
+        """
         for p in notespec.properties:
             if p.alag is not None:
                 tweenoptions = self.extract_extra_tween_options(p.alag)
@@ -498,6 +609,15 @@ class Mispel:
 
     def property_generator_for_section(self, section_id, symvalue_from_string_fn, property_from_notespec_fn,
                                        default_value):
+        """
+
+        :param section_id: integer
+        :param symvalue_from_string_fn: function that maps a symbolic specification into a number (e.g. ff => 100)
+        :param property_from_notespec_fn: function that extracts a given property from a parsed notespec
+        :param default_value: value that tracks the default value (may update dynamically, e.g. to track last used
+                              octave)
+        :return: returns a python generator generating all values for the given property
+        """
         dynamics = self.property_for_section(section_id, property_from_notespec_fn, default_value)
         patterns = []
         for d in dynamics:
@@ -535,13 +655,18 @@ class Mispel:
 
     def dynamics_for_section(self, section_id):
         """
-        :param section_id:
+        :param section_id: integer
         :return: list of (fromdynamic, todynamic, distance)
                     where fromdynamic and todynamic correspond to ('num' or 'sym', 'anim' or 'static', distance)
         """
         return self.property_for_section(section_id, self.extract_dynamics, self.last_dynamic)
 
     def dynamics_generator_for_section(self, section_id):
+        """
+
+        :param section_id: integer
+        :return: generator generating all values for dynamics in this section (one per note)
+        """
         return self.property_generator_for_section(section_id, Dyn.from_string, self.extract_dynamics,
                                                    self.last_dynamic)
 
@@ -554,21 +679,51 @@ class Mispel:
         return self.property_for_section(section_id, self.extract_lag, self.last_lag)
 
     def lag_generator_for_section(self, section_id):
+        """
+
+        :param section_id: integer
+        :return: generator generating all values for lag in this section (one per note)
+        """
         return self.property_generator_for_section(section_id, None, self.extract_lag, self.last_lag)
 
     def pdur_for_section(self, section_id):
+        """
+
+        :param section_id: integer
+        :return: list of all values for playedduration in this section
+        """
         return self.property_for_section(section_id, self.extract_pdur, self.last_pdur)
 
     def pdur_generator_for_section(self, section_id):
+        """
+
+        :param section_id: integer
+        :return: generator generating all values for playedduration in this section (one per note)
+        """
         return self.property_generator_for_section(section_id, PDur.from_string, self.extract_pdur, self.last_pdur)
 
     def tempo_for_section(self, section_id):
+        """
+
+        :param section_id: integer
+        :return: list of tempi for this section
+        """
         return self.property_for_section(section_id, self.extract_tempo, self.last_tempo)
 
     def tempo_generator_for_section(self, section_id):
+        """
+
+        :param section_id: integer
+        :return: generator generating all tempi in this section (one per note)
+        """
         return self.property_generator_for_section(section_id, Tempo.from_string, self.extract_tempo, self.last_tempo)
 
     def phrase_properties_for_section(self, section_id):
+        """
+
+        :param section_id: 0
+        :return: returns a collection of phrase properties for given section
+        """
         pp = {
             PP.NOTE: self.note_generator_for_section(section_id),
             PP.VOL: self.dynamics_generator_for_section(section_id),
@@ -586,9 +741,18 @@ class Mispel:
         return pp
 
     def phrase_for_section(self, section_id):
+        """
+
+        :param section_id: integer
+        :return: expremigen Phrase for section
+        """
         return Phrase(self.phrase_properties_for_section(section_id))
 
     def get_no_of_tracks(self):
+        """
+
+        :return: number of unique tracks found in mispel string
+        """
         no_of_sections = self.get_no_of_sections()
         tracks = set([])
         for section_id in range(no_of_sections):
@@ -596,6 +760,11 @@ class Mispel:
         return len(tracks)
 
     def add_to_pattern2midi(self, pattern2midi):
+        """
+
+        :param pattern2midi: Pattern2Midi object to which this mispel model will be added
+        :return: nothing; the Pattern2Midi object is initialized with the mispel info
+        """
         for s in range(self.get_no_of_sections()):
             pattern2midi.add_phrase(self.phrase_for_section(s), self.track_for_section(s), self.channel_for_section(s),
                                     self.time_for_section(s))

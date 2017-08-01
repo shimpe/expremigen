@@ -29,8 +29,18 @@ class PhraseProperty:
 
     @classmethod
     def ctrl_dur_key(cls, cc_number):
+        """
+        calculates a key for specifying control change duration value (internal usage)
+        :param cc_number: control change number
+        :return: cc key
+        """
         return f"D{cc_number}"
 
     @classmethod
     def ctrl_val_key(cls, cc_number):
+        """
+        calculates a key for specifying control change value (internal usage)
+        :param cc_number: control change number
+        :return: cc key
+        """
         return f"V{cc_number}"
