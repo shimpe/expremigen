@@ -160,7 +160,9 @@ class Mispel:
             /\/\*(.|\n)*?\*\//
         ;
         """.replace("{0}", self.note2midi.get_drumnotes_for_grammar())
-        self.mm = metamodel_from_str(self.grammar, match_filters={'MyFloat': lambda x: float(x)}, ws="' '\n\t'|'")
+        self.mm = metamodel_from_str(self.grammar, ws = "' '\n\t'|'")
+        object_processors = { 'MyFloat': lambda x: float(x) }
+        self.mm.register_obj_processors(object_processors)
         self.model = None
         self.last_octave = Defaults.octave
         self.last_duration = 1 / Defaults.dur
