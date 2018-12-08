@@ -3,7 +3,7 @@ from setuptools import find_packages
 
 setup(
     name='expremigen',
-    version='0.0.1',
+    version='0.0.2',
     packages=find_packages(exclude=['build', 'dist', 'tests']),
     install_requires=['vectortween', 'MIDIUtil', 'textX'],
     url='https://github.com/shimpe/expremigen',
