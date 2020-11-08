@@ -28,8 +28,8 @@ class NanoNotation:
 
     def __init__(self):
         self.note2midi = Note2Midi()
-        self.note = re.compile("[a-g]")
-        self.note_octave = re.compile("[a-g](?P<octave>\d+)")
+        self.note = re.compile("[a-g][#|-|x|(--)]?")
+        self.note_octave = re.compile("[a-g][#|-|x|(--)]?(?P<octave>\d+)")
         self.last_dur = 1
         self.last_octave = 4
 
